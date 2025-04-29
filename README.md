@@ -1,2 +1,2 @@
-# yablokolabs.github.io
+# yablokolabs
 Website
