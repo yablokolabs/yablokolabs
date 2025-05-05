@@ -40,22 +40,28 @@
       text-decoration: underline;
     }
 
-    /* FastAPI Labs-style social links container */
+    /* Social links container: centers icons with flexbox */  
     .social-links {
-      display: flex;                     /* use flexbox for alignment */ 
-      justify-content: center;           /* center items horizontally */ 
-      gap: 10px;                         /* uniform spacing between icons */ 
-      margin: 20px 0;                    /* vertical separation from other sections */ 
+      display: flex;                     /* use flex container */  
+      justify-content: center;           /* center items horizontally */ :contentReference[oaicite:0]{index=0}
+      gap: 10px;                         /* space between icons */  
+      margin: 20px 0;                    /* vertical spacing */  
     }
     .social-links a {
-      display: inline-block;             /* allow width/height on the link */ 
-      width: 30px;                       /* set icon container size */ 
-      height: 30px;
-      background-size: contain;          /* ensure the SVG scales proportionally */ 
-      background-repeat: no-repeat;
+      width: 30px;                       /* icon container width */  
+      height: 30px;                      /* icon container height */  
+      display: inline-block;             /* allow width/height */  
+      background-repeat: no-repeat;      /* no tiling */  
+      background-size: contain;          /* scale icon proportionally */ :contentReference[oaicite:1]{index=1}
+      background-color: transparent;     /* page background shows through */  
     }
+    /* LinkedIn icon via Simple Icons CDN */
     .social-links a.linkedin {
-      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg');
+      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg'); :contentReference[oaicite:2]{index=2}
+    }
+    /* GitHub icon via Simple Icons CDN */
+    .social-links a.github {
+      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg'); :contentReference[oaicite:3]{index=3}
     }
 
     footer {
@@ -73,11 +79,17 @@
     <a href="https://map2map.com">Visit our full website</a>
   </main>
 
-  <!-- Social Links CTA (FastAPI Labs style) -->
+  <!-- Social Links CTA (LinkedIn + GitHub) -->
   <div class="social-links">
     <a href="https://www.linkedin.com/in/map2map-yabloko-labs-pvt-ltd-6b9157364/"
        class="linkedin"
        aria-label="LinkedIn"
+       target="_blank"
+       rel="noopener">
+    </a>
+    <a href="https://github.com/map2map"
+       class="github"
+       aria-label="GitHub"
        target="_blank"
        rel="noopener">
     </a>
