@@ -40,6 +40,7 @@
       text-decoration: underline;
     }
 
+    /* Social links container */
     .social-links {
       display: flex;
       justify-content: center;
@@ -53,6 +54,9 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-color: transparent;
+
+      /* Smooth hover transition */
+      transition: transform 0.2s ease, filter 0.2s ease; /* :contentReference[oaicite:5]{index=5} */
     }
     .social-links a.linkedin {
       background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg');
@@ -64,6 +68,13 @@
       background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');
     }
 
+    /* Hover highlight: brighten + lift */
+    .social-links a:hover {
+      filter: brightness(1.25);                   /* :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7} */
+      transform: translateY(-3px);                /* :contentReference[oaicite:8]{index=8} :contentReference[oaicite:9]{index=9} */
+    }
+
+    /* Mobile view: extra spacing */
     @media (max-width: 600px) {
       .social-links {
         gap: 20px;
