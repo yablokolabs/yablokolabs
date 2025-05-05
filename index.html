@@ -39,21 +39,25 @@
     a:hover {
       text-decoration: underline;
     }
-    .linkedin-cta {
-      background-color: #0077b5;
-      color: #ffffff;
-      padding: 15px 0;
-      font-size: 1rem;
-      margin: 20px 0;
+
+    /* FastAPI Labs-style social links container */
+    .social-links {
+      display: flex;                     /* use flexbox for alignment */ 
+      justify-content: center;           /* center items horizontally */ 
+      gap: 10px;                         /* uniform spacing between icons */ 
+      margin: 20px 0;                    /* vertical separation from other sections */ 
     }
-    .linkedin-cta a {
-      color: #ffffff;
-      font-weight: bold;
-      text-decoration: none;
+    .social-links a {
+      display: inline-block;             /* allow width/height on the link */ 
+      width: 30px;                       /* set icon container size */ 
+      height: 30px;
+      background-size: contain;          /* ensure the SVG scales proportionally */ 
+      background-repeat: no-repeat;
     }
-    .linkedin-cta a:hover {
-      text-decoration: underline;
+    .social-links a.linkedin {
+      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg');
     }
+
     footer {
       background-color: #2c3e50;
       color: #ffffff;
@@ -69,13 +73,14 @@
     <a href="https://map2map.com">Visit our full website</a>
   </main>
 
-  <!-- LinkedIn Call-to-Action -->
-  <div class="linkedin-cta">
-    <p>Connect with us on LinkedIn:
-      <a href="https://www.linkedin.com/in/map2map-yabloko-labs-pvt-ltd-6b9157364/" target="_blank" rel="noopener">
-        Yabloko Labs on LinkedIn
-      </a>
-    </p>
+  <!-- Social Links CTA (FastAPI Labs style) -->
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/map2map-yabloko-labs-pvt-ltd-6b9157364/"
+       class="linkedin"
+       aria-label="LinkedIn"
+       target="_blank"
+       rel="noopener">
+    </a>
   </div>
 
   <footer>
