@@ -42,26 +42,31 @@
 
     /* Social links container: centers icons with flexbox */  
     .social-links {
-      display: flex;                     /* use flex container */  
-      justify-content: center;           /* center items horizontally */ :contentReference[oaicite:0]{index=0}
-      gap: 10px;                         /* space between icons */  
-      margin: 20px 0;                    /* vertical spacing */  
+      display: flex;
+      justify-content: center;
+      gap: 10px;       /* default spacing between icons */
+      margin: 20px 0;
     }
     .social-links a {
-      width: 30px;                       /* icon container width */  
-      height: 30px;                      /* icon container height */  
-      display: inline-block;             /* allow width/height */  
-      background-repeat: no-repeat;      /* no tiling */  
-      background-size: contain;          /* scale icon proportionally */ :contentReference[oaicite:1]{index=1}
-      background-color: transparent;     /* page background shows through */  
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: transparent;
     }
-    /* LinkedIn icon via Simple Icons CDN */
     .social-links a.linkedin {
-      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg'); :contentReference[oaicite:2]{index=2}
+      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg');
     }
-    /* GitHub icon via Simple Icons CDN */
     .social-links a.github {
-      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg'); :contentReference[oaicite:3]{index=3}
+      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg');
+    }
+
+    /* Mobile view: increase gap between icons */
+    @media (max-width: 600px) {
+      .social-links {
+        gap: 20px;
+      }
     }
 
     footer {
