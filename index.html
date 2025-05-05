@@ -40,11 +40,10 @@
       text-decoration: underline;
     }
 
-    /* Social links container: centers icons with flexbox */  
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 10px;       /* default spacing between icons */
+      gap: 10px;
       margin: 20px 0;
     }
     .social-links a {
@@ -61,8 +60,10 @@
     .social-links a.github {
       background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg');
     }
+    .social-links a.instagram {
+      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');
+    }
 
-    /* Mobile view: increase gap between icons */
     @media (max-width: 600px) {
       .social-links {
         gap: 20px;
@@ -84,7 +85,7 @@
     <a href="https://map2map.com">Visit our full website</a>
   </main>
 
-  <!-- Social Links CTA (LinkedIn + GitHub) -->
+  <!-- Social Links CTA -->
   <div class="social-links">
     <a href="https://www.linkedin.com/in/map2map-yabloko-labs-pvt-ltd-6b9157364/"
        class="linkedin"
@@ -98,6 +99,12 @@
        target="_blank"
        rel="noopener">
     </a>
+    <a href="https://www.instagram.com/yablokolabs?igsh=ODBncnA4a3prNGFt"
+       class="instagram"
+       aria-label="Instagram"
+       target="_blank"
+       rel="noopener">
+    </a>
   </div>
 
   <footer>
@@ -107,6 +114,5 @@
   <!-- Cloudflare Web Analytics -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token":"7d4c08a1719444ca9a2530287c6c9981"}'></script>
-  <!-- End Cloudflare Web Analytics -->
 </body>
 </html>
