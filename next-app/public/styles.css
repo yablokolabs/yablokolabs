@@ -96,7 +96,7 @@ a:hover {
 
 @keyframes colorShift {
   0% { color: #40E0D0; }
-  50% { color: #7FFFD4; } /* Lighter turquoise */
+  50% { color: #7FFFD4; }
   100% { color: #40E0D0; }
 }
 
@@ -197,86 +197,3 @@ a:hover {
   margin: 0 auto;
   text-align: center;
 }
-
-.copyright {
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 400;
-  letter-spacing: 0.3px;
-}
-
-.legal-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem 1rem;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.legal-item {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.divider {
-  color: rgba(255, 255, 255, 0.3);
-  margin: 0 0.25rem;
-  font-size: 0.7rem;
-  position: relative;
-  top: -1px;
-}
-
-@media (max-width: 600px) {
-  .site-footer {
-    padding: 2rem 1rem;
-  }
-  
-  .legal-info {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .divider {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-  p {
-    font-size: 1rem;
-  }
-  .social-links {
-    gap: 15px;
-  }
-}
-
-.brand-text {
-  color: var(--white);
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.brand-logo {
-  height: 150px;
-  width: auto;
-  max-width: 250px;
-  margin-right: 20px;
-}
-
-.brand-container {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-}
-
-.brand-link {
-  white-space: nowrap;
-} 
