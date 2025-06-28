@@ -1,14 +1,9 @@
 "use client";
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 
-interface Point {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  radius: number;
-}
+
 
 export function Gradient() {
   useEffect(() => {
@@ -104,16 +99,16 @@ export default function Home() {
       <canvas id="gradient-canvas" />
       <main>
         <h1>Welcome to Yabloko Labs!</h1>
-        <p>We're glad you're here. Explore our projects and innovations!</p>
+        <p>We&apos;re glad you&apos;re here. Explore our projects and innovations!</p>
         <p className="brand-text">Our first flagship venture: <span className="brand-name">Map2Map™</span></p>
         <div className="brand-container">
-          <img src="/assets/images/logo_map2map.png" alt="Map2Map Logo" className="brand-logo" />
+          <Image src="/assets/images/logo_map2map.png" alt="Map2Map Logo" className="brand-logo" width={250} height={150} />
           <a href="https://map2map.com" className="brand-link">Visit our brand website</a>
         </div>
         
         <p className="brand-text brand-section-gap">Our newest venture: <span className="brand-name">AIponATime™</span></p>
         <div className="brand-container">
-          <img src="/assets/images/logo_aiponatime.png" alt="AIponATime Logo" className="brand-logo" />
+          <Image src="/assets/images/logo_aiponatime.png" alt="AIponATime Logo" className="brand-logo" width={250} height={150} />
           <a href="https://www.aiponatime.com" className="brand-link">Visit our brand website</a>
         </div>
       </main>
