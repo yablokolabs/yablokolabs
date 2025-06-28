@@ -65,6 +65,7 @@ export default function RootLayout({
         <meta name="application-name" content="Yabloko Labs" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <meta name="ahrefs-site-verification" content="ad920c0040aa681f970b61367c5146881185afa5a15860d0668eee43ced884ec" />
         <Script 
           src="https://analytics.ahrefs.com/analytics.js" 
           data-key="q0OgA6bkTbELvXCIIfTY9A" 
