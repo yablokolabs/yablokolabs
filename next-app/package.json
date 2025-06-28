@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && npm run generate-sitemap",
     "export": "npm run build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-sitemap": "tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "@ant-design/icons": "^6.0.0",
@@ -25,6 +26,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4",
+    "tsx": "^4.7.1",
     "typescript": "^5"
   }
 }
