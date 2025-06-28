@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && npm run generate-sitemap",
-    "export": "npm run build && next export",
+    "prebuild": "npm run generate-sitemap",
+    "build": "next build",
+    "postbuild": "next export",
+    "export": "npm run build",
     "start": "next start",
     "lint": "next lint",
     "generate-sitemap": "tsx scripts/generate-sitemap.ts"
@@ -23,6 +25,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "copy-webpack-plugin": "^13.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4",

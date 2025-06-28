@@ -1,48 +1,52 @@
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
 // Sitemap generator for Yabloko Labs
-const Sitemap = () => {
-  const baseUrl = 'https://yablokolabs.com';
-  
-  // List of pages to include in the sitemap
-  const pages = [
-    '/',  // Home page
-    // Add any other internal pages here as they are created
-  ];
-  
-  // External links (these won't be included in the sitemap but are here for reference)
-  const externalLinks = [
-    'https://map2map.com'
-  ];
-
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${pages
-        .map((page) => {
-          return `
-            <url>
-              <loc>${baseUrl}${page}</loc>
-              <lastmod>${new Date().toISOString()}</lastmod>
-              <changefreq>weekly</changefreq>
-              <priority>0.8</priority>
-            </url>
-          `;
-        })
-        .join('')}
-    </urlset>
-  `;
-
+const generateSitemap = () => {
   try {
+    const baseUrl = 'https://yablokolabs.com';
+    const publicDir = join(process.cwd(), 'public');
+    const sitemapPath = join(publicDir, 'sitemap.xml');
+    
+    // Ensure public directory exists
+    if (!existsSync(publicDir)) {
+      mkdirSync(publicDir, { recursive: true });
+    }
+    
+    // List of pages to include in the sitemap
+    const pages = [
+      '/',  // Home page
+      // Add any other internal pages here as they are created
+    ];
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${pages
+    .map((page) => {
+      return `
+  <url>
+    <loc>${baseUrl}${page}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+    })
+    .join('')}
+</urlset>`;
+
     // Write the sitemap to the public directory
-    writeFileSync(join(process.cwd(), 'public', 'sitemap.xml'), sitemap);
-    console.log('Sitemap generated successfully!');
+    writeFileSync(sitemapPath, sitemap);
+    console.log(`Sitemap generated successfully at: ${sitemapPath}`);
+    return true;
   } catch (error) {
     console.error('Error generating sitemap:', error);
+    process.exit(1);
   }
 };
 
-// Run the sitemap generation
-Sitemap();
+// Only run this directly when executed via command line
+if (require.main === module) {
+  generateSitemap();
+}
 
-export default Sitemap;
+export default generateSitemap;
