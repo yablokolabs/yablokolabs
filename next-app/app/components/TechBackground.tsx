@@ -98,6 +98,7 @@ export default function TechBackground() {
     // --- Animation Loop ---
     let frame = 0;
     function animate() {
+      if (!canvas || !ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw sparkling stars

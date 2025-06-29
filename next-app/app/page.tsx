@@ -169,7 +169,7 @@ export default function Home() {
               </div>
               <h3 className="brand-title">Map2Map<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup></h3>
               <p className="brand-description">
-                Expert Google Maps management services to enhance your business's online presence and local search visibility. We optimize and manage your Google Business Profile for maximum impact.
+                Expert Google Maps management services to enhance your business&apos;s online presence and local search visibility. We optimize and manage your Google Business Profile for maximum impact.
               </p>
               <a href="https://map2map.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Map2Map<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup>
@@ -278,7 +278,7 @@ export default function Home() {
           </div>
           <p className="footer-description">
             Pioneering innovative technology solutions that transform businesses and shape the digital future. 
-            Building tomorrow's technology today.
+            Building tomorrow&apos;s technology today.
           </p>
           
           <div className="footer-divider"></div>
