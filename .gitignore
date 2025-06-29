@@ -19,6 +19,7 @@ next-app/node_modules/
 next-app/.next/
 /.next/
 /out/
+next-app/out/
 
 # production
 /build
