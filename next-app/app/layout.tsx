@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
-import { Gradient } from './gradient';
 import Script from 'next/script';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap'
+})
+
+
 
 export const metadata: Metadata = {
   title: 'Yabloko Labs - Innovative Technology Solutions',
@@ -58,12 +63,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#0f172a" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Yabloko Labs" />
         <meta name="application-name" content="Yabloko Labs" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileColor" content="#0f172a" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <meta name="ahrefs-site-verification" content="ad920c0040aa681f970b61367c5146881185afa5a15860d0668eee43ced884ec" />
         <Script 
@@ -71,9 +76,11 @@ export default function RootLayout({
           data-key="q0OgA6bkTbELvXCIIfTY9A" 
           strategy="afterInteractive"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className={inter.className}>
-        <Gradient />
         {children}
       </body>
     </html>
