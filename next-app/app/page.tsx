@@ -218,7 +218,7 @@ export default function Home() {
             </p>
             <div style={{ marginTop: '10px', padding: '10px', background: '#f1f3fa', borderRadius: '8px', display: 'inline-block', boxShadow: '0 1px 6px rgba(35,38,77,0.07)' }}>
               <span style={{ fontWeight: 'bold', color: '#23264d', marginRight: '16px' }}>
-                📧 <a href="mailto:info@yablokolabs.com" style={{ color: '#3a5be0', textDecoration: 'underline' }}>info@yablokolabs.com</a>
+                📧 <a href="mailto:support@yablokolabs.com" style={{ color: '#3a5be0', textDecoration: 'underline' }}>support@yablokolabs.com</a>
               </span>
               <span style={{ fontWeight: 'bold', color: '#23264d' }}>
                 📱 <a href="tel:+919538351398" style={{ color: '#3a5be0', textDecoration: 'underline' }}>+91 95383 51398</a>
