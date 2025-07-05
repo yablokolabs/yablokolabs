@@ -82,6 +82,12 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
+        <Script 
+          id="cf-analytics"
+          strategy="afterInteractive"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "7d4c08a1719444ca9a2530287c6c9981"}'
+        />
       </body>
     </html>
   );
