@@ -907,6 +907,11 @@ canvas.fixed {
   font-size: 0.8rem;
   color: var(--gray-light);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.3s ease;
+}
+
+.legal-item:hover {
+  color: var(--white);
 }
 
 /* Animations */
