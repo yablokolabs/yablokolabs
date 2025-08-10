@@ -135,7 +135,7 @@ export default function Home() {
                 <p>Our team of visionary engineers, designers, and thinkers collaborate to create transformative digital experiences that solve real-world problems and inspire change.</p>
               </div>
               <div className="stats-grid">
-  <StatCard icon={<svg width="32" height="32" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 14h9l-1 8 10-12h-9l1-8z"/></svg>} end={2} suffix="+" label="Innovative Brands" />
+  <StatCard icon={<svg width="32" height="32" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 14h9l-1 8 10-12h-9l1-8z"/></svg>} end={4} suffix="+" label="Innovative Brands" />
   <StatCard icon={<svg width="32" height="32" fill="none" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="16" cy="16" r="14"/><path d="M16 8v8l6 3"/></svg>} end={100} suffix="%" label="Dedication" />
   <StatCard icon={<svg width="32" height="32" fill="none" stroke="#8b5cf6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 12a4 4 0 1 1 0 8a4 4 0 1 1 0-8z"/><path d="M12 16a4 4 0 1 1 8 0a4 4 0 1 1-8 0z"/></svg>} end={9999} isInfinity label="Possibilities" />
 </div>
@@ -197,6 +197,42 @@ export default function Home() {
               </p>
               <a href="https://www.aiponatime.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Discover AIponATime<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <div className="brand-card">
+              <div className="brand-logo">
+                <div className="brand-logo-placeholder" style={{ width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f5f5', borderRadius: '50%' }}>
+                  <span style={{ fontSize: '24px', color: '#666' }}>Q-A</span>
+                </div>
+              </div>
+              <h3 className="brand-title">Q-Admix<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup></h3>
+              <p className="brand-description">
+                Hybrid quantum-classical AI for ad spend optimization, blending quantum algorithms with AI to boost ROAS through precision targeting, peak efficiency, and measurable growth.
+              </p>
+              <a href="https://q-admix.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+                Explore Q-Admix<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <div className="brand-card">
+              <div className="brand-logo">
+                <div className="brand-logo-placeholder" style={{ width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f5f5', borderRadius: '50%' }}>
+                  <span style={{ fontSize: '24px', color: '#666' }}>Q-R</span>
+                </div>
+              </div>
+              <h3 className="brand-title">Q-Router<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup></h3>
+              <p className="brand-description">
+                Quantum-enhanced routing with AI traffic prediction to find the fastest, most cost-efficient delivery paths, cutting CPA for logistics and 10-minute delivery apps.
+              </p>
+              <a href="https://q-router.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+                Discover Q-Router<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
