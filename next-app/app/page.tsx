@@ -205,6 +205,28 @@ export default function Home() {
 
             <div className="brand-card">
               <div className="brand-logo">
+                  <Image 
+                    src="/assets/images/logo_q-router.png" 
+                    alt="Q-Router" 
+                    width={120} 
+                    height={120}
+                    className="brand-logo-img"
+                  />
+                </div>
+              <h3 className="brand-title">Q-Router<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup></h3>
+              <p className="brand-description">
+                Quantum-enhanced delivery route optimization with AI traffic prediction to find the fastest, most cost-efficient paths, reducing CPA for logistics and 10-minute delivery apps.
+              </p>
+              <a href="https://q-router.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+                Discover Q-Router<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <div className="brand-card">
+              <div className="brand-logo">
                 <div className="brand-logo-placeholder" style={{ width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f5f5', borderRadius: '50%' }}>
                   <span style={{ fontSize: '24px', color: '#666' }}>Q-A</span>
                 </div>
@@ -215,24 +237,6 @@ export default function Home() {
               </p>
               <a href="https://q-admix.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Q-Admix<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-
-            <div className="brand-card">
-              <div className="brand-logo">
-                <div className="brand-logo-placeholder" style={{ width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f5f5', borderRadius: '50%' }}>
-                  <span style={{ fontSize: '24px', color: '#666' }}>Q-R</span>
-                </div>
-              </div>
-              <h3 className="brand-title">Q-Router<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup></h3>
-              <p className="brand-description">
-                Quantum-enhanced delivery route optimization with AI traffic prediction to find the fastest, most cost-efficient paths, reducing CPA for logistics and 10-minute delivery apps.
-              </p>
-              <a href="https://q-router.com" className="brand-link" target="_blank" rel="noopener noreferrer">
-                Discover Q-Router<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
