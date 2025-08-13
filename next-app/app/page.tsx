@@ -98,14 +98,41 @@ export default function Home() {
             </span>
             Innovation at its Core
           </div>
-          <h1 className="hero-title">
-            Building the Future with
-            <span className="text-gradient"> Yabloko Labs</span>
-          </h1>
-          <p className="hero-subtitle">
-            We create cutting-edge technology solutions that transform businesses and shape the digital future. 
-            Our innovative products and services are designed to make a meaningful impact in the world.
-          </p>
+            <h1 className="hero-title">
+              Pioneering the <span className="quantum-gradient">Quantum</span> Future with
+              <span className="block text-2xl mt-2 font-normal yl-gradient">Yabloko Labs</span>
+            </h1>
+            <style jsx>{`
+              @keyframes gradientFlow {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+              }
+              
+              .quantum-gradient {
+                background: linear-gradient(-45deg, #60a5fa, #a78bfa, #f472b6, #60a5fa);
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+                animation: gradientFlow 8s ease infinite;
+              }
+              
+              .yl-gradient {
+                background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+                animation: gradientFlow 10s ease infinite;
+              }
+            `}</style>
+            <p className="hero-subtitle">
+              We're at the forefront of quantum computing and AI innovation, creating transformative solutions that solve tomorrow's most complex challenges. 
+              Our quantum-powered technologies are redefining what's possible in business and beyond.
+            </p>
           <div className="cta-buttons">
             <a href="#brands" className="btn btn-primary">
               Explore Our Brands
@@ -129,10 +156,10 @@ export default function Home() {
           <div className="about-content">
             <div className="about-text">
               <span className="section-badge">About Us</span>
-              <h2 className="section-title">Pioneering the Future of Technology</h2>
+              <h2 className="section-title">Quantum Innovation at Our Core</h2>
               <div className="about-description">
-                <p>At Yabloko Labs, we&#39;re not just building products—we&#39;re crafting the future. Founded in 2025, our mission is to push the boundaries of what&#39;s possible through innovative technology solutions.</p>
-                <p>Our team of visionary engineers, designers, and thinkers collaborate to create transformative digital experiences that solve real-world problems and inspire change.</p>
+                <p>At Yabloko Labs, we're pioneering the quantum computing revolution. Founded in 2025, our mission is to harness the power of quantum computing to solve problems that were previously unsolvable.</p>
+                <p>Our team of quantum physicists, computer scientists, and engineers are building the next generation of quantum algorithms and applications that will transform industries and push the boundaries of computational possibility.</p>
               </div>
               <div className="stats-grid">
   <StatCard icon={<svg width="32" height="32" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 14h9l-1 8 10-12h-9l1-8z"/></svg>} end={4} suffix="+" label="Innovative Brands" />
