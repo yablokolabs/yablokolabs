@@ -130,8 +130,8 @@ export default function Home() {
               }
             `}</style>
             <p className="hero-subtitle">
-              We're at the forefront of quantum computing and AI innovation, creating transformative solutions that solve tomorrow's most complex challenges. 
-              Our quantum-powered technologies are redefining what's possible in business and beyond.
+              We&apos;re at the forefront of quantum computing and AI innovation, creating transformative solutions that solve tomorrow&apos;s most complex challenges. 
+              Our quantum-powered technologies are redefining what&apos;s possible in business and beyond.
             </p>
           <div className="cta-buttons">
             <a href="#brands" className="btn btn-primary">
@@ -158,7 +158,7 @@ export default function Home() {
               <span className="section-badge">About Us</span>
               <h2 className="section-title">Quantum Innovation at Our Core</h2>
               <div className="about-description">
-                <p>At Yabloko Labs, we're pioneering the quantum computing revolution. Founded in 2025, our mission is to harness the power of quantum computing to solve problems that were previously unsolvable.</p>
+                <p>At Yabloko Labs, we&apos;re pioneering the quantum computing revolution. Founded in 2025, our mission is to harness the power of quantum computing to solve problems that were previously unsolvable.</p>
                 <p>Our team of quantum physicists, computer scientists, and engineers are building the next generation of quantum algorithms and applications that will transform industries and push the boundaries of computational possibility.</p>
               </div>
               <div className="stats-grid">
