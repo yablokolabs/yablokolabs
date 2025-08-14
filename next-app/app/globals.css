@@ -368,7 +368,7 @@ canvas.fixed {
 
 
 .hero-title {
-  font-size: 4.5rem;
+  font-size: 3rem;
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -376,6 +376,25 @@ canvas.fixed {
   font-family: 'Plus Jakarta Sans', sans-serif;
   letter-spacing: -0.025em;
   max-width: 800px;
+  word-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
 }
 
 .hero-subtitle {
