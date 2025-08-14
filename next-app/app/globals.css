@@ -198,6 +198,7 @@ canvas.fixed {
 
 .logo-img {
   height: 40px;
+  border-radius: 10%;
   width: auto;
   transition: var(--transition);
 }
