@@ -273,7 +273,7 @@ export default function Home() {
                   className="brand-logo-img"
                 />
               </div>
-              <h3 className="brand-title">Q-Admix<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup></h3>
+              <h3 className="brand-title">Q-AdMix<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup></h3>
               <p className="brand-description">
                 Hybrid quantum-classical AI for ad spend optimization, blending quantum algorithms with AI to boost ROAS through precision targeting, peak efficiency, and measurable growth.
               </p>
