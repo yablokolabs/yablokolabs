@@ -55,6 +55,14 @@ export default function Home() {
           <ul className="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#brands">Our Brands</a></li>
+            <li><a href="#partnership" className="partnership-link">
+              Partnership
+              <span className="gem-badge" title="Earn 10% commission on successful referrals">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#D4AF37" strokeWidth="1.5">
+                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                </svg>
+              </span>
+            </a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
@@ -291,6 +299,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Partnership Section */}
+      <section id="partnership" className="partnership-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-badge">Opportunity</span>
+            <h2 className="section-title">Become a Partner</h2>
+            <p className="section-subtitle">
+              Join our partner program and earn generous commissions for bringing in successful leads
+            </p>
+          </div>
+          
+          <div className="partnership-card">
+            <div className="partnership-content">
+              <div className="partnership-badge">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="#FFD700" stroke="#D4AF37" strokeWidth="1.5">
+                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                </svg>
+              </div>
+              <h3>Earn 10% Commission on Every Sale</h3>
+              <div className="partnership-details">
+                <p>Our partner program offers you the opportunity to earn <strong>10% commission</strong> on every successful sale that comes through your referral. Here's how it works:</p>
+                
+                <ul className="partnership-features">
+                  <li> Simple registration process to become an official partner</li>
+                  <li> Generous 10% commission on all converted sales</li>
+                  <li> Recurring commissions for subscription-based services</li>
+                  <li> Dedicated partner support team</li>
+                </ul>
+                
+                <div className="partnership-cta">
+                  <a href="mailto:partners@yablokolabs.com?subject=Partnership%20Inquiry" className="btn btn-primary">
+                    Join Our Partner Program
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Social Section */}
       <section id="contact" className="social-section">
