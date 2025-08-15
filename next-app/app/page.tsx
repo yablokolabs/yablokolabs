@@ -162,7 +162,7 @@ export default function Home() {
                 <p>Our team of quantum physicists, computer scientists, and engineers are building the next generation of quantum algorithms and applications that will transform industries and push the boundaries of computational possibility.</p>
               </div>
               <div className="stats-grid">
-  <StatCard icon={<svg width="32" height="32" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 14h9l-1 8 10-12h-9l1-8z"/></svg>} end={4} suffix="+" label="Innovative Brands" />
+  <StatCard icon={<svg width="32" height="32" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 14h9l-1 8 10-12h-9l1-8z"/></svg>} end={5} suffix="+" label="Innovative Brands" />
   <StatCard icon={<svg width="32" height="32" fill="none" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="16" cy="16" r="14"/><path d="M16 8v8l6 3"/></svg>} end={100} suffix="%" label="Dedication" />
   <StatCard icon={<svg width="32" height="32" fill="none" stroke="#8b5cf6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 12a4 4 0 1 1 0 8a4 4 0 1 1 0-8z"/><path d="M12 16a4 4 0 1 1 8 0a4 4 0 1 1-8 0z"/></svg>} end={9999} isInfinity label="Possibilities" />
 </div>
@@ -264,6 +264,24 @@ export default function Home() {
               </p>
               <a href="https://q-admix.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Q-Admix<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <div className="brand-card">
+              <div className="brand-logo">
+                <div className="brand-logo-placeholder" style={{ width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f5f5', borderRadius: '50%' }}>
+                  <span style={{ fontSize: '24px', color: '#666' }}>Q-P</span>
+                </div>
+              </div>
+              <h3 className="brand-title">Q-Porter<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>™</sup></h3>
+              <p className="brand-description">
+                Hybrid quantum-classical AI for port logistics optimization, blending quantum algorithms with AI to boost throughput, peak efficiency, and measurable gains.
+              </p>
+              <a href="https://q-porter.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+                Explore Q-Porter<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>™</sup>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
