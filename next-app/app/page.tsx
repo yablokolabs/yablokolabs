@@ -319,7 +319,7 @@ export default function Home() {
               </div>
               <h3>Earn 10% Commission on Every Sale</h3>
               <div className="partnership-details">
-                <p>Our partner program offers you the opportunity to earn <strong>10% commission</strong> on every successful sale that comes through your referral. Here's how it works:</p>
+                <p>Our partner program offers you the opportunity to earn <strong>10% commission</strong> on every successful sale that comes through your referral. Here&apos;s how it works:</p>
                 
                 <ul className="partnership-features">
                   <li> Simple registration process to become an official partner</li>
