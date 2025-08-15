@@ -262,9 +262,13 @@ export default function Home() {
 
             <div className="brand-card">
               <div className="brand-logo">
-                <div className="brand-logo-placeholder" style={{ width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f5f5', borderRadius: '50%' }}>
-                  <span style={{ fontSize: '24px', color: '#666' }}>Q-A</span>
-                </div>
+                <Image 
+                  src="/assets/images/logo_q-admix-logo.png" 
+                  alt="Q-Admix" 
+                  width={120} 
+                  height={120}
+                  className="brand-logo-img"
+                />
               </div>
               <h3 className="brand-title">Q-Admix<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>&trade;</sup></h3>
               <p className="brand-description">
@@ -280,9 +284,13 @@ export default function Home() {
 
             <div className="brand-card">
               <div className="brand-logo">
-                <div className="brand-logo-placeholder" style={{ width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f5f5', borderRadius: '50%' }}>
-                  <span style={{ fontSize: '24px', color: '#666' }}>Q-P</span>
-                </div>
+                <Image 
+                  src="/assets/images/logo_q-port-logo.png" 
+                  alt="Q-Port" 
+                  width={120} 
+                  height={120}
+                  className="brand-logo-img"
+                />
               </div>
               <h3 className="brand-title">Q-Porter<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>™</sup></h3>
               <p className="brand-description">
