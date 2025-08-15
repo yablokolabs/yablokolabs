@@ -43,7 +43,7 @@ export default function Home() {
         <div className="nav-container">
           <a href="#" className="logo">
             <Image 
-              src="/assets/images/logo.png" 
+              src="/assets/images/yablokolabs-logo-symbol.png" 
               alt="Yabloko Labs Logo" 
               width={40} 
               height={40}
@@ -402,7 +402,7 @@ export default function Home() {
           <div className="footer-logo" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
             <span style={{ fontWeight: 700, fontSize: '1.25rem', letterSpacing: '0.02em', background: 'linear-gradient(90deg, #fff 0%, #a5b4fc 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Yabloko Labs</span>
             <Image
-              src="/assets/images/logo.png"
+              src="/assets/images/yablokolabs-logo-symbol.png"
               alt="Yabloko Labs"
               width={54}
               height={54}
