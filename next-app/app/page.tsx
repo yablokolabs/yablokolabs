@@ -48,6 +48,9 @@ export default function Home() {
               width={40} 
               height={40}
               className="logo-img"
+              style={{ transition: 'transform 0.5s ease-in-out' }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(360deg)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
               priority
             />
             <span className="logo-text">Yabloko Labs</span>
@@ -415,7 +418,14 @@ export default function Home() {
               width={54}
               height={54}
               className="about-logo"
-              style={{ color: 'transparent', marginTop: '0.25rem' }}
+              style={{ 
+                color: 'transparent', 
+                marginTop: '0.25rem',
+                transition: 'transform 0.5s ease-in-out',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(360deg)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
               loading="lazy"
               decoding="async"
             />
