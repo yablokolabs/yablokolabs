@@ -297,7 +297,7 @@ export default function Home() {
               </div>
               <h3 className="brand-title">Q-Porter<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>™</sup></h3>
               <p className="brand-description">
-                Hybrid quantum-classical AI for port logistics optimization, blending quantum algorithms with AI to boost throughput, peak efficiency, and measurable gains.
+                Hybrid quantum-classical AI for port and airport logistics optimization, blending quantum algorithms with AI to boost throughput, reduce delays, and deliver measurable efficiency gains.
               </p>
               <a href="https://q-porter.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Q-Porter<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>™</sup>
