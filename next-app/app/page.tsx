@@ -456,7 +456,9 @@ export default function Home() {
                 backgroundClip: 'text',
                 fontWeight: 500
               }}>
-                <span className="rocket-emoji">🚀</span> Yabloko Labs is<span style={{ fontWeight: 'bold' }}>supported by AWS Activate</span>              </p>
+                <span className="rocket-emoji">🚀</span> 
+                Yabloko Labs is an <span style={{ fontWeight: 'bold' }}>AWS Partner</span>
+              </p>
             </div>
             <div className="copyright text-center">
               © 2025 Yabloko Labs Ltd. All rights reserved <br></br>
