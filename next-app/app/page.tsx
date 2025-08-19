@@ -442,11 +442,28 @@ export default function Home() {
           <div className="footer-divider"></div>
           
           <div className="footer-bottom">
+            <div className="text-center" style={{ marginBottom: '20px' }}>
+              <p style={{ 
+                fontSize: '14px', 
+                fontFamily: 'Arial, sans-serif',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                background: 'linear-gradient(90deg, var(--primary-dark), var(--accent))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                fontWeight: 500
+              }}>
+                <span className="rocket-emoji">🚀</span> Yabloko Labs is<span style={{ fontWeight: 'bold' }}>supported by AWS Activate</span>              </p>
+            </div>
             <div className="copyright text-center">
               © 2025 Yabloko Labs Ltd. All rights reserved <br></br>
               71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
             </div>
             <div className="legal-info text-center">
+            <span className="legal-item">CRN: 16660148</span>
               <span className="legal-item">CIN: U62011KA2025PTC201171</span>
               <span className="legal-item">MSME: UDYAM-KR-03-0533847</span>
               <span className="legal-item">DPIIT: DIPP209889</span>

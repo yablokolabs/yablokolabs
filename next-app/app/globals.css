@@ -1225,6 +1225,24 @@ canvas.fixed {
 }
 
 /* Custom Cursor */
+/* Rocket Animation */
+@keyframes floatRocket {
+  0% { transform: translateY(0) rotate(-45deg); }
+  50% { transform: translateY(-5px) rotate(-35deg); }
+  100% { transform: translateY(0) rotate(-45deg); }
+}
+
+.rocket-emoji {
+  display: inline-block;
+  animation: floatRocket 2s ease-in-out infinite;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: rotate(-45deg);
+  transform-origin: center center;
+}
+
 .cursor-dot {
   width: 8px;
   height: 8px;
