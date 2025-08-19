@@ -443,7 +443,8 @@ export default function Home() {
           
           <div className="footer-bottom">
             <div className="copyright text-center">
-              © 2025 Yabloko Labs Pvt. Ltd. All rights reserved
+              © 2025 Yabloko Labs Ltd. All rights reserved <br></br>
+              71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
             </div>
             <div className="legal-info text-center">
               <span className="legal-item">CIN: U62011KA2025PTC201171</span>
