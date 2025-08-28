@@ -458,7 +458,7 @@ export default function Home() {
             </div>
             <div className="copyright text-center">
               © 2025 Yabloko Labs Ltd. All rights reserved <br></br>
-              71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
+              <a href="https://maps.app.goo.gl/L6vq5D8wfC3n4nt36" target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4">71-75 Shelton Street, Covent Garden, London, WC2H 9JQ</a>
             </div>
             <div className="legal-info text-center">
             <span className="legal-item">CRN: 16660148</span>
