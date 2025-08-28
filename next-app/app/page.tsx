@@ -368,11 +368,7 @@ export default function Home() {
               </span>
               <br />
               <span style={{ fontWeight: 'bold', color: '#23264d' }}>
-                📱 <a href="tel:+919538351398" style={{ color: '#3a5be0', textDecoration: 'underline' }}>+91 9538351398</a>
-              </span>
-              <br />
-              <span style={{ fontWeight: 'bold', color: '#23264d' }}>
-                📱 <a href="tel:+17255675545" style={{ color: '#3a5be0', textDecoration: 'underline' }}>+1 (725) 567-5545</a>
+                📱 <a href="tel:+447367196915" style={{ color: '#3a5be0', textDecoration: 'underline' }}>+44 7367 196915</a>
               </span>
             </div>
           </div>
