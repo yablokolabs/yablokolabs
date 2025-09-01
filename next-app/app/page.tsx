@@ -306,6 +306,28 @@ export default function Home() {
                 </svg>
               </a>
             </div>
+
+            <div className="brand-card">
+              <div className="brand-logo">
+                <Image 
+                  src="/assets/images/logo_q-consent.png" 
+                  alt="Q-Consent" 
+                  width={120} 
+                  height={120}
+                  className="brand-logo-img"
+                />
+              </div>
+              <h3 className="brand-title">Q-Consent<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>™</sup></h3>
+              <p className="brand-description">
+                Quantum-AI consent and compliance management, blending quantum algorithms with AI to optimize GDPR/HIPAA etc rules, ensure verifiable permissions, cut regulatory risk, and streamline global data flows.
+              </p>
+              <a href="https://q-consent.com/" className="brand-link" target="_blank" rel="noopener noreferrer">
+                Discover Q-Consent<sup style={{fontSize:'0.7em',marginLeft:'2px'}}>™</sup>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>

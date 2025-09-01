@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="60" cy="60" r="58" fill="#2563eb" stroke="#1e40af" stroke-width="2"/>
+  
+  <!-- Inner Circle -->
+  <circle cx="60" cy="60" r="45" fill="#3b82f6" opacity="0.8"/>
+  
+  <!-- Q Letter -->
+  <g fill="#ffffff">
+    <!-- Main Q circle -->
+    <circle cx="60" cy="55" r="20" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <!-- Q tail -->
+    <line x1="72" y1="67" x2="80" y2="75" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Consent Symbol - Shield -->
+  <g transform="translate(40, 75)">
+    <path d="M20 5 L15 0 L5 0 L0 5 L0 15 L5 25 L15 25 L20 15 Z" fill="#10b981" opacity="0.9"/>
+    <!-- Checkmark inside shield -->
+    <path d="M6 12 L9 15 L15 9" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Quantum Dots Pattern -->
+  <g opacity="0.6">
+    <circle cx="35" cy="35" r="2" fill="#fbbf24"/>
+    <circle cx="85" cy="35" r="2" fill="#fbbf24"/>
+    <circle cx="35" cy="85" r="2" fill="#fbbf24"/>
+    <circle cx="85" cy="85" r="2" fill="#fbbf24"/>
+    <circle cx="25" cy="60" r="1.5" fill="#f59e0b"/>
+    <circle cx="95" cy="60" r="1.5" fill="#f59e0b"/>
+    <circle cx="60" cy="25" r="1.5" fill="#f59e0b"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="60" y="108" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1e40af">Q-Consent</text>
+</svg>
