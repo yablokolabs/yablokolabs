@@ -171,6 +171,54 @@ export default function Home() {
               <div className="about-description">
                 <p>At Yabloko Labs, we&apos;re pioneering the quantum computing revolution. Founded in 2025, our mission is to harness the power of quantum computing to solve problems that were previously unsolvable.</p>
                 <p>Our team of quantum physicists, computer scientists, and engineers are building the next generation of quantum algorithms and applications that will transform industries and push the boundaries of computational possibility.</p>
+                
+                <div className="yabloko-values" style={{ marginTop: '2rem' }}>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#6366f1' }}>What YABLOKO stands for:</h3>
+                  <div className="values-grid" style={{ display: 'grid', gap: '1rem', paddingLeft: '2rem' }}>
+                    <div className="value-item" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#6366f1', minWidth: '1.5rem' }}>Y</span>
+                      <div>
+                        <strong style={{ color: '#a5b4fc' }}>YOUTHFUL</strong> — Vibrant, energetic, future-focused
+                      </div>
+                    </div>
+                    <div className="value-item" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#06b6d4', minWidth: '1.5rem' }}>A</span>
+                      <div>
+                        <strong style={{ color: '#a5b4fc' }}>AMICABLE</strong> — Friendly, collaborative, harmonious
+                      </div>
+                    </div>
+                    <div className="value-item" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#8b5cf6', minWidth: '1.5rem' }}>B</span>
+                      <div>
+                        <strong style={{ color: '#a5b4fc' }}>BRILLIANT</strong> — Intelligent, bold, impactful
+                      </div>
+                    </div>
+                    <div className="value-item" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#f59e0b', minWidth: '1.5rem' }}>L</span>
+                      <div>
+                        <strong style={{ color: '#a5b4fc' }}>LIMITLESS</strong> — Boundless ambition; an umbrella for many ventures
+                      </div>
+                    </div>
+                    <div className="value-item" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#10b981', minWidth: '1.5rem' }}>O</span>
+                      <div>
+                        <strong style={{ color: '#a5b4fc' }}>OPTIMISTIC</strong> — Hopeful, confident, forward-looking
+                      </div>
+                    </div>
+                    <div className="value-item" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#ef4444', minWidth: '1.5rem' }}>K</span>
+                      <div>
+                        <strong style={{ color: '#a5b4fc' }}>KEEN</strong> — Eager, driven, execution-minded
+                      </div>
+                    </div>
+                    <div className="value-item" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#6366f1', minWidth: '1.5rem' }}>O</span>
+                      <div>
+                        <strong style={{ color: '#a5b4fc' }}>OUTSTANDING</strong> — Distinctive, top-tier, excellence as a habit
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="stats-grid">
   <StatCard icon={<svg width="32" height="32" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 14h9l-1 8 10-12h-9l1-8z"/></svg>} end={5} suffix="+" label="Innovative Brands" />
