@@ -523,7 +523,7 @@ export default function Home() {
                 fontWeight: 500
               }}>
                 <span className="rocket-emoji">🚀</span> 
-                Yabloko Labs is an <span style={{ fontWeight: 'bold' }}>AWS Partner</span>
+                Yabloko Labs is <span style={{ fontWeight: 'bold' }}>Crafting Hybrid AI-Quantum SaaS that Scales</span>
               </p>
             </div>
             <div className="copyright text-center">
