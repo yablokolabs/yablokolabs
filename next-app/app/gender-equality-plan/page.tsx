@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import BackToTopButton from "../components/BackToTopButton";
 
 export default function GenderEqualityPlan() {
@@ -9,7 +10,7 @@ export default function GenderEqualityPlan() {
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-container">
-          <a href="/" className="logo">
+          <Link href="/" className="logo">
             <Image 
               src="/assets/images/yablokolabs-logo-symbol.png" 
               alt="Yabloko Labs Logo" 
@@ -22,19 +23,19 @@ export default function GenderEqualityPlan() {
               priority
             />
             <span className="logo-text">Yabloko Labs</span>
-          </a>
+          </Link>
           <ul className="nav-links">
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#brands">Our Brands</a></li>
-            <li><a href="/#partnership" className="partnership-link">
+            <li><Link href="/#about">About</Link></li>
+            <li><Link href="/#brands">Our Brands</Link></li>
+            <li><Link href="/#partnership" className="partnership-link">
               Partnership
               <span className="gem-badge" title="Earn 10% commission on successful referrals">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#D4AF37" strokeWidth="1.5">
                   <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
                 </svg>
               </span>
-            </a></li>
-            <li><a href="/#contact">Contact Us</a></li>
+            </Link></li>
+            <li><Link href="/#contact">Contact Us</Link></li>
           </ul>
         </div>
       </nav>
@@ -114,9 +115,9 @@ export default function GenderEqualityPlan() {
                   marginBottom: '2rem'
                 }}>
                   <p style={{ fontStyle: 'italic', fontSize: '1.125rem', lineHeight: '1.7', color: '#e2e8f0', margin: 0 }}>
-                    "At Yabloko Labs, we believe that diversity of thought, experience, and perspective drives innovation. 
-                    Gender equality is not just a moral imperative—it's a business necessity that fuels our ability to 
-                    solve complex quantum computing challenges and create transformative solutions for the future."
+                    &ldquo;At Yabloko Labs, we believe that diversity of thought, experience, and perspective drives innovation. 
+                    Gender equality is not just a moral imperative&mdash;it&rsquo;s a business necessity that fuels our ability to 
+                    solve complex quantum computing challenges and create transformative solutions for the future.&rdquo;
                   </p>
                   <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#a5b4fc', margin: '1rem 0 0 0' }}>
                     — <strong>CEO, Yabloko Labs</strong>
@@ -461,13 +462,13 @@ export default function GenderEqualityPlan() {
                       <polyline points="22,6 12,13 2,6"/>
                     </svg>
                   </a>
-                  <a href="/" className="btn btn-outline">
+                  <Link href="/" className="btn btn-outline">
                     Return to Home
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                       <polyline points="9,22 9,12 15,12 15,22"/>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
