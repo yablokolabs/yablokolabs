@@ -56,7 +56,13 @@ export default function Home() {
             <span className="logo-text">Yabloko Labs</span>
           </a>
           <ul className="nav-links">
-            <li><a href="#about">About</a></li>
+            <li className="nav-dropdown">
+              <a href="#about" className="nav-dropdown-toggle">About</a>
+              <div className="nav-dropdown-menu">
+                <a href="#about">Our Story</a>
+                <a href="/gender-equality-plan">Gender Equality Plan</a>
+              </div>
+            </li>
             <li><a href="#brands">Our Brands</a></li>
             <li><a href="#partnership" className="partnership-link">
               Partnership
@@ -529,6 +535,11 @@ export default function Home() {
             <div className="copyright text-center">
               © 2025 Yabloko Labs Ltd. All rights reserved <br></br>
               <a href="https://maps.app.goo.gl/L6vq5D8wfC3n4nt36" target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4">71-75 Shelton Street, Covent Garden, London, WC2H 9JQ</a>
+              <br />
+              <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+                <a href="/gender-equality-plan" style={{ color: '#a5b4fc', textDecoration: 'none', fontSize: '0.875rem' }} className="hover:underline">Gender Equality Plan</a>
+                <a href="mailto:ceo@yablokolabs.com" style={{ color: '#a5b4fc', textDecoration: 'none', fontSize: '0.875rem' }} className="hover:underline">Contact</a>
+              </div>
             </div>
             <div className="legal-info text-center">
             <span className="legal-item">CRN: 16660148</span>
