@@ -275,6 +275,71 @@ canvas.fixed {
   width: 100%;
 }
 
+/* Navigation Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-dropdown-toggle::after {
+  content: '▾';
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  z-index: 1000;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: none;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  padding-left: 1.5rem;
+}
+
+.nav-dropdown-menu a::after {
+  display: none;
+}
+
 /* Hero Section */
 .hero {
   min-height: calc(100vh - 72px);
@@ -998,6 +1063,144 @@ canvas.fixed {
 }
 
 /* Responsive Design */
+
+/* Timeline Styles for Gender Equality Plan */
+.implementation-timeline {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-section {
+  margin-bottom: 3rem;
+}
+
+.timeline-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(24, 28, 43, 0.45);
+  border-radius: 1rem;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  background: rgba(28, 33, 53, 0.62);
+  transform: translateY(-2px);
+}
+
+.timeline-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #6366f1;
+}
+
+.timeline-content h4 {
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  color: #cbd5e1;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.timeline-responsible {
+  color: #a5b4fc;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Print Styles for Gender Equality Plan PDF */
+@media print {
+  .navbar,
+  .back-to-top,
+  .cta-buttons {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+    padding-top: 0 !important;
+  }
+  
+  .hero {
+    background: white !important;
+    color: black !important;
+    min-height: auto !important;
+    padding: 2rem 1rem !important;
+  }
+  
+  .hero-title,
+  .section-title,
+  h1, h2, h3, h4 {
+    color: black !important;
+    -webkit-text-fill-color: black !important;
+  }
+  
+  .hero-subtitle,
+  .section-subtitle,
+  p, li {
+    color: #333 !important;
+  }
+  
+  .brand-card,
+  .timeline-item,
+  .about-section,
+  .brands-section,
+  .partnership-section,
+  .social-section {
+    background: white !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+  
+  .timeline-content h4 {
+    color: black !important;
+  }
+  
+  .timeline-content p {
+    color: #333 !important;
+  }
+  
+  .timeline-responsible {
+    color: #666 !important;
+  }
+  
+  .footer {
+    display: none !important;
+  }
+  
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 1rem !important;
+  }
+  
+  .brands-grid {
+    display: block !important;
+  }
+  
+  .brand-card {
+    margin-bottom: 1rem !important;
+  }
+}
 @media (max-width: 768px) {
   .navbar {
     padding: 0.75rem 0;
