@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 const CustomCursor = dynamic(
-  () => import('./CustomCursor'),
-  { ssr: false }
+  () => import("./CustomCursor"),
+  { ssr: false },
 );
 
 export default function CursorProvider({ children }: { children: React.ReactNode }) {

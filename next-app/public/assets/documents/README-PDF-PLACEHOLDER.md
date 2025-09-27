@@ -17,7 +17,7 @@ To complete the Gender Equality Plan implementation, you need to:
 - Leadership commitment statement
 - All six essential elements (as per Horizon Europe requirements):
   - Publication & Transparency
-  - Dedicated Resources  
+  - Dedicated Resources
   - Data Collection & Monitoring
   - Training & Awareness
   - Work-Life Balance
@@ -27,11 +27,13 @@ To complete the Gender Equality Plan implementation, you need to:
 - Contact information
 
 ## File Path Expected:
+
 ```
 /home/ubuntu/yablokolabs/next-app/public/assets/documents/yabloko-labs-gender-equality-plan.pdf
 ```
 
 ## Web Link:
+
 The PDF will be accessible at: `https://yablokolabs.com/assets/documents/yabloko-labs-gender-equality-plan.pdf`
 
 ---

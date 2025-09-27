@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from "next/head";
 
 interface SEOProps {
   title?: string;
@@ -6,26 +6,27 @@ interface SEOProps {
   keywords?: string[];
   image?: string;
   url?: string;
-  type?: 'website' | 'article';
+  type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
 }
 
 export default function SEO({
-  title = 'Yabloko Labs - Innovative Technology Solutions',
-  description = 'Yabloko Labs provides cutting-edge technology solutions and services to help businesses grow in the digital age.',
-  keywords = ['technology', 'solutions', 'development', 'consulting', 'innovation'],
-  image = '/images/og-image.jpg',
-  url = 'https://yablokolabs.com',
-  type = 'website',
+  title = "Yabloko Labs - Innovative Technology Solutions",
+  description =
+    "Yabloko Labs provides cutting-edge technology solutions and services to help businesses grow in the digital age.",
+  keywords = ["technology", "solutions", "development", "consulting", "innovation"],
+  image = "/images/og-image.jpg",
+  url = "https://yablokolabs.com",
+  type = "website",
   publishedTime,
   modifiedTime,
-  author = 'Yabloko Labs',
+  author = "Yabloko Labs",
 }: SEOProps) {
-  const siteName = 'Yabloko Labs';
-  const twitterHandle = '@yablokolabs';
-  const fullImageUrl = image.startsWith('http') ? image : `${url}${image}`;
+  const siteName = "Yabloko Labs";
+  const twitterHandle = "@yablokolabs";
+  const fullImageUrl = image.startsWith("http") ? image : `${url}${image}`;
 
   return (
     <Head>
@@ -33,7 +34,7 @@ export default function SEO({
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords.join(', ')} />
+      <meta name="keywords" content={keywords.join(", ")} />
       <meta name="author" content={author} />
       <meta name="robots" content="index, follow" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />

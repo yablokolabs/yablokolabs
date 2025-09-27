@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Point {
   x: number;
@@ -16,7 +16,7 @@ export function Gradient() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let width = window.innerWidth;
@@ -32,7 +32,7 @@ export function Gradient() {
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 6.0,
         vy: (Math.random() - 0.5) * 6.0,
-        radius: Math.random() * 300 + 200
+        radius: Math.random() * 300 + 200,
       });
     }
 
@@ -52,18 +52,22 @@ export function Gradient() {
       // Create multiple overlapping gradients
       points.forEach((point, index) => {
         const gradient = ctx.createRadialGradient(
-          point.x, point.y, 0,
-          point.x, point.y, point.radius
+          point.x,
+          point.y,
+          0,
+          point.x,
+          point.y,
+          point.radius,
         );
 
         // Create different color combinations for each point
         const colors = [
-          ['#003B5C', '#0077b6', '#003B5C'],
-          ['#0077b6', '#003B5C', '#0077b6'],
-          ['#003B5C', '#0077b6', '#003B5C'],
-          ['#0077b6', '#003B5C', '#0077b6'],
-          ['#003B5C', '#0077b6', '#003B5C'],
-          ['#0077b6', '#003B5C', '#0077b6']
+          ["#003B5C", "#0077b6", "#003B5C"],
+          ["#0077b6", "#003B5C", "#0077b6"],
+          ["#003B5C", "#0077b6", "#003B5C"],
+          ["#0077b6", "#003B5C", "#0077b6"],
+          ["#003B5C", "#0077b6", "#003B5C"],
+          ["#0077b6", "#003B5C", "#0077b6"],
         ];
 
         gradient.addColorStop(0, colors[index][0]);
@@ -88,14 +92,13 @@ export function Gradient() {
       canvas.height = height;
     };
 
-    window.addEventListener('resize', resizeHandler);
+    window.addEventListener("resize", resizeHandler);
 
     return () => {
-      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener("resize", resizeHandler);
       ctx.clearRect(0, 0, width, height);
     };
   }, []);
 
   return <canvas id="gradient-canvas" ref={canvasRef} />;
 }
-
