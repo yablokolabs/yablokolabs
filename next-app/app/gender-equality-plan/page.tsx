@@ -719,7 +719,7 @@ export default function GenderEqualityPlan() {
               </p>
             </div>
             <div className="copyright text-center">
-              © 2025 Yabloko Labs Ltd. All rights reserved <br></br>
+              © 2025-2026 Yabloko Labs Ltd. All rights reserved <br></br>
               <a
                 href="https://maps.app.goo.gl/L6vq5D8wfC3n4nt36"
                 target="_blank"
