@@ -461,7 +461,7 @@ export default function Home() {
                 Quantum-enhanced delivery route optimization with AI traffic prediction to find the fastest, most
                 cost-efficient paths, reducing CPA for logistics and 10-minute delivery apps.
               </p>
-              <a href="https://q-router.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://router.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Discover Q-Router<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
                 <svg
                   width="16"
