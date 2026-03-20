@@ -495,7 +495,7 @@ export default function Home() {
                 Hybrid quantum-classical AI for ad spend optimization, blending quantum algorithms with AI to boost ROAS
                 through precision targeting, peak efficiency, and measurable growth.
               </p>
-              <a href="https://q-admix.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://admix.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Q-Admix<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
                 <svg
                   width="16"
