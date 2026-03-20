@@ -427,7 +427,7 @@ export default function Home() {
                 <br />
                 It sparks a child to be a success, nurturing curiosity and empowering dreams with every story.
               </p>
-              <a href="https://www.aiponatime.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://aiponatime.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Discover AIponATime<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
                 <svg
                   width="16"
