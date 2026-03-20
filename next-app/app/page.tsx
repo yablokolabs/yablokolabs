@@ -529,7 +529,7 @@ export default function Home() {
                 Hybrid quantum-classical AI for port and airport logistics optimization, blending quantum algorithms
                 with AI to boost throughput, reduce delays, and deliver measurable efficiency gains.
               </p>
-              <a href="https://q-porter.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://porter.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Q-Porter<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>™</sup>
                 <svg
                   width="16"
@@ -563,7 +563,7 @@ export default function Home() {
                 Quantum-AI consent and compliance management, blending quantum algorithms with AI to optimize GDPR/HIPAA
                 etc rules, ensure verifiable permissions, cut regulatory risk, and streamline global data flows.
               </p>
-              <a href="https://q-consent.com/" className="brand-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://consent.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Discover Q-Consent<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>™</sup>
                 <svg
                   width="16"
