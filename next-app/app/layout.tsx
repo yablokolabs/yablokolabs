@@ -11,10 +11,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Yabloko Labs - Innovative Technology Solutions",
+  title: "Yabloko Labs - Measurable AI & Optimization Engineering",
   description:
-    "Yabloko Labs provides cutting-edge technology solutions and services to help businesses grow in the digital age.",
-  keywords: ["technology", "solutions", "development", "consulting", "innovation"],
+    "Yabloko Labs builds high-performance AI, optimization, and backend systems that reduce latency, compute cost, logistics waste, and operational risk.",
+  keywords: ["AI engineering", "optimization", "Rust", "FastAPI", "quantum-inspired", "latency reduction"],
   authors: [{ name: "Yabloko Labs" }],
   creator: "Yabloko Labs",
   publisher: "Yabloko Labs",
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://yablokolabs.com",
     siteName: "Yabloko Labs",
-    title: "Yabloko Labs - Innovative Technology Solutions",
-    description: "Cutting-edge technology solutions for your business",
+    title: "Yabloko Labs - Measurable AI & Optimization Engineering",
+    description: "High-performance AI, optimization, and backend engineering for measurable business outcomes",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yabloko Labs - Innovative Technology Solutions",
-    description: "Cutting-edge technology solutions for your business",
+    title: "Yabloko Labs - Measurable AI & Optimization Engineering",
+    description: "High-performance AI, optimization, and backend engineering for measurable business outcomes",
     images: ["/images/og-image.jpg"],
     creator: "@yablokolabs",
   },

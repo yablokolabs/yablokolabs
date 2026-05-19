@@ -691,8 +691,8 @@ export default function GenderEqualityPlan() {
             />
           </div>
           <p className="footer-description">
-            Pioneering innovative technology solutions that transform businesses and shape the digital future. Building
-            tomorrow&apos;s technology today.
+            High-performance AI, optimization, and backend engineering for teams that need measurable gains in speed,
+            cost, reliability, and operational throughput.
           </p>
 
           <div className="footer-divider"></div>
@@ -715,7 +715,7 @@ export default function GenderEqualityPlan() {
                 }}
               >
                 <span className="rocket-emoji">🚀</span>
-                Yabloko Labs is <span style={{ fontWeight: "bold" }}>Crafting Hybrid AI-Quantum SaaS that Scales</span>
+                Yabloko Labs is <span style={{ fontWeight: "bold" }}>Building Measurable AI Systems that Scale</span>
               </p>
             </div>
             <div className="copyright text-center">
