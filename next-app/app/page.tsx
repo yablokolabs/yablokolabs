@@ -141,10 +141,10 @@ export default function Home() {
                 </defs>
               </svg>
             </span>
-            Measured AI Engineering
+            Innovation at its Core
           </div>
           <h1 className="hero-title">
-            Build <span className="quantum-gradient">Measurable</span> AI Systems with
+            Pioneering the <span className="quantum-gradient">Quantum</span> Future with
             <span className="block text-2xl mt-2 font-normal yl-gradient">Yabloko Labs</span>
           </h1>
           <style jsx>
@@ -177,13 +177,13 @@ export default function Home() {
             `}
           </style>
           <p className="hero-subtitle">
-            We build Rust/C++ accelerated, FastAPI-powered, and quantum-inspired optimization systems for teams that
-            need proof: lower inference latency, faster route decisions, reduced cloud spend, and production
-            reliability.
+            We&apos;re at the forefront of quantum computing and AI innovation, creating transformative solutions that
+            solve tomorrow&apos;s most complex challenges. Our quantum-powered technologies are redefining what&apos;s
+            possible in business and beyond.
           </p>
           <div className="cta-buttons">
             <a href="#brands" className="btn btn-primary">
-              Explore Outcome-Driven Brands
+              Explore Our Brands
               <svg
                 width="18"
                 height="18"
@@ -198,7 +198,7 @@ export default function Home() {
               </svg>
             </a>
             <a href="#contact" className="btn btn-outline">
-              Request a Performance Audit
+              Get In Touch
               <svg
                 width="18"
                 height="18"
@@ -222,17 +222,16 @@ export default function Home() {
           <div className="about-content">
             <div className="about-text">
               <span className="section-badge">About Us</span>
-              <h2 className="section-title">Engineering Measurable Outcomes, Not Hype</h2>
+              <h2 className="section-title">Quantum Innovation at Our Core</h2>
               <div className="about-description">
                 <p>
-                  Yabloko Labs applies scientific testing to AI, optimization, and high-performance backend engineering.
-                  Founded in 2025, we build systems where every claim can be benchmarked: latency, throughput,
-                  cost, reliability, and deployment speed.
+                  At Yabloko Labs, we&apos;re pioneering the quantum computing revolution. Founded in 2025, our mission
+                  is to harness the power of quantum computing to solve problems that were previously unsolvable.
                 </p>
                 <p>
-                  Our team combines Rust/C++ acceleration, optimized Python/FastAPI pipelines, deterministic architectures,
-                  distributed systems, and quantum-inspired algorithms to turn technical complexity into business
-                  outcomes leaders can measure.
+                  Our team of quantum physicists, computer scientists, and engineers are building the next generation of
+                  quantum algorithms and applications that will transform industries and push the boundaries of
+                  computational possibility.
                 </p>
 
                 <div className="yabloko-values" style={{ marginTop: "2rem" }}>
@@ -316,9 +315,9 @@ export default function Home() {
                       <path d="M12 2L2 14h9l-1 8 10-12h-9l1-8z" />
                     </svg>
                   }
-                  end={30}
-                  suffix="×"
-                  label="Endpoint speedup focus"
+                  end={5}
+                  suffix="+"
+                  label="Innovative Brands"
                 />
                 <StatCard
                   icon={
@@ -335,9 +334,9 @@ export default function Home() {
                       <path d="M16 8v8l6 3" />
                     </svg>
                   }
-                  end={35}
+                  end={100}
                   suffix="%"
-                  label="Route savings targets"
+                  label="Dedication"
                 />
                 <StatCard
                   icon={
@@ -354,9 +353,9 @@ export default function Home() {
                       <path d="M12 16a4 4 0 1 1 8 0a4 4 0 1 1-8 0z" />
                     </svg>
                   }
-                  end={100}
-                  suffix="%"
-                  label="Tested before scaling"
+                  end={9999}
+                  isInfinity
+                  label="Possibilities"
                 />
               </div>
             </div>
@@ -369,10 +368,9 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Our Portfolio</span>
-            <h2 className="section-title">Ventures Built Around Measurable Outcomes</h2>
+            <h2 className="section-title">Innovative Ventures</h2>
             <p className="section-subtitle">
-              Each venture is positioned around a measurable customer outcome: more calls, faster decisions, lower costs,
-              higher ROAS, or reduced risk
+              Discover our growing family of brands that are pushing the boundaries of technology and innovation
             </p>
           </div>
 
@@ -391,8 +389,8 @@ export default function Home() {
                 Map2Map<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
               </h3>
               <p className="brand-description">
-                Turn local searches into calls, visits, and booked jobs. We optimize Google Business Profiles for accurate
-                listings, stronger review signals, and measurable local visibility.
+                Expert Google Maps management services to enhance your business&apos;s online presence and local search
+                visibility. We optimize and manage your Google Business Profile for maximum impact.
               </p>
               <a href="https://map2map.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Map2Map<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
@@ -425,9 +423,9 @@ export default function Home() {
                 AIponATime<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
               </h3>
               <p className="brand-description">
-                Personalized AI stories that keep children curious, reading, and dreaming.
+                Where artificial intelligence meets creative storytelling to bring your imagination to life.
                 <br />
-                Built to make story time more engaging while giving families a simple, repeatable creative tool.
+                It sparks a child to be a success, nurturing curiosity and empowering dreams with every story.
               </p>
               <a href="https://aiponatime.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Discover AIponATime<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
@@ -460,8 +458,8 @@ export default function Home() {
                 Q-Router<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
               </h3>
               <p className="brand-description">
-                Reduce last-mile delivery cost and dispatch delays with quantum-inspired route optimization, live traffic
-                intelligence, and decision pipelines built for second-scale planning.
+                Quantum-enhanced delivery route optimization with AI traffic prediction to find the fastest, most
+                cost-efficient paths, reducing CPA for logistics and 10-minute delivery apps.
               </p>
               <a href="https://router.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Discover Q-Router<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
@@ -494,8 +492,8 @@ export default function Home() {
                 Q-AdMix<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
               </h3>
               <p className="brand-description">
-                Improve ROAS by moving ad spend toward the audiences, channels, and creatives that prove conversion lift.
-                Quantum-inspired optimization meets measurable performance marketing.
+                Hybrid quantum-classical AI for ad spend optimization, blending quantum algorithms with AI to boost ROAS
+                through precision targeting, peak efficiency, and measurable growth.
               </p>
               <a href="https://admix.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Q-Admix<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>&trade;</sup>
@@ -528,8 +526,8 @@ export default function Home() {
                 Q-Porter<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>™</sup>
               </h3>
               <p className="brand-description">
-                Increase port and airport throughput by optimizing gate, berth, and transfer decisions. Model bottlenecks,
-                reduce delays, and turn logistics complexity into measurable capacity gains.
+                Hybrid quantum-classical AI for port and airport logistics optimization, blending quantum algorithms
+                with AI to boost throughput, reduce delays, and deliver measurable efficiency gains.
               </p>
               <a href="https://porter.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Explore Q-Porter<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>™</sup>
@@ -562,8 +560,8 @@ export default function Home() {
                 Q-Consent<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>™</sup>
               </h3>
               <p className="brand-description">
-                Reduce compliance risk and manual review time with AI-assisted consent workflows that verify permissions,
-                surface policy conflicts, and keep global data flows auditable.
+                Quantum-AI consent and compliance management, blending quantum algorithms with AI to optimize GDPR/HIPAA
+                etc rules, ensure verifiable permissions, cut regulatory risk, and streamline global data flows.
               </p>
               <a href="https://consent.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
                 Discover Q-Consent<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>™</sup>
@@ -592,7 +590,7 @@ export default function Home() {
             <span className="section-badge">Opportunity</span>
             <h2 className="section-title">Become a Partner</h2>
             <p className="section-subtitle">
-              Bring us businesses with expensive bottlenecks, and earn when measurable engineering work turns into revenue
+              Join our partner program and earn generous commissions for bringing in successful leads
             </p>
           </div>
 
@@ -603,24 +601,23 @@ export default function Home() {
                   <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                 </svg>
               </div>
-              <h3>Earn 10% When Your Referral Becomes Revenue</h3>
+              <h3>Earn 10% Commission on Every Sale</h3>
               <div className="partnership-details">
                 <p>
-                  We&apos;re looking for partners who know companies losing money to slow systems, inefficient routes, wasted
-                  ad spend, or compliance friction. Earn <strong>10% commission</strong>{" "}
-                  when your referral becomes a successful sale.
+                  Our partner program offers you the opportunity to earn <strong>10% commission</strong>{" "}
+                  on every successful sale that comes through your referral. Here&apos;s how it works:
                 </p>
 
                 <ul className="partnership-features">
-                  <li>Clear outcome-led offers you can explain in one sentence</li>
+                  <li>Simple registration process to become an official partner</li>
                   <li>Generous 10% commission on all converted sales</li>
                   <li>Recurring commissions for subscription-based services</li>
-                  <li>Benchmark-backed proof points for enterprise conversations</li>
+                  <li>Dedicated partner support team</li>
                 </ul>
 
                 <div className="partnership-cta">
                   <a href="mailto:ceo@yablokolabs.com?subject=Partnership%20Inquiry" className="btn btn-primary">
-                    Refer a Business
+                    Join Our Partner Program
                     <svg
                       width="18"
                       height="18"
@@ -645,7 +642,7 @@ export default function Home() {
       <section id="contact" className="social-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-badge">Start with the Bottleneck</span>
+            <span className="section-badge">Stay Connected</span>
             <h2
               className="section-title"
               style={{
@@ -656,11 +653,10 @@ export default function Home() {
                 textShadow: "none",
               }}
             >
-              Talk Outcomes With Us
+              Connect With Us
             </h2>
             <p className="section-subtitle">
-              Tell us where latency, compute cost, logistics waste, ad spend, or compliance risk is slowing growth.
-              We&apos;ll map the measurable improvement to test first.
+              Follow our journey and stay updated with our latest innovations and breakthrough technologies
             </p>
             <div
               style={{
@@ -791,8 +787,8 @@ export default function Home() {
             />
           </div>
           <p className="footer-description">
-            High-performance AI, optimization, and backend engineering for teams that need measurable gains in speed,
-            cost, reliability, and operational throughput.
+            Pioneering innovative technology solutions that transform businesses and shape the digital future. Building
+            tomorrow&apos;s technology today.
           </p>
 
           <div className="footer-divider"></div>
@@ -815,7 +811,7 @@ export default function Home() {
                 }}
               >
                 <span className="rocket-emoji">🚀</span>
-                Yabloko Labs is <span style={{ fontWeight: "bold" }}>Building Measurable AI Systems that Scale</span>
+                Yabloko Labs is <span style={{ fontWeight: "bold" }}>Crafting Hybrid AI-Quantum SaaS that Scales</span>
               </p>
             </div>
             <div className="copyright text-center">
