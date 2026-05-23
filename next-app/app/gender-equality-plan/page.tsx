@@ -32,6 +32,9 @@ export default function GenderEqualityPlan() {
               <Link href="/#brands">Our Brands</Link>
             </li>
             <li>
+              <Link href="/#mcps">Our MCPs</Link>
+            </li>
+            <li>
               <Link href="/#partnership" className="partnership-link">
                 Partnership
                 <span className="gem-badge" title="Earn 10% commission on successful referrals">

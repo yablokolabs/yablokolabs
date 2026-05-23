@@ -75,6 +75,9 @@ export default function Home() {
               <a href="#brands">Our Brands</a>
             </li>
             <li>
+              <a href="#mcps">Our MCPs</a>
+            </li>
+            <li>
               <a href="#partnership" className="partnership-link">
                 Partnership
                 <span className="gem-badge" title="Earn 10% commission on successful referrals">
@@ -509,6 +512,66 @@ export default function Home() {
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MCPs Section */}
+      <section id="mcps" className="mcps-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-badge">Open Source</span>
+            <h2 className="section-title">Our MCPs</h2>
+            <p className="section-subtitle">
+              Model Context Protocol servers we build to give AI agents powerful new capabilities
+            </p>
+          </div>
+
+          <div className="mcps-grid">
+            <a href="https://mcpize.com/mcp/jnaapakam" className="mcp-card" target="_blank" rel="noopener noreferrer">
+              <div className="mcp-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
+                  <path d="M12 12v4" />
+                  <circle cx="12" cy="19" r="2" />
+                  <path d="M6 12c-1.5 1-2 3-2 5" />
+                  <path d="M18 12c1.5 1 2 3 2 5" />
+                </svg>
+              </div>
+              <div className="mcp-content">
+                <h3 className="mcp-title">Jñāpakam</h3>
+                <span className="mcp-badge">Memory MCP</span>
+                <p className="mcp-description">
+                  Persistent long-term memory for AI agents — retain context, preferences, and prior interactions across sessions, restarts, and deployment changes.
+                </p>
+                <div className="mcp-features">
+                  <span className="mcp-feature">store_memory</span>
+                  <span className="mcp-feature">retrieve_memory</span>
+                  <span className="mcp-feature">consolidate_memory</span>
+                </div>
+              </div>
+              <div className="mcp-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
+            {/* Placeholder for upcoming MCPs */}
+            <div className="mcp-card mcp-card-coming-soon">
+              <div className="mcp-icon mcp-icon-soon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+              </div>
+              <div className="mcp-content">
+                <h3 className="mcp-title">Coming Soon</h3>
+                <p className="mcp-description">
+                  More MCPs are on the way. Stay tuned for new capabilities we&apos;re building for the AI ecosystem.
+                </p>
+              </div>
             </div>
           </div>
         </div>
