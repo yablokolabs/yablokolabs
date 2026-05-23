@@ -880,6 +880,163 @@ canvas.fixed {
   }
 }
 
+/* MCPs Section */
+.mcps-section {
+  padding: 5rem 2rem;
+}
+
+.mcps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem auto 2.5rem;
+  max-width: 1200px;
+  padding: 0 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mcp-card {
+  background: rgba(24, 28, 43, 0.45);
+  border-radius: 1.35rem;
+  box-shadow: 0 4px 24px 0 rgba(99,102,241,0.10), 0 1.5px 16px 0 rgba(16,30,54,0.13);
+  padding: 1.8rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.2rem;
+  backdrop-filter: blur(14px) saturate(1.07);
+  border: 1.2px solid rgba(99,102,241,0.10);
+  outline: 1px solid rgba(255,255,255,0.03);
+  transition: box-shadow 0.24s, background 0.24s, transform 0.18s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.mcp-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(99,102,241,0.14), 0 2px 18px 0 rgba(16,30,54,0.17);
+  background: rgba(28, 33, 53, 0.59);
+  transform: translateY(-2px) scale(1.015);
+}
+
+.mcp-card-coming-soon {
+  border: 1.2px dashed rgba(99,102,241,0.25);
+  opacity: 0.7;
+  cursor: default;
+}
+
+.mcp-card-coming-soon:hover {
+  transform: none;
+  box-shadow: 0 4px 24px 0 rgba(99,102,241,0.10), 0 1.5px 16px 0 rgba(16,30,54,0.13);
+  background: rgba(24, 28, 43, 0.45);
+}
+
+.mcp-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 0.9rem;
+  background: rgba(99,102,241,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a5b4fc;
+  box-shadow: 0 2px 12px 0 rgba(99,102,241,0.10);
+}
+
+.mcp-icon-soon {
+  background: rgba(99,102,241,0.06);
+  color: #6b7280;
+}
+
+.mcp-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.mcp-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.3;
+}
+
+.mcp-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #a5b4fc;
+  background: rgba(99,102,241,0.15);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.mcp-description {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0 0 0.8rem 0;
+}
+
+.mcp-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.mcp-feature {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #94a3b8;
+  background: rgba(148,163,184,0.1);
+  border: 1px solid rgba(148,163,184,0.15);
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.55rem;
+  font-family: monospace;
+}
+
+.mcp-arrow {
+  flex-shrink: 0;
+  color: #6366f1;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.2s, transform 0.2s;
+  align-self: center;
+}
+
+.mcp-card:hover .mcp-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .mcps-grid {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
+  }
+  .mcp-card {
+    padding: 1.3rem 1rem;
+    gap: 1rem;
+  }
+  .mcp-icon {
+    width: 46px;
+    height: 46px;
+  }
+  .mcp-title {
+    font-size: 1.1rem;
+  }
+  .mcp-arrow {
+    display: none;
+  }
+}
+
 /* Social Section */
 .social-section {
   padding: 6rem 2rem;
@@ -1161,9 +1318,11 @@ canvas.fixed {
   }
   
   .brand-card,
+  .mcp-card,
   .timeline-item,
   .about-section,
   .brands-section,
+  .mcps-section,
   .partnership-section,
   .social-section {
     background: white !important;
