@@ -558,6 +558,32 @@ export default function Home() {
               </div>
             </a>
 
+            <a href="https://mcpize.com/mcp/truthlens" className="mcp-card" target="_blank" rel="noopener noreferrer">
+              <div className="mcp-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <div className="mcp-content">
+                <h3 className="mcp-title">TruthLens</h3>
+                <span className="mcp-badge">Hallucination Detector</span>
+                <p className="mcp-description">
+                  Formally verified trust scoring for LLM outputs — analyze AI-generated text for hallucination risk with no API keys, no LLM calls. Fast, local, and verified in Lean 4.
+                </p>
+                <div className="mcp-features">
+                  <span className="mcp-feature">trust_scoring</span>
+                  <span className="mcp-feature">no_api_keys</span>
+                  <span className="mcp-feature">lean4_verified</span>
+                </div>
+              </div>
+              <div className="mcp-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
             {/* Placeholder for upcoming MCPs */}
             <div className="mcp-card mcp-card-coming-soon">
               <div className="mcp-icon mcp-icon-soon">
