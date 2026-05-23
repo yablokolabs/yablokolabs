@@ -34,7 +34,7 @@ Yabloko Labs is a UK-based AI and quantum computing company founded in 2025. We 
 
 ## Tech Stack
 
-- **Languages:** C, C++, Python, JavaScript, TypeScript, Nim, Rust, Lean, Mojo, Zero, SystemVerilog
+- **Languages:** C, C++, Python, JavaScript, TypeScript, Nim, Rust, Lean, Mojo, Bend, Zero, SystemVerilog
 - **Frontend:** Next.js, React
 - **Data & Infrastructure:** SQL, Terraform, cloud-native, quantum-inspired algorithms
 
