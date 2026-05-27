@@ -31,6 +31,7 @@ Yabloko Labs is a UK-based AI and quantum computing company founded in 2025. We 
 |-----|-------------|------|
 | **Jñāpakam** | Persistent long-term memory for AI agents — retain context across sessions and restarts | [mcpize.com/mcp/jnaapakam](https://mcpize.com/mcp/jnaapakam) |
 | **TruthLens** | AI Hallucination Detector — formally verified trust scoring for LLM outputs (Lean 4) | [mcpize.com/mcp/truthlens](https://mcpize.com/mcp/truthlens) |
+| **NexaCore** | Universal runtime for high-dimensional holographic hypervector computing — encode, compute, and query in geometric algebraic spaces | [mcpize.com/mcp/nexa-core](https://mcpize.com/mcp/nexa-core) |
 
 ## Tech Stack
 
