@@ -4,7 +4,7 @@
 
 Yabloko Labs is a UK-based AI and quantum computing company founded in 2025. We build intelligent systems across AI, quantum-inspired optimization, and scalable backend infrastructure using Python, Rust, and cloud-native technologies.
 
-## Achievement: QuantumClaw 🤖
+## QuantumClaw 🤖
 
 **QuantumClaw** is Yabloko Labs' world's first quantum-based Claw agent — a general-purpose Rust agent runtime built on ZeroClaw with hybrid planning, classical planners, quantum-inspired planners, memory-enabled long-running agents, and future quantum backend portability.
 
