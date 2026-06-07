@@ -47,7 +47,7 @@ Yabloko Labs is a UK-based AI and quantum computing company founded in 2025. We 
 - **Frontend:** React, Next.js
 - **Infrastructure & Platforms:** Terraform, Docker, Kubernetes, cloud-native architectures, AWS, Azure, GCP
 - **Messaging & Streaming:** Kafka, RabbitMQ
-- **AI, Compute & Optimization:** PyTorch, JAX, Triton, Hyperdimensional Computing (HDC), quantum-inspired algorithms, tensor-based optimization
+- **AI, Compute & Optimization:** PyTorch, JAX, CUDA, CUDA-Q, Triton, Hyperdimensional Computing (HDC), quantum-inspired algorithms, tensor-based optimization, GPU acceleration, parallel computing
 - **Data & Performance:** PostgreSQL, ClickHouse, Redis, kdb+/q, real-time streaming analytics
 
 ## Partnership
