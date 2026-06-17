@@ -1,13 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import dynamic from "next/dynamic";
 
 import { useEffect, useState } from "react";
 import SiteNavigation from "./components/SiteNavigation";
 import SiteFooter from "./components/SiteFooter";
-
-const CursorProvider = dynamic(() => import("../components/CursorProvider"), { ssr: false });
 
 function StatCard(
   { icon, end, suffix, label, isInfinity = false }: {
@@ -50,9 +47,8 @@ import BackToTopButton from "./components/BackToTopButton";
 
 export default function Home() {
   return (
-    <CursorProvider>
-      <>
-        <SiteNavigation />
+    <>
+      <SiteNavigation />
 
       {/* Hero Section */}
       <section className="hero">
@@ -816,7 +812,6 @@ export default function Home() {
 
       <SiteFooter />
       <BackToTopButton />
-      </>
-    </CursorProvider>
+    </>
   );
 }
