@@ -3,7 +3,19 @@
   
   <url>
     <loc>https://yablokolabs.com/</loc>
-    <lastmod>2025-09-11T21:39:35.682Z</lastmod>
+    <lastmod>2026-06-17T10:40:22.731Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yablokolabs.com/ai-agents</loc>
+    <lastmod>2026-06-17T10:40:22.731Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yablokolabs.com/gender-equality-plan</loc>
+    <lastmod>2026-06-17T10:40:22.731Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

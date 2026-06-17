@@ -16,7 +16,8 @@ const generateSitemap = () => {
     // List of pages to include in the sitemap
     const pages = [
       "/", // Home page
-      // Add any other internal pages here as they are created
+      "/ai-agents",
+      "/gender-equality-plan",
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

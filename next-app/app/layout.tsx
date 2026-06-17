@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import CursorProvider from "../components/CursorProvider";
+import AiAgentsDiscoveryWidget from "./components/AiAgentsDiscoveryWidget";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -89,6 +90,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <CursorProvider>
           {children}
+          <AiAgentsDiscoveryWidget />
         </CursorProvider>
         <Script
           id="cf-analytics"

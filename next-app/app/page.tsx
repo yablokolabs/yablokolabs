@@ -3,6 +3,8 @@
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
+import SiteNavigation from "./components/SiteNavigation";
+import SiteFooter from "./components/SiteFooter";
 
 function StatCard(
   { icon, end, suffix, label, isInfinity = false }: {
@@ -46,53 +48,7 @@ import BackToTopButton from "./components/BackToTopButton";
 export default function Home() {
   return (
     <>
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <a href="#" className="logo">
-            <Image
-              src="/assets/images/yablokolabs-logo-symbol.png"
-              alt="Yabloko Labs Logo"
-              width={40}
-              height={40}
-              className="logo-img"
-              style={{ transition: "transform 0.5s ease-in-out" }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(360deg)"}
-              onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
-              priority
-            />
-            <span className="logo-text">Yabloko Labs</span>
-          </a>
-          <ul className="nav-links">
-            <li className="nav-dropdown">
-              <a href="#about" className="nav-dropdown-toggle">About</a>
-              <div className="nav-dropdown-menu">
-                <a href="#about">Our Story</a>
-                <a href="/gender-equality-plan">Gender Equality Plan</a>
-              </div>
-            </li>
-            <li>
-              <a href="#brands">Our Brands</a>
-            </li>
-            <li>
-              <a href="#mcps">Our MCPs</a>
-            </li>
-            <li>
-              <a href="#partnership" className="partnership-link">
-                Partnership
-                <span className="gem-badge" title="Earn 10% commission on successful referrals">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#D4AF37" strokeWidth="1.5">
-                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                  </svg>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#contact">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <SiteNavigation />
 
       {/* Hero Section */}
       <section className="hero">
@@ -147,7 +103,7 @@ export default function Home() {
             Innovation at its Core
           </div>
           <h1 className="hero-title">
-            Pioneering the <span className="quantum-gradient">Quantum</span> Future with
+            Pioneering the <span className="quantum-gradient">Quantum/AI</span> Future with
             <span className="block text-2xl mt-2 font-normal yl-gradient">Yabloko Labs</span>
           </h1>
           <style jsx>
@@ -215,6 +171,79 @@ export default function Home() {
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="ai-teaser-section">
+        <div className="container">
+          <div className="ai-teaser-card">
+            <div className="ai-teaser-copy">
+              <span className="section-badge">AI Agents</span>
+              <h2 className="section-title">Custom AI Agents For Modern Businesses</h2>
+              <p className="section-subtitle ai-teaser-subtitle">
+                Yabloko Labs designs, deploys, and operates custom AI Agents that automate workflows, improve
+                operational efficiency, and help organisations scale without increasing headcount.
+              </p>
+              <p className="ai-teaser-body">
+                From DevOps automation and customer operations to internal knowledge systems and enterprise workflows,
+                our AI Agents are built around measurable business outcomes.
+              </p>
+              <div className="ai-teaser-highlights">
+                {[
+                  "Custom AI Agent Development",
+                  "OpenClaw & Hermes Agent Systems",
+                  "Enterprise Workflow Automation",
+                  "Managed AI Operations",
+                  "Cloud-Agnostic Deployments",
+                ].map((item) => (
+                  <span key={item} className="pill-chip">
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <a href="/ai-agents" className="btn btn-primary">
+                Explore AI Agents
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+
+            <div className="ai-teaser-visual" aria-hidden="true">
+              <div className="ai-teaser-panel">
+                <span className="ai-panel-label">Automation Areas</span>
+                <div className="ai-panel-grid">
+                  <span>DevOps</span>
+                  <span>Support</span>
+                  <span>Knowledge</span>
+                  <span>Operations</span>
+                </div>
+              </div>
+              <div className="ai-teaser-flow">
+                <div className="ai-flow-node">
+                  <strong>Design</strong>
+                  <span>Business-aligned architecture</span>
+                </div>
+                <div className="ai-flow-node">
+                  <strong>Deploy</strong>
+                  <span>Cloud-agnostic production rollout</span>
+                </div>
+                <div className="ai-flow-node">
+                  <strong>Operate</strong>
+                  <span>Monitoring, optimization, and maintenance</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -781,112 +810,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <div
-            className="footer-logo"
-            style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}
-          >
-            <span
-              style={{
-                fontWeight: 700,
-                fontSize: "1.25rem",
-                letterSpacing: "0.02em",
-                background: "linear-gradient(90deg, #fff 0%, #a5b4fc 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Yabloko Labs
-            </span>
-            <Image
-              src="/assets/images/yablokolabs-logo-symbol.png"
-              alt="Yabloko Labs"
-              width={54}
-              height={54}
-              className="about-logo"
-              style={{
-                color: "transparent",
-                marginTop: "0.25rem",
-                transition: "transform 0.5s ease-in-out",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(360deg)"}
-              onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <p className="footer-description">
-            Pioneering innovative technology solutions that transform businesses and shape the digital future. Building
-            tomorrow&apos;s technology today.
-          </p>
-
-          <div className="footer-divider"></div>
-
-          <div className="footer-bottom">
-            <div className="text-center" style={{ marginBottom: "20px" }}>
-              <p
-                style={{
-                  fontSize: "14px",
-                  fontFamily: "Arial, sans-serif",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "8px",
-                  background: "linear-gradient(90deg, var(--primary-dark), var(--accent))",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  fontWeight: 500,
-                }}
-              >
-                <span className="rocket-emoji">🚀</span>
-                Yabloko Labs is <span style={{ fontWeight: "bold" }}>Crafting Hybrid AI-Quantum SaaS that Scales</span>
-              </p>
-            </div>
-            <div className="copyright text-center">
-              © 2025-2026 Yabloko Labs Ltd. All rights reserved <br></br>
-              <a
-                href="https://maps.app.goo.gl/L6vq5D8wfC3n4nt36"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline underline-offset-4"
-              >
-                71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
-              </a>
-              <br />
-              <div
-                style={{ marginTop: "1rem", display: "flex", justifyContent: "center", gap: "2rem", flexWrap: "wrap" }}
-              >
-                <a
-                  href="/gender-equality-plan"
-                  style={{ color: "#a5b4fc", textDecoration: "none", fontSize: "0.875rem" }}
-                  className="hover:underline"
-                >
-                  Gender Equality Plan
-                </a>
-                <a
-                  href="mailto:ceo@yablokolabs.com"
-                  style={{ color: "#a5b4fc", textDecoration: "none", fontSize: "0.875rem" }}
-                  className="hover:underline"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-            <div className="legal-info text-center">
-              <span className="legal-item">CRN: 16660148</span>
-              <span className="legal-item">CIN: U62011KA2025PTC201171</span>
-              <span className="legal-item">MSME: UDYAM-KR-03-0533847</span>
-              <span className="legal-item">DPIIT: DIPP209889</span>
-              <span className="legal-item">GSTIN: 29AABCY9947J1ZG</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
       <BackToTopButton />
     </>
   );
