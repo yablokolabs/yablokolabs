@@ -739,8 +739,8 @@ export default function Home() {
               <br />
               <span style={{ fontWeight: "bold", color: "#23264d" }}>
                 📱{" "}
-                <a href="tel:+447367196915" style={{ color: "#3a5be0", textDecoration: "underline" }}>
-                  +44 7367 196915
+                <a href="tel:+447576597431" style={{ color: "#3a5be0", textDecoration: "underline" }}>
+                  +44 7576 597431
                 </a>
               </span>
             </div>
