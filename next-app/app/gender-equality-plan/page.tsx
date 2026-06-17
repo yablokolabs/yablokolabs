@@ -3,53 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import BackToTopButton from "../components/BackToTopButton";
+import SiteNavigation from "../components/SiteNavigation";
 
 export default function GenderEqualityPlan() {
   return (
     <>
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <Link href="/" className="logo">
-            <Image
-              src="/assets/images/yablokolabs-logo-symbol.png"
-              alt="Yabloko Labs Logo"
-              width={40}
-              height={40}
-              className="logo-img"
-              style={{ transition: "transform 0.5s ease-in-out" }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(360deg)"}
-              onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
-              priority
-            />
-            <span className="logo-text">Yabloko Labs</span>
-          </Link>
-          <ul className="nav-links">
-            <li>
-              <Link href="/#about">About</Link>
-            </li>
-            <li>
-              <Link href="/#brands">Our Brands</Link>
-            </li>
-            <li>
-              <Link href="/#mcps">Our MCPs</Link>
-            </li>
-            <li>
-              <Link href="/#partnership" className="partnership-link">
-                Partnership
-                <span className="gem-badge" title="Earn 10% commission on successful referrals">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#D4AF37" strokeWidth="1.5">
-                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                  </svg>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/#contact">Contact Us</Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <SiteNavigation subpage />
 
       {/* Hero Section */}
       <section className="hero">
