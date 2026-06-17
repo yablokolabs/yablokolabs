@@ -130,10 +130,90 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Custom AI Agent Development & Operations",
+  description:
+    "Yabloko Labs designs, builds, deploys, and manages custom AI Agents for business automation. From DevOps and customer support to operational automation, we deliver production-ready AI Agent systems.",
+  provider: {
+    "@type": "Organization",
+    name: "Yabloko Labs Ltd",
+    url: "https://yablokolabs.com",
+    logo: "https://yablokolabs.com/assets/images/yablokolabs-logo-symbol.png",
+    sameAs: [
+      "https://www.linkedin.com/in/yabloko-labs-4858bb366/",
+      "https://github.com/yablokolabs",
+      "https://www.instagram.com/yabloko_labs/",
+      "https://www.facebook.com/people/yablokolabs/61578265855070",
+      "https://www.youtube.com/@map2map",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "71-75 Shelton Street, Covent Garden",
+      addressLocality: "London",
+      postalCode: "WC2H 9JQ",
+      addressCountry: "GB",
+    },
+  },
+  serviceType: "AI Agent Development & Operations",
+  areaServed: "Worldwide",
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceUrl: "https://yablokolabs.com/ai-agents",
+    availableLanguage: "en",
+  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Starter Tier",
+      description: "Single AI Agent, targeted workflow automation, early AI initiatives",
+      price: "4000",
+      priceCurrency: "GBP",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "4000",
+        priceCurrency: "GBP",
+        billingDuration: "P1M",
+      },
+    },
+    {
+      "@type": "Offer",
+      name: "Growth Tier",
+      description: "Multiple AI Agents, cross-team workflows, operational automation programmes",
+      price: "8000",
+      priceCurrency: "GBP",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "8000",
+        priceCurrency: "GBP",
+        billingDuration: "P1M",
+      },
+    },
+    {
+      "@type": "Offer",
+      name: "Enterprise Tier",
+      description: "Multi-agent ecosystems, enterprise-wide automation, advanced infrastructure",
+      price: "15000",
+      priceCurrency: "GBP",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "15000",
+        priceCurrency: "GBP",
+        billingDuration: "P1M",
+      },
+    },
+  ],
+};
+
 export default function AIAgentsPage() {
   return (
     <>
       <SiteNavigation subpage />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <section className="hero ai-hero">
         <div className="hero-content ai-hero-grid">

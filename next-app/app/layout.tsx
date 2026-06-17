@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import CursorProvider from "../components/CursorProvider";
 import AiAgentsDiscoveryWidget from "./components/AiAgentsDiscoveryWidget";
 
 const inter = Inter({
@@ -88,10 +87,8 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <CursorProvider>
-          {children}
-          <AiAgentsDiscoveryWidget />
-        </CursorProvider>
+        {children}
+        <AiAgentsDiscoveryWidget />
         <Script
           id="cf-analytics"
           strategy="afterInteractive"

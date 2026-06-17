@@ -4,7 +4,7 @@
   position: fixed;
   right: 2rem;
   bottom: 2.5rem;
-  z-index: 1000;
+  z-index: var(--z-back-to-top);
   background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
   color: #fff;
   border: none;
@@ -64,6 +64,18 @@
   --border-radius: 16px;
   --border-radius-sm: 8px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-index scale — single source of truth for layering */
+  --z-background: -1;
+  --z-content: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-navbar: 1000;
+  --z-back-to-top: 1000;
+  --z-widget: 1100;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+  --z-cursor: 9999;
 }
 
 html {
@@ -165,7 +177,7 @@ canvas.fixed {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--z-navbar);
   background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(20px);
   transition: var(--transition);
@@ -1863,7 +1875,7 @@ canvas.fixed {
   border: 1px solid rgba(99,102,241,0.22);
   box-shadow: 0 20px 45px rgba(2, 6, 23, 0.4), 0 8px 20px rgba(99,102,241,0.12);
   backdrop-filter: blur(18px) saturate(1.08);
-  z-index: 999;
+  z-index: var(--z-widget);
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px) scale(0.97);
@@ -2208,7 +2220,7 @@ canvas.fixed {
   position: fixed;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: var(--z-cursor);
   transform: translate(-50%, -50%);
   mix-blend-mode: difference;
 }
@@ -2220,7 +2232,7 @@ canvas.fixed {
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
-  z-index: 9998;
+  z-index: calc(var(--z-cursor) - 1);
   transform: translate(-50%, -50%);
   transition: all 0.08s ease-out;
   mix-blend-mode: difference;
@@ -2259,7 +2271,7 @@ canvas.fixed {
   background: radial-gradient(circle, rgba(129,140,248,0.3) 0%, rgba(99,102,241,0) 70%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9997;
+  z-index: calc(var(--z-cursor) - 2);
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
 }
