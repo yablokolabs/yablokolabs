@@ -2,8 +2,8 @@
 
 import dynamic from "next/dynamic";
 
-const CursorProvider = dynamic(() => import("../../components/CursorProvider"), { ssr: false });
+const CustomCursor = dynamic(() => import("../../components/CustomCursor"), { ssr: false });
 
-export default function CursorProviderWrapper({ children }: { children: React.ReactNode }) {
-  return <CursorProvider>{children}</CursorProvider>;
+export default function CursorProviderWrapper() {
+  return <CustomCursor />;
 }

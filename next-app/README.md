@@ -20,6 +20,23 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Tests
+
+```bash
+npm run build   # required first — tests read the static export in out/
+npm test
+```
+
+Two suites run against the exported HTML, i.e. exactly what a visitor or crawler receives:
+
+- `tests/governance-content.test.mjs` guards the standards claims on `/ai-agents`. Yabloko Labs holds no ISO
+  certifications, so the shipped page must never assert one. The suite fails the build if certification-implying
+  wording appears, if a promised standard goes missing, if the unpublished ISO/IEC TS 25570 is mentioned without
+  being qualified as emerging, or if the research DOI stops resolving.
+- `tests/prerender.test.mjs` guards server rendering. Wrapping `{children}` in a component loaded with
+  `dynamic(..., { ssr: false })` silently strips every page down to an empty shell with no crawlable markup and no
+  JSON-LD. The suite fails if the export stops shipping rendered HTML.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
