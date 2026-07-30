@@ -597,7 +597,9 @@ export default function AIAgentsPage() {
 
           <div className="governance-research">
             <span className="section-badge">Standards Research</span>
-            <h3>We don&apos;t only apply these standards. We help shape them.</h3>
+            <h3>
+              We don&apos;t just read these standards. We&apos;re funded by the EU to analyse where they fall short.
+            </h3>
             <p>
               Our assessment of where ISO/IEC 42001, 23894, 5338 and the emerging ISO/IEC TS 25570 fall short for
               production AI is published and citable, produced under an EU-funded StandICT.eu fellowship. It includes a

@@ -104,6 +104,31 @@ test("shipped page links the citable standards research", () => {
   );
 });
 
+// Yabloko Labs is a StandICT.eu fellow researching these standards, and self-
+// identified as a newcomer to formal ICT standardisation in that application.
+// Contributing to an ISO standard means submitted contributions, ballot comments
+// and working group membership. Until that is true and verifiable against the
+// relevant committee, the page must not imply it.
+test("shipped page does not claim ISO committee membership or authorship", () => {
+  const lower = html.toLowerCase();
+  const unverifiedClaims = [
+    "help shape them",
+    "we help shape",
+    "we shape these standards",
+    "we write the standards",
+    "we co-author the standards",
+    "member of sc 42",
+    "sc 42 member",
+    "committee member",
+  ];
+  for (const claim of unverifiedClaims) {
+    assert.ok(
+      !lower.includes(claim),
+      `Shipped page implies ISO committee participation, which is not established: "${claim}"`,
+    );
+  }
+});
+
 test("shipped page does not claim absolute security outcomes", () => {
   const lower = html.toLowerCase();
   for (const claim of ["harder to hack", "unhackable", "cannot be breached", "100% secure"]) {
