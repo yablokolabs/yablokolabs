@@ -88,10 +88,9 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <CursorProviderWrapper>
-          {children}
-          <AiAgentsDiscoveryWidget />
-        </CursorProviderWrapper>
+        <CursorProviderWrapper />
+        {children}
+        <AiAgentsDiscoveryWidget />
         <Script
           id="cf-analytics"
           strategy="afterInteractive"
