@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import SiteNavigation from "../components/SiteNavigation";
-import SiteFooter from "../components/SiteFooter";
-import BackToTopButton from "../components/BackToTopButton";
 import AiAgentsLeadForm from "../components/AiAgentsLeadForm";
+import BackToTopButton from "../components/BackToTopButton";
+import SiteFooter from "../components/SiteFooter";
+import SiteNavigation from "../components/SiteNavigation";
 
 const useCases = [
   {
@@ -74,6 +74,60 @@ const capabilities = [
   "Platform Engineering",
 ];
 
+const standards = [
+  {
+    code: "ISO/IEC 42001",
+    scope: "Organisational standard",
+    scopeKind: "org",
+    title: "AI Management Systems",
+    body:
+      "Certification belongs to your organisation, not to a supplier. We build agents that fit inside a 42001 management system — defined objectives, assigned roles, change control, and the records your AIMS has to produce at audit.",
+  },
+  {
+    code: "ISO/IEC 23894",
+    scope: "Engineering process",
+    scopeKind: "eng",
+    title: "AI Risk Management",
+    body:
+      "Applied directly in how we build. Every agent ships with a risk register: identified harms, likelihood, treatment, and residual risk — reviewed and signed off, not assumed.",
+  },
+  {
+    code: "ISO/IEC 5338",
+    scope: "Engineering process",
+    scopeKind: "eng",
+    title: "AI System Life Cycle Processes",
+    body:
+      "A defined life cycle from concept to retirement — requirements, verification, deployment, monitoring, and decommissioning. Each stage has an owner and leaves an artifact behind.",
+  },
+  {
+    code: "ISO/IEC 27001 · 27701",
+    scope: "Organisational standard",
+    scopeKind: "org",
+    title: "Security & Privacy",
+    body:
+      "Engineered on their control objectives: least-privilege access, sandboxed execution, data minimisation, and privacy by design. Your ISMS and PIMS stay certifiable; the agent does not put that at risk.",
+  },
+];
+
+const assurances = [
+  {
+    title: "Sandboxed execution, least-privilege access",
+    copy: "Harder to compromise, and blast radius is bounded by design.",
+  },
+  {
+    title: "Risk register and reliability testing",
+    copy: "Failure modes identified and tested, not discovered in production.",
+  },
+  {
+    title: "Life cycle documentation and audit trails",
+    copy: "You can prove how the agent works — to a regulator, or to a customer.",
+  },
+  {
+    title: "Privacy by design, data minimisation",
+    copy: "The agent holds the least data that still does the job.",
+  },
+];
+
 const pricingTiers = [
   {
     label: "Starter",
@@ -85,7 +139,12 @@ const pricingTiers = [
     label: "Growth",
     price: "From £8,000/month",
     idealFor: ["Multiple AI Agents", "Cross-team workflows", "Operational automation programmes"],
-    includes: ["Everything in Starter", "Additional integrations", "Enhanced monitoring", "Monthly optimization reviews"],
+    includes: [
+      "Everything in Starter",
+      "Additional integrations",
+      "Enhanced monitoring",
+      "Monthly optimization reviews",
+    ],
     featured: true,
   },
   {
@@ -99,7 +158,7 @@ const pricingTiers = [
 export const metadata: Metadata = {
   title: "AI Agents | Yabloko Labs",
   description:
-    "Custom AI Agents built, deployed, and managed by Yabloko Labs. From DevOps and customer support to operational automation, we deliver production-ready AI Agent systems.",
+    "Custom AI Agents built, deployed and managed by Yabloko Labs. Engineered against ISO/IEC 42001, 23894 and 5338 so your agents stay auditable in production.",
   keywords: [
     "AI Agents",
     "Custom AI Agents",
@@ -110,6 +169,13 @@ export const metadata: Metadata = {
     "Hermes Agents",
     "Business Automation",
     "AI Consulting",
+    "AI Governance",
+    "Responsible AI",
+    "Auditable AI Agents",
+    "AI Risk Management",
+    "ISO/IEC 42001",
+    "ISO/IEC 23894",
+    "ISO/IEC 5338",
   ],
   alternates: {
     canonical: "https://yablokolabs.com/ai-agents",
@@ -206,6 +272,34 @@ const jsonLd = {
   ],
 };
 
+const researchJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  name: "Trustworthy AI Standardisation for Financial Services",
+  description:
+    "Assessment of ISO/IEC 42001, 23894, 5338 and the emerging ISO/IEC TS 25570 for production AI, including a controls gap matrix for financial services and a Continuous Reliability Assurance proposal with reference implementation.",
+  identifier: "https://doi.org/10.5281/zenodo.21603770",
+  url: "https://doi.org/10.5281/zenodo.21603770",
+  license: "https://opensource.org/licenses/MIT",
+  datePublished: "2026-07-26",
+  author: {
+    "@type": "Person",
+    name: "Santhosh Balasa",
+    affiliation: {
+      "@type": "Organization",
+      name: "Yabloko Labs Ltd",
+    },
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Zenodo",
+  },
+  funding: {
+    "@type": "Grant",
+    name: "StandICT.eu 2029 Fellowship",
+  },
+};
+
 export default function AIAgentsPage() {
   return (
     <>
@@ -213,6 +307,10 @@ export default function AIAgentsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(researchJsonLd) }}
       />
 
       <section className="hero ai-hero">
@@ -310,7 +408,16 @@ export default function AIAgentsPage() {
             <div className="outcome-surface">
               <h3>Yabloko Labs handles</h3>
               <div className="pill-cloud">
-                {["models", "tokens", "vector databases", "orchestration frameworks", "infrastructure", "monitoring", "scaling", "maintenance"].map((item) => (
+                {[
+                  "models",
+                  "tokens",
+                  "vector databases",
+                  "orchestration frameworks",
+                  "infrastructure",
+                  "monitoring",
+                  "scaling",
+                  "maintenance",
+                ].map((item) => (
                   <span key={item} className="pill-chip">
                     {item}
                   </span>
@@ -320,7 +427,13 @@ export default function AIAgentsPage() {
             <div className="outcome-surface">
               <h3>Your team focuses on</h3>
               <div className="pill-cloud">
-                {["revenue growth", "customer experience", "operational efficiency", "engineering productivity", "business automation"].map((item) => (
+                {[
+                  "revenue growth",
+                  "customer experience",
+                  "operational efficiency",
+                  "engineering productivity",
+                  "business automation",
+                ].map((item) => (
                   <span key={item} className="pill-chip pill-chip-bright">
                     {item}
                   </span>
@@ -373,9 +486,7 @@ export default function AIAgentsPage() {
               <div key={group.title} className="use-case-card">
                 <h3>{group.title}</h3>
                 <ul className="use-case-list">
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
+                  {group.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
               </div>
             ))}
@@ -429,6 +540,85 @@ export default function AIAgentsPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="governance" className="ai-section governance-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-badge">Governance &amp; Assurance</span>
+            <h2 className="section-title">Fast Without Standards Is Just Risk In Production</h2>
+            <p className="section-subtitle">
+              Most AI Agents are customized to a use case and shipped fast. We do that too &mdash; but we don&apos;t
+              skip governance. Customization without control is exactly when systems get compromised, misused, or become
+              un-auditable.
+            </p>
+          </div>
+
+          <h3 className="governance-block-heading">The standards we engineer against</h3>
+          <div className="standards-grid">
+            {standards.map((standard) => (
+              <div key={standard.code} className="standard-card">
+                <div className="standard-card-header">
+                  <span className="standard-code">{standard.code}</span>
+                  <span className={`standard-scope standard-scope-${standard.scopeKind}`}>{standard.scope}</span>
+                </div>
+                <h4>{standard.title}</h4>
+                <p>{standard.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="governance-block-heading">What that means for the agent you receive</h3>
+          <div className="assurance-grid">
+            {assurances.map((item) => (
+              <div key={item.title} className="assurance-card">
+                <span className="assurance-tick" aria-hidden="true">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </span>
+                <div>
+                  <strong>{item.title}</strong>
+                  <span>{item.copy}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="governance-research">
+            <span className="section-badge">Standards Research</span>
+            <h3>We don&apos;t only apply these standards. We help shape them.</h3>
+            <p>
+              Our assessment of where ISO/IEC 42001, 23894, 5338 and the emerging ISO/IEC TS 25570 fall short for
+              production AI is published and citable, produced under an EU-funded StandICT.eu fellowship. It includes a
+              controls gap matrix for AI in financial services and a Continuous Reliability Assurance proposal with a
+              reference implementation.
+            </p>
+            <a
+              className="governance-doi"
+              href="https://doi.org/10.5281/zenodo.21603770"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Trustworthy AI Standardisation for Financial Services
+              <span>DOI 10.5281/zenodo.21603770</span>
+            </a>
+          </div>
+
+          <p className="governance-disclaimer">
+            Yabloko Labs is not an ISO-certified body and does not claim to be. These standards define how we engineer;
+            the evidence we hand over is designed to stand up inside your certified management system.
+          </p>
         </div>
       </section>
 
@@ -495,17 +685,13 @@ export default function AIAgentsPage() {
                 <div className="pricing-block">
                   <h4>Ideal for</h4>
                   <ul className="pricing-list">
-                    {tier.idealFor.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
+                    {tier.idealFor.map((item) => <li key={item}>{item}</li>)}
                   </ul>
                 </div>
                 <div className="pricing-block">
                   <h4>Includes</h4>
                   <ul className="pricing-list">
-                    {tier.includes.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
+                    {tier.includes.map((item) => <li key={item}>{item}</li>)}
                   </ul>
                 </div>
               </div>
