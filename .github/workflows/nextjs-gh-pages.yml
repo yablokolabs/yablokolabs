@@ -40,6 +40,12 @@ jobs:
           npm ci
           npm run build
 
+      # Runs against the export produced above, so a claim that would
+      # misrepresent the company cannot reach production.
+      - name: Test
+        working-directory: ./next-app
+        run: npm test
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
