@@ -2343,6 +2343,13 @@ canvas.fixed {
   margin-bottom: 1.15rem;
 }
 
+.blog-lead {
+  font-size: 1.75rem;
+  line-height: 1.4;
+  color: #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
 .blog-prose code {
   padding: 0.15em 0.4em;
   border-radius: 6px;

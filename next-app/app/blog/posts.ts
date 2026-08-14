@@ -18,6 +18,20 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "searxng-independent-discovery",
+    title: "SearXNG: Independent Meta‑Search for Agent‑Ready Discovery",
+    subtitle:
+      "Giving AI agents a broader, independently aggregated view of the web — without permanently binding discovery to a single provider.",
+    excerpt:
+      "Meta‑search reduces dependence on any single ranking system; verification establishes truth separately. Setup, independent verification, and the architecture that separates discovery, retrieval, and reasoning.",
+    date: "2026-08-14",
+    readTime: "4 min read",
+    category: "Discovery Engineering",
+    tags: ["AI Agents", "Meta‑Search", "SearXNG", "Agent Discovery", "Verification"],
+    author: "Yabloko Labs Ltd",
+    testedAgainst: "Self-hosted SearXNG · August 2026",
+  },
+  {
     slug: "hermes-provider-fallbacks",
     title: "Hermes Provider Fallbacks",
     subtitle:

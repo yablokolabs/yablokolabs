@@ -6,10 +6,12 @@ import BackToTopButton from "../../components/BackToTopButton";
 import SiteFooter from "../../components/SiteFooter";
 import SiteNavigation from "../../components/SiteNavigation";
 import HermesProviderFallbacks from "../articles/hermes-provider-fallbacks";
+import SearxngIndependentDiscovery from "../articles/searxng-independent-discovery";
 import { blogPosts, formatPostDate, getPostBySlug } from "../posts";
 
 const articles: Record<string, ComponentType> = {
   "hermes-provider-fallbacks": HermesProviderFallbacks,
+  "searxng-independent-discovery": SearxngIndependentDiscovery,
 };
 
 export function generateStaticParams() {
