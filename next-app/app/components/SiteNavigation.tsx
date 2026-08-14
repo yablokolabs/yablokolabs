@@ -44,6 +44,9 @@ export default function SiteNavigation({ subpage = false }: SiteNavigationProps)
             <Link href="/ai-agents">AI Agents</Link>
           </li>
           <li>
+            <Link href="/blog">Blog</Link>
+          </li>
+          <li>
             <a href={`${sectionPrefix}#partnership`} className="partnership-link">
               Partnership
               <span className="gem-badge" title="Earn 10% commission on successful referrals">
