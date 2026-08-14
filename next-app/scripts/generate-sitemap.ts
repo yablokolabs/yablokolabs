@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
+import { blogPosts } from "../app/blog/posts";
 
 // Sitemap generator for Yabloko Labs
 const generateSitemap = () => {
@@ -13,11 +14,14 @@ const generateSitemap = () => {
       mkdirSync(publicDir, { recursive: true });
     }
 
-    // List of pages to include in the sitemap
+    // List of pages to include in the sitemap. Blog posts are derived from the
+    // registry so a new post cannot be forgotten here.
     const pages = [
       "/", // Home page
       "/ai-agents",
       "/gender-equality-plan",
+      "/blog",
+      ...blogPosts.map((post) => `/blog/${post.slug}`),
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
