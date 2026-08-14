@@ -13,10 +13,12 @@ const resolveExport = (route) => {
 };
 
 const HERMES_SLUG = "hermes-provider-fallbacks";
+const SEARXNG_SLUG = "searxng-independent-discovery";
 
 let indexHtml = "";
 let blogHtml = "";
 let postHtml = "";
+let searxngHtml = "";
 let sitemap = "";
 
 before(() => {
@@ -24,6 +26,7 @@ before(() => {
     "the home page": "index",
     "the blog index": "blog",
     "the Hermes post": `blog/${HERMES_SLUG}`,
+    "the SearXNG post": `blog/${SEARXNG_SLUG}`,
   };
 
   const resolved = {};
@@ -41,6 +44,7 @@ before(() => {
   indexHtml = resolved["index"];
   blogHtml = resolved["blog"];
   postHtml = resolved[`blog/${HERMES_SLUG}`];
+  searxngHtml = resolved[`blog/${SEARXNG_SLUG}`];
 
   const sitemapPath = join(OUT, "sitemap.xml");
   if (!existsSync(sitemapPath)) {
@@ -105,6 +109,36 @@ test("the article ships BlogPosting structured data as a real script tag", () =>
   );
 });
 
+test("the SearXNG post renders one headline and its full body as real HTML", () => {
+  const h1Count = (searxngHtml.match(/<h1/g) ?? []).length;
+  assert.equal(
+    h1Count,
+    1,
+    `Expected exactly one h1 (the page header) in the SearXNG post, found ${h1Count}. ` +
+      "The article must not render a duplicate heading of its own.",
+  );
+  assert.match(
+    searxngHtml,
+    /Aggregated Candidate Results/,
+    "The architecture diagram is missing from the rendered SearXNG post.",
+  );
+  assert.match(
+    searxngHtml,
+    /discovery layer, not a truth layer/,
+    "The SearXNG article body is missing from the rendered HTML.",
+  );
+  assert.match(
+    searxngHtml,
+    /class="blog-lead"[^>]*><strong>Giving an AI agent web access/,
+    "The SearXNG post does not ship its opening statement as a distinct lead paragraph.",
+  );
+  assert.match(
+    searxngHtml,
+    /format=json.*403|403 Forbidden/,
+    "The SearXNG article's verified JSON-format pitfall is missing from the rendered HTML.",
+  );
+});
+
 test("the sitemap lists the blog index and every post", () => {
   assert.ok(
     sitemap.includes("<loc>https://yablokolabs.com/blog</loc>"),
@@ -113,6 +147,11 @@ test("the sitemap lists the blog index and every post", () => {
   assert.ok(
     sitemap.includes(`<loc>https://yablokolabs.com/blog/${HERMES_SLUG}</loc>`),
     `The sitemap does not list /blog/${HERMES_SLUG}. ` +
+      `The sitemap should be generated from the post registry so new posts cannot be forgotten.`,
+  );
+  assert.ok(
+    sitemap.includes(`<loc>https://yablokolabs.com/blog/${SEARXNG_SLUG}</loc>`),
+    `The sitemap does not list /blog/${SEARXNG_SLUG}. ` +
       `The sitemap should be generated from the post registry so new posts cannot be forgotten.`,
   );
 });
