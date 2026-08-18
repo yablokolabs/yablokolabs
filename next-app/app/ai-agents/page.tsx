@@ -131,13 +131,13 @@ const assurances = [
 const pricingTiers = [
   {
     label: "Starter",
-    price: "From £4,000/month",
+    price: "From £400/month",
     idealFor: ["Single AI Agent", "Targeted workflow automation", "Early AI initiatives"],
     includes: ["Discovery", "Architecture", "Development", "Deployment", "Maintenance"],
   },
   {
     label: "Growth",
-    price: "From £8,000/month",
+    price: "From £800/month",
     idealFor: ["Multiple AI Agents", "Cross-team workflows", "Operational automation programmes"],
     includes: [
       "Everything in Starter",
@@ -149,7 +149,7 @@ const pricingTiers = [
   },
   {
     label: "Enterprise",
-    price: "From £15,000/month",
+    price: "From £1,500/month",
     idealFor: ["Multi-agent ecosystems", "Enterprise-wide automation", "Advanced infrastructure requirements"],
     includes: ["Everything in Growth", "Dedicated architecture support", "Enterprise governance", "Priority support"],
   },
@@ -234,11 +234,11 @@ const jsonLd = {
       "@type": "Offer",
       name: "Starter Tier",
       description: "Single AI Agent, targeted workflow automation, early AI initiatives",
-      price: "4000",
+      price: "400",
       priceCurrency: "GBP",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "4000",
+        price: "400",
         priceCurrency: "GBP",
         billingDuration: "P1M",
       },
@@ -247,11 +247,11 @@ const jsonLd = {
       "@type": "Offer",
       name: "Growth Tier",
       description: "Multiple AI Agents, cross-team workflows, operational automation programmes",
-      price: "8000",
+      price: "800",
       priceCurrency: "GBP",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "8000",
+        price: "800",
         priceCurrency: "GBP",
         billingDuration: "P1M",
       },
@@ -260,11 +260,11 @@ const jsonLd = {
       "@type": "Offer",
       name: "Enterprise Tier",
       description: "Multi-agent ecosystems, enterprise-wide automation, advanced infrastructure",
-      price: "15000",
+      price: "1500",
       priceCurrency: "GBP",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "15000",
+        price: "1500",
         priceCurrency: "GBP",
         billingDuration: "P1M",
       },
