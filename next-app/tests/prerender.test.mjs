@@ -53,3 +53,32 @@ test("structured data reaches the exported HTML as a real script tag", () => {
     "The standards research JSON-LD is missing from the exported HTML.",
   );
 });
+
+// The AI Agents tier prices live in two places: the visible pricing cards and
+// the Service JSON-LD that search engines read. Nine literals, only three of
+// them visible, so a price change can silently leave the structured data
+// advertising the old number.
+test("advertised tier prices agree with the prices in structured data", () => {
+  const blocks = [...html.aiAgents.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1]));
+  const service = blocks.find((block) => block["@type"] === "Service");
+
+  assert.ok(service?.offers?.length, "No Service JSON-LD with offers found in the exported HTML.");
+
+  const visibleCopy = html.aiAgents.replace(/<script[\s\S]*?<\/script>/g, "");
+
+  for (const offer of service.offers) {
+    assert.equal(
+      offer.priceSpecification.price,
+      offer.price,
+      `${offer.name}: priceSpecification.price disagrees with offer.price.`,
+    );
+
+    const formatted = Number(offer.price).toLocaleString("en-GB");
+    assert.ok(
+      visibleCopy.includes(`£${formatted}/month`),
+      `${offer.name}: structured data advertises £${formatted}/month, but that price ` +
+        `does not appear in the page's visible pricing copy.`,
+    );
+  }
+});
