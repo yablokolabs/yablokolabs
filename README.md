@@ -2,7 +2,7 @@
 
 **Pioneering the Quantum Future** — [yablokolabs.com](https://yablokolabs.com)
 
-![Profile views](https://komarev.com/ghpvc/?username=yablokolabs&label=Profile%20views&color=0e75b6&style=flat)
+![Profile views](https://yabloko-profile-views.young-disk-9d1c.workers.dev/?label=Profile%20views&color=0e75b6&style=flat)
 
 Yabloko Labs is a UK-based AI and quantum computing company founded in 2025. We build intelligent systems across AI, quantum-inspired optimization, and scalable backend infrastructure using Python, Rust, and cloud-native technologies.
 
