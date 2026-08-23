@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,11 +10,14 @@ type SiteNavigationProps = {
 
 export default function SiteNavigation({ subpage = false }: SiteNavigationProps) {
   const sectionPrefix = subpage ? "/" : "";
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link href="/" className="logo">
+        <Link href="/" className="logo" onClick={closeMenu}>
           <Image
             src="/assets/images/yablokolabs-logo-symbol.png"
             alt="Yabloko Labs Logo"
@@ -60,6 +64,44 @@ export default function SiteNavigation({ subpage = false }: SiteNavigationProps)
             <a href={`${sectionPrefix}#contact`}>Contact Us</a>
           </li>
         </ul>
+        <button
+          type="button"
+          className={`nav-hamburger${menuOpen ? " open" : ""}`}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div id="mobile-menu" className={`mobile-menu${menuOpen ? " open" : ""}`}>
+        <a href={`${sectionPrefix}#about`} onClick={closeMenu}>
+          About
+        </a>
+        <Link href="/gender-equality-plan" onClick={closeMenu}>
+          Gender Equality Plan
+        </Link>
+        <a href={`${sectionPrefix}#brands`} onClick={closeMenu}>
+          Our Brands
+        </a>
+        <a href={`${sectionPrefix}#mcps`} onClick={closeMenu}>
+          Our MCPs
+        </a>
+        <Link href="/ai-agents" onClick={closeMenu}>
+          AI Agents
+        </Link>
+        <Link href="/blog" onClick={closeMenu}>
+          Blog
+        </Link>
+        <a href={`${sectionPrefix}#partnership`} onClick={closeMenu}>
+          Partnership
+        </a>
+        <a href={`${sectionPrefix}#contact`} onClick={closeMenu}>
+          Contact Us
+        </a>
       </div>
     </nav>
   );
