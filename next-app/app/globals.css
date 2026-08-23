@@ -899,16 +899,16 @@ canvas.fixed {
 
 .mcps-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
   margin: 3rem auto 2.5rem;
-  max-width: 1200px;
-  padding: 0 1.5rem;
+  max-width: 1280px;
+  padding: 0 1rem;
   width: 100%;
   box-sizing: border-box;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1024px) {
   .mcps-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -916,13 +916,13 @@ canvas.fixed {
 
 .mcp-card {
   background: rgba(24, 28, 43, 0.45);
-  border-radius: 1.35rem;
+  border-radius: 1.2rem;
   box-shadow: 0 4px 24px 0 rgba(99,102,241,0.10), 0 1.5px 16px 0 rgba(16,30,54,0.13);
-  padding: 1.8rem 1.5rem;
+  padding: 1.4rem 1rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 1.2rem;
+  gap: 0.9rem;
   backdrop-filter: blur(14px) saturate(1.07);
   border: 1.2px solid rgba(99,102,241,0.10);
   outline: 1px solid rgba(255,255,255,0.03);
@@ -942,9 +942,9 @@ canvas.fixed {
 
 .mcp-icon {
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 0.9rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 0.8rem;
   background: rgba(99,102,241,0.12);
   display: flex;
   align-items: center;
@@ -959,47 +959,47 @@ canvas.fixed {
 }
 
 .mcp-title {
-  font-size: 1.25rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 0.4rem 0;
+  margin: 0 0 0.35rem 0;
   line-height: 1.3;
 }
 
 .mcp-badge {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   font-weight: 600;
   color: #a5b4fc;
   background: rgba(99,102,241,0.15);
   border-radius: 999px;
-  padding: 0.2rem 0.7rem;
-  margin-bottom: 0.6rem;
+  padding: 0.18rem 0.6rem;
+  margin-bottom: 0.5rem;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
 .mcp-description {
   color: #cbd5e1;
-  font-size: 0.85rem;
-  line-height: 1.55;
-  margin: 0 0 0.8rem 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin: 0 0 0.7rem 0;
 }
 
 .mcp-features {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .mcp-feature {
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   font-weight: 500;
   color: #94a3b8;
   background: rgba(148,163,184,0.1);
   border: 1px solid rgba(148,163,184,0.15);
-  border-radius: 0.4rem;
-  padding: 0.2rem 0.55rem;
+  border-radius: 0.35rem;
+  padding: 0.15rem 0.5rem;
   font-family: monospace;
 }
 

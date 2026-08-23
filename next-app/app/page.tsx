@@ -641,6 +641,36 @@ export default function Home() {
               </div>
             </a>
 
+            <a href="https://mcpize.com/mcp/ai-consent" className="mcp-card" target="_blank" rel="noopener noreferrer">
+              <div className="mcp-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 3v18" />
+                  <path d="M5 7h14" />
+                  <path d="M5 7l-3 6a3 3 0 0 0 6 0L5 7z" />
+                  <path d="M19 7l-3 6a3 3 0 0 0 6 0L19 7z" />
+                  <circle cx="12" cy="21" r="1" />
+                </svg>
+              </div>
+              <div className="mcp-content">
+                <h3 className="mcp-title">AI Consent</h3>
+                <span className="mcp-badge">EU AI Act Compliance</span>
+                <p className="mcp-description">
+                  Automated EU AI Act compliance for AI agents — classify deployment risk levels, audit for regulatory gaps, and generate prioritized remediation roadmaps.
+                </p>
+                <div className="mcp-features">
+                  <span className="mcp-feature">classify_risk</span>
+                  <span className="mcp-feature">audit_compliance</span>
+                  <span className="mcp-feature">generate_remediation</span>
+                  <span className="mcp-feature">verify_alignment</span>
+                </div>
+              </div>
+              <div className="mcp-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
           </div>
         </div>
       </section>
