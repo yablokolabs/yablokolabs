@@ -1816,7 +1816,8 @@ canvas.fixed {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.outcome-surface h3 {
+.outcome-surface h3,
+.architecture-card h3 {
   margin-bottom: 1rem;
 }
 
