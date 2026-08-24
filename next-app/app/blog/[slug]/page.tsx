@@ -97,6 +97,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     },
   };
 
+  const faqJsonLd = post.faq?.length
+    ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: post.faq.map((entry) => ({
+        "@type": "Question",
+        name: entry.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: entry.answer,
+        },
+      })),
+    }
+    : null;
+
   return (
     <>
       <SiteNavigation subpage />
@@ -104,6 +119,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <article className="blog-article">
         <div className="blog-article-inner">
@@ -143,6 +164,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="blog-prose">
             <Article />
           </div>
+
+          {post.faq && post.faq.length > 0 && (
+            <section className="blog-faq" aria-labelledby="blog-faq-heading">
+              <h2 id="blog-faq-heading">Frequently Asked Questions</h2>
+              {post.faq.map((entry) => (
+                <div key={entry.question} className="faq-item">
+                  <h3>{entry.question}</h3>
+                  <p>{entry.answer}</p>
+                </div>
+              ))}
+            </section>
+          )}
 
           <footer className="blog-article-footer">
             <div className="pill-cloud">

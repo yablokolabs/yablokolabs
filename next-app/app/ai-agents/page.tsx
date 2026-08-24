@@ -272,6 +272,44 @@ const jsonLd = {
   ],
 };
 
+const faqs = [
+  {
+    question: "What are AI Agents?",
+    answer:
+      "AI Agents are software systems that plan and execute multi-step workflows — reasoning with LLMs, calling tools, accessing data, and acting on business systems. Yabloko Labs designs, builds, deploys, and operates them in production.",
+  },
+  {
+    question: "How much do custom AI Agents cost?",
+    answer:
+      "Pricing starts at £399/month for a single AI Agent, £799/month for multiple agents, and £1,499/month for enterprise multi-agent ecosystems. Final pricing depends on complexity, integrations, infrastructure, and compliance requirements.",
+  },
+  {
+    question: "What does the service include?",
+    answer:
+      "Every engagement includes discovery, agent architecture, development, deployment, and ongoing maintenance. Growth and Enterprise tiers add integrations, enhanced monitoring, monthly optimization reviews, and priority support.",
+  },
+  {
+    question: "Which standards do you engineer against?",
+    answer:
+      "ISO/IEC 42001 (AI management systems), ISO/IEC 23894 (AI risk management), ISO/IEC 5338 (AI system life cycle), and the control objectives of ISO/IEC 27001·27701. Every agent ships with a risk register and life cycle documentation.",
+  },
+  {
+    question: "Which agent architectures do you support?",
+    answer:
+      "OpenClaw agents, Hermes agents, multi-agent systems, retrieval-augmented agents, human-in-the-loop agents, workflow automation agents, and knowledge-driven agents.",
+  },
+  {
+    question: "How long does it take to deploy an AI Agent?",
+    answer:
+      "Timelines depend on scope. A single targeted workflow agent ships faster than a multi-agent enterprise system. Delivery follows a structured five-step model from discovery and architecture to production rollout and continuous operations.",
+  },
+  {
+    question: "Will the agents work with our existing systems?",
+    answer:
+      "Yes. We integrate with your existing stack — Slack, email, CRM, Kubernetes, and internal APIs — and deploy cloud-agnostically, so agents fit your infrastructure rather than forcing a migration.",
+  },
+];
+
 const researchJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareSourceCode",
@@ -301,6 +339,19 @@ const researchJsonLd = {
 };
 
 export default function AIAgentsPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <SiteNavigation subpage />
@@ -311,6 +362,10 @@ export default function AIAgentsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(researchJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       <section className="hero ai-hero">
@@ -727,6 +782,27 @@ export default function AIAgentsPage() {
             {capabilities.map((item) => (
               <div key={item} className="capability-chip">
                 {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="ai-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-badge">FAQ</span>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="section-subtitle">
+              Straight answers about custom AI Agents, pricing, delivery, and the standards we engineer against.
+            </p>
+          </div>
+
+          <div className="faq-grid">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="faq-item">
+                <h3>{faq.question}</h3>
+                <p>{faq.answer}</p>
               </div>
             ))}
           </div>
