@@ -1,19 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://yablokolabs.com/sitemap.xml
-
-# Disallow private/admin areas (none currently, but good practice)
-Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
-Disallow: /search
-Disallow: /admin
-Disallow: /private
-
-# Allow specific important paths
-Allow: /ai-agents
-Allow: /gender-equality-plan
-Allow: /assets/images/
