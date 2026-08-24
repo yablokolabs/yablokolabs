@@ -23,6 +23,8 @@
 - [Jñāpakam](https://mcpize.com/mcp/jnaapakam): An MCP server providing persistent long-term memory for AI agents.
 - [TruthLens](https://mcpize.com/mcp/truthlens): An MCP server for local trust scoring and hallucination-risk analysis of LLM outputs.
 - [NexaCore](https://mcpize.com/mcp/nexa-core): An MCP runtime for high-dimensional holographic hypervector computing.
+- [AI Consent](https://mcpize.com/mcp/ai-consent): An MCP server for automated EU AI Act compliance classification and remediation planning for AI agents.
+- [CallLens](https://mcpize.com/mcp/calllens): An MCP server for automated conversation quality assurance using behavioral rubrics and LangGraph-powered evaluation.
 
 ## Research
 
