@@ -672,6 +672,33 @@ export default function Home() {
               </div>
             </a>
 
+            <a href="https://mcpize.com/mcp/calllens" className="mcp-card" target="_blank" rel="noopener noreferrer">
+              <div className="mcp-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  <path d="M8 9h8" />
+                  <path d="M8 13h5" />
+                </svg>
+              </div>
+              <div className="mcp-content">
+                <h3 className="mcp-title">CallLens</h3>
+                <span className="mcp-badge">Conversation QA</span>
+                <p className="mcp-description">
+                  Automated conversation quality assurance powered by LangGraph — score support and sales calls against behavioral rubrics with timestamped, verifiable evidence.
+                </p>
+                <div className="mcp-features">
+                  <span className="mcp-feature">list_rubrics</span>
+                  <span className="mcp-feature">score_dimension</span>
+                  <span className="mcp-feature">analyze_transcript</span>
+                </div>
+              </div>
+              <div className="mcp-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
           </div>
         </div>
       </section>
