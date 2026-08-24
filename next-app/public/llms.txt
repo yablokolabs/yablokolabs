@@ -1,0 +1,35 @@
+# Yabloko Labs
+
+> Yabloko Labs is a UK-based technology company founded in 2025 that builds production AI Agents, hybrid quantum-AI software, open-source MCP servers, and related business automation.
+
+## Core pages
+
+- [Homepage](https://yablokolabs.com/): Company overview, products, open-source MCP servers, and research.
+- [About](https://yablokolabs.com/#about): Company background, mission, and values.
+- [AI Agents](https://yablokolabs.com/ai-agents): Custom AI Agents designed, deployed, and operated for business workflows.
+- [Blog](https://yablokolabs.com/blog): Technical notes about production AI Agent engineering and operations.
+- [Gender Equality Plan](https://yablokolabs.com/gender-equality-plan): The company's published Gender Equality Plan.
+- [Contact](https://yablokolabs.com/#contact): Public support and consultation contact information.
+
+## Products
+
+- [Q-Router](https://router.yablokolabs.com): Quantum-enhanced delivery route optimization with AI traffic prediction.
+- [Q-AdMix](https://admix.yablokolabs.com): Hybrid quantum-classical AI for ad spend optimization.
+- [Q-Porter](https://porter.yablokolabs.com): Hybrid quantum-classical AI for port and airport logistics optimization.
+- [Q-Consent](https://consent.yablokolabs.com): Quantum-AI consent and compliance management software.
+
+## Open source
+
+- [Jñāpakam](https://mcpize.com/mcp/jnaapakam): An MCP server providing persistent long-term memory for AI agents.
+- [TruthLens](https://mcpize.com/mcp/truthlens): An MCP server for local trust scoring and hallucination-risk analysis of LLM outputs.
+- [NexaCore](https://mcpize.com/mcp/nexa-core): An MCP runtime for high-dimensional holographic hypervector computing.
+
+## Research
+
+- [AI governance and standards research](https://yablokolabs.com/ai-agents#governance): The AI Agents page summarizes the standards used in engineering and links to published research.
+- [Trustworthy AI Standardisation for Financial Services](https://doi.org/10.5281/zenodo.21603770): A published assessment of gaps in AI standards for financial services and a Continuous Reliability Assurance proposal.
+
+## Blog articles
+
+- [SearXNG: Independent Meta-Search for Agent-Ready Discovery](https://yablokolabs.com/blog/searxng-independent-discovery): A practical guide to independent discovery and verification for AI agents.
+- [Hermes Provider Fallbacks](https://yablokolabs.com/blog/hermes-provider-fallbacks): A guide to designing provider fallback chains for production AI agents.

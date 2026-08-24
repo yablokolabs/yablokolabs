@@ -1,0 +1,3 @@
+Contact: mailto:support@yablokolabs.com
+Expires: 2027-08-24T23:59:59Z
+Canonical: https://yablokolabs.com/.well-known/security.txt
