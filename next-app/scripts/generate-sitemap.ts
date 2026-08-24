@@ -16,23 +16,24 @@ const generateSitemap = () => {
 
     // List of pages to include in the sitemap. Blog posts are derived from the
     // registry so a new post cannot be forgotten here.
-    const pages = [
-      "/", // Home page
-      "/ai-agents",
-      "/gender-equality-plan",
-      "/blog",
-      ...blogPosts.map((post) => `/blog/${post.slug}`),
+    const pages: { path: string; lastmod: string }[] = [
+      { path: "/", lastmod: new Date().toISOString() }, // Home page
+      { path: "/ai-agents", lastmod: new Date().toISOString() },
+      { path: "/gender-equality-plan", lastmod: new Date().toISOString() },
+      { path: "/blog", lastmod: new Date().toISOString() },
+      // Blog posts use their real publish date so freshness signals are accurate.
+      ...blogPosts.map((post) => ({ path: `/blog/${post.slug}`, lastmod: post.date })),
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${
       pages
-        .map((page) => {
+        .map(({ path, lastmod }) => {
           return `
   <url>
-    <loc>${baseUrl}${page}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
+    <loc>${baseUrl}${path}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`;
