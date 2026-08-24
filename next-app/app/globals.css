@@ -2605,6 +2605,48 @@ canvas.fixed {
   color: #fca5a5;
 }
 
+.faq-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 1.25rem 1.5rem;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  border-radius: 1rem;
+  text-align: left;
+}
+
+.faq-item h3 {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.faq-item p {
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.blog-faq {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.blog-faq h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem;
+}
+
 .blog-checklist {
   margin: 1.5rem 0;
   padding: 0;

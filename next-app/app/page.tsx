@@ -136,9 +136,10 @@ export default function Home() {
             `}
           </style>
           <p className="hero-subtitle">
-            We&apos;re at the forefront of quantum computing and AI innovation, creating transformative solutions that
-            solve tomorrow&apos;s most complex challenges. Our quantum-powered technologies are redefining what&apos;s
-            possible in business and beyond.
+            Yabloko Labs is a UK-based technology company, founded in 2025, that designs, deploys, and operates
+            custom AI agents and hybrid quantum-AI software for businesses. We build and run production AI agent
+            systems, open-source MCP servers, and a portfolio of quantum-AI products — Q-Router, Q-AdMix, Q-Porter,
+            and Q-Consent.
           </p>
           <div className="cta-buttons">
             <a href="#brands" className="btn btn-primary">

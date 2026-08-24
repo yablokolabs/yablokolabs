@@ -11,14 +11,24 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteDescription =
+  "Yabloko Labs is a UK-based technology company, founded in 2025, that designs, deploys, and operates custom AI agents and hybrid quantum-AI software for businesses.";
+
 export const metadata: Metadata = {
-  title: "Yabloko Labs - Innovative Technology Solutions",
-  description:
-    "Yabloko Labs provides cutting-edge technology solutions and services to help businesses grow in the digital age.",
-  keywords: ["technology", "solutions", "development", "consulting", "innovation"],
-  authors: [{ name: "Yabloko Labs" }],
-  creator: "Yabloko Labs",
-  publisher: "Yabloko Labs",
+  title: "Yabloko Labs - Custom AI Agents & Quantum-AI Software",
+  description: siteDescription,
+  keywords: [
+    "AI Agents",
+    "Custom AI Agents",
+    "AI Agent Development",
+    "quantum computing",
+    "hybrid quantum-AI",
+    "technology solutions",
+    "Yabloko Labs",
+  ],
+  authors: [{ name: "Yabloko Labs Ltd" }],
+  creator: "Yabloko Labs Ltd",
+  publisher: "Yabloko Labs Ltd",
   robots: "index, follow",
   metadataBase: new URL("https://yablokolabs.com"),
   openGraph: {
@@ -26,22 +36,22 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://yablokolabs.com",
     siteName: "Yabloko Labs",
-    title: "Yabloko Labs - Innovative Technology Solutions",
-    description: "Cutting-edge technology solutions for your business",
+    title: "Yabloko Labs - Custom AI Agents & Quantum-AI Software",
+    description: siteDescription,
     images: [
       {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/assets/images/yablokolabs-logo-symbol.png",
+        width: 1563,
+        height: 1563,
         alt: "Yabloko Labs",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yabloko Labs - Innovative Technology Solutions",
-    description: "Cutting-edge technology solutions for your business",
-    images: ["/images/og-image.jpg"],
+    title: "Yabloko Labs - Custom AI Agents & Quantum-AI Software",
+    description: siteDescription,
+    images: ["/assets/images/yablokolabs-logo-symbol.png"],
     creator: "@yablokolabs",
   },
   icons: {
@@ -88,6 +98,58 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://yablokolabs.com/#organization",
+              name: "Yabloko Labs",
+              legalName: "Yabloko Labs Ltd",
+              url: "https://yablokolabs.com",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://yablokolabs.com/assets/images/yablokolabs-logo-symbol.png",
+                width: 1563,
+                height: 1563,
+              },
+              foundingDate: "2025",
+              description: siteDescription,
+              email: "support@yablokolabs.com",
+              telephone: "+44 7576 597431",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "71-75 Shelton Street, Covent Garden",
+                addressLocality: "London",
+                postalCode: "WC2H 9JQ",
+                addressCountry: "GB",
+              },
+              sameAs: [
+                "https://www.linkedin.com/in/yabloko-labs-4858bb366/",
+                "https://github.com/yablokolabs",
+                "https://www.instagram.com/yabloko_labs/",
+                "https://www.facebook.com/people/yablokolabs/61578265855070",
+                "https://www.youtube.com/@map2map",
+              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://yablokolabs.com/#website",
+              url: "https://yablokolabs.com",
+              name: "Yabloko Labs",
+              description: siteDescription,
+              inLanguage: "en",
+              publisher: { "@id": "https://yablokolabs.com/#organization" },
+            }),
+          }}
+        />
         <CursorProviderWrapper />
         {children}
         <AiAgentsDiscoveryWidget />
