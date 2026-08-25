@@ -59,7 +59,7 @@
 - [Sitemap](https://yablokolabs.com/sitemap.xml): Canonical list of indexable pages.
 - [Robots policy](https://yablokolabs.com/robots.txt): Crawling permissions; all major AI answer engines are explicitly allowed.
 - [Security contact](https://yablokolabs.com/.well-known/security.txt): Vulnerability disclosure contact.
-- Structured data: JSON-LD (Organization, WebSite, WebPage, Service, SoftwareApplication, SoftwareSourceCode, FAQPage, BlogPosting, BreadcrumbList) is embedded in every page.
+- Structured data: JSON-LD is embedded in every page. Every page carries Organization and WebSite schema. WebPage and BreadcrumbList appear on subpages. Additional types appear where relevant: Service, FAQPage, and SoftwareSourceCode on the AI Agents page; Blog and BlogPosting on blog pages; SoftwareApplication and SoftwareSourceCode on the homepage.
 
 ## Usage
 

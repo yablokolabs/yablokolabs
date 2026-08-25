@@ -197,32 +197,26 @@ export const metadata: Metadata = {
   },
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://yablokolabs.com/ai-agents#webpage",
+  url: "https://yablokolabs.com/ai-agents",
+  name: "AI Agents | Yabloko Labs",
+  description:
+    "Custom AI Agents built, deployed, and managed by Yabloko Labs. Production-ready systems for automation, operations, and growth.",
+  inLanguage: "en",
+  isPartOf: { "@id": "https://yablokolabs.com/#website" },
+  about: { "@id": "https://yablokolabs.com/#organization" },
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Custom AI Agent Development & Operations",
   description:
     "Yabloko Labs designs, builds, deploys, and manages custom AI Agents for business automation. From DevOps and customer support to operational automation, we deliver production-ready AI Agent systems.",
-  provider: {
-    "@type": "Organization",
-    name: "Yabloko Labs Ltd",
-    url: "https://yablokolabs.com",
-    logo: "https://yablokolabs.com/assets/images/yablokolabs-logo-symbol.png",
-    sameAs: [
-      "https://www.linkedin.com/in/yabloko-labs-4858bb366/",
-      "https://github.com/yablokolabs",
-      "https://www.instagram.com/yabloko_labs/",
-      "https://www.facebook.com/people/yablokolabs/61578265855070",
-      "https://www.youtube.com/@map2map",
-    ],
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "71-75 Shelton Street, Covent Garden",
-      addressLocality: "London",
-      postalCode: "WC2H 9JQ",
-      addressCountry: "GB",
-    },
-  },
+  provider: { "@id": "https://yablokolabs.com/#organization" },
   serviceType: "AI Agent Development & Operations",
   areaServed: "Worldwide",
   availableChannel: {
@@ -358,6 +352,10 @@ export default function AIAgentsPage() {
       <SiteNavigation subpage />
       <Breadcrumbs
         trail={[{ name: "AI Agents", url: "https://yablokolabs.com/ai-agents" }]}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <script
         type="application/ld+json"

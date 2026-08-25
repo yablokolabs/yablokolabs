@@ -62,6 +62,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `https://yablokolabs.com/blog/${post.slug}#webpage`,
+    url: `https://yablokolabs.com/blog/${post.slug}`,
+    name: `${post.title} | Yabloko Labs`,
+    description: post.excerpt,
+    inLanguage: "en",
+    isPartOf: { "@id": "https://yablokolabs.com/#website" },
+    about: { "@id": "https://yablokolabs.com/#organization" },
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -73,29 +85,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     articleSection: post.category,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://yablokolabs.com/blog/${post.slug}`,
+      "@id": `https://yablokolabs.com/blog/${post.slug}#webpage`,
     },
-    author: {
-      "@type": "Organization",
-      name: post.author,
-      url: "https://yablokolabs.com",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Yabloko Labs Ltd",
-      url: "https://yablokolabs.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://yablokolabs.com/assets/images/yablokolabs-logo-symbol.png",
-      },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "71-75 Shelton Street, Covent Garden",
-        addressLocality: "London",
-        postalCode: "WC2H 9JQ",
-        addressCountry: "GB",
-      },
-    },
+    author: { "@id": "https://yablokolabs.com/#organization" },
+    publisher: { "@id": "https://yablokolabs.com/#organization" },
   };
 
   const faqJsonLd = post.faq?.length
@@ -121,6 +114,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           { name: "Blog", url: "https://yablokolabs.com/blog" },
           { name: post.title, url: `https://yablokolabs.com/blog/${post.slug}` },
         ]}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <script
         type="application/ld+json"
