@@ -466,7 +466,10 @@ export default function GenderEqualityPlan() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              // min() keeps the 300px preference on roomy screens but lets the
+              // track shrink on phones narrower than that, which otherwise
+              // pushes the whole page sideways.
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
               gap: "2rem",
               marginTop: "3rem",
             }}

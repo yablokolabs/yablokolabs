@@ -703,7 +703,10 @@ canvas.fixed {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  /* min() keeps the preferred track width on roomy screens while letting it
+     shrink on phones narrower than that. A bare minmax floor cannot shrink,
+     so it widens the page and creates horizontal scrolling. */
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -781,7 +784,7 @@ canvas.fixed {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
   gap: 2.2rem;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -2155,7 +2158,11 @@ canvas.fixed {
   position: fixed;
   right: 1.5rem;
   bottom: 5.8rem;
+  /* 100vw counts the scrollbar, so on a narrow phone this resolved wider than
+     the visible area and dragged the page sideways. left/right anchoring below
+     360px pins it to the actual viewport instead. */
   width: min(360px, calc(100vw - 2rem));
+  max-width: calc(100vw - 2rem);
   padding: 1.2rem;
   border-radius: 1.25rem;
   background: rgba(15, 23, 42, 0.92);
@@ -2235,7 +2242,7 @@ canvas.fixed {
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -3187,6 +3194,54 @@ a, button, .btn, input, textarea, select, [role="button"], [tabindex] {
   .glass { backdrop-filter: blur(10px); }
   .partnership-card { padding: 2rem 1.5rem; }
   .partnership-card h3 { font-size: 1.5rem; }
+}
+
+/* Narrow phones, roughly 360px and below, including the folded Galaxy Fold.
+   Below this width a few fixed-size elements are wider than the screen, which
+   pushes the whole page sideways: the header is laid out at its intrinsic
+   width, and the monospace tool names in the MCP cards cannot wrap. Horizontal
+   scrolling on a phone hides content on the right of every page, so these
+   elements are allowed to shrink and wrap instead. */
+@media (max-width: 360px) {
+  .nav-container {
+    padding: 0 0.75rem;
+    /* Flex items refuse to shrink past their content by default, which is what
+       forced the header wider than the viewport. */
+    min-width: 0;
+  }
+
+  .logo {
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .mcp-feature {
+    /* These are function names like query_geometric_proximity, with no spaces
+       to break on, so they need an explicit break opportunity. */
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    max-width: 100%;
+  }
+
+  .mcp-features {
+    min-width: 0;
+  }
+
+  /* The widget is the one element wide enough to drag the whole page sideways
+     on a narrow phone. Anchoring both edges makes its width follow the real
+     viewport rather than a vw unit that includes the scrollbar. */
+  .agents-widget {
+    left: 0.5rem;
+    right: 0.5rem;
+    width: auto;
+    max-width: none;
+  }
 }
 
 /* Feature complete — feat/blog-page */
