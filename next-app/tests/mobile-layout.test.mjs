@@ -46,6 +46,7 @@ const MIME = {
 let server;
 let browser;
 let origin;
+let browserUnavailable = null;
 
 before(async () => {
   assert.ok(existsSync(OUT), "out/ is missing. Run `npm run build` before the tests.");
@@ -71,7 +72,16 @@ before(async () => {
 
   await new Promise((resolve) => server.listen(0, resolve));
   origin = `http://127.0.0.1:${server.address().port}`;
-  browser = await chromium.launch();
+
+  try {
+    browser = await chromium.launch();
+  } catch (error) {
+    // `npm ci` installs the Playwright package but not the browser binary, so
+    // a contributor who has not run `npx playwright install chromium` would
+    // otherwise see this fail as though the site were broken. CI installs the
+    // browser explicitly, so skipping here never hides a real regression there.
+    browserUnavailable = error.message.split("\n")[0];
+  }
 });
 
 after(async () => {
@@ -126,7 +136,11 @@ const inspect = async (route, viewport) => {
 };
 
 for (const viewport of VIEWPORTS) {
-  test(`no page scrolls sideways at ${viewport.width}px (${viewport.name})`, async () => {
+  test(`no page scrolls sideways at ${viewport.width}px (${viewport.name})`, async (t) => {
+    if (browserUnavailable) {
+      t.skip(`no browser: ${browserUnavailable}. Run \`npx playwright install chromium\`.`);
+      return;
+    }
     for (const route of ROUTES) {
       const result = await inspect(route, viewport);
       assert.equal(
@@ -147,7 +161,11 @@ for (const viewport of VIEWPORTS) {
   });
 }
 
-test("the home FAQ stacks into one readable column on every phone", async () => {
+test("the home FAQ stacks into one readable column on every phone", async (t) => {
+  if (browserUnavailable) {
+    t.skip(`no browser: ${browserUnavailable}. Run \`npx playwright install chromium\`.`);
+    return;
+  }
   for (const viewport of VIEWPORTS) {
     const { faq } = await inspect("/", viewport);
     assert.ok(faq.present, `the FAQ section is missing at ${viewport.width}px`);

@@ -53,6 +53,27 @@ const ROUTES: Route[] = [
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 /**
+ * True when the repository has real history to read.
+ *
+ * A shallow clone still answers `git log -1 -- <path>`, but every path resolves
+ * to the single commit it has. That silently collapses every lastmod to the
+ * build date, which is exactly the false freshness signal this generator
+ * exists to avoid, so it has to be detected rather than assumed.
+ */
+const hasUsableHistory = (): boolean => {
+  try {
+    const shallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"], {
+      cwd: process.cwd(),
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+    return shallow === "false";
+  } catch {
+    return false;
+  }
+};
+
+/**
  * Date of the most recent commit touching any of these paths.
  *
  * lastmod has to describe the content, not the build. Deriving it from the
@@ -86,11 +107,14 @@ const generateSitemap = () => {
       mkdirSync(publicDir, { recursive: true });
     }
 
-    const today = new Date().toISOString().slice(0, 10);
+    // Overridable so the tests can prove the output does not depend on the
+    // clock. A history-derived lastmod must be identical whatever today is.
+    const today = process.env.SITEMAP_FAKE_TODAY ?? new Date().toISOString().slice(0, 10);
+    const usableHistory = hasUsableHistory();
     const withoutHistory: string[] = [];
 
     const entries = ROUTES.map((route) => {
-      const committed = lastCommitDate(route.sources);
+      const committed = usableHistory ? lastCommitDate(route.sources) : null;
       if (!committed) withoutHistory.push(route.path);
 
       // Take the most recent honest signal. A post edited after publication
@@ -102,10 +126,11 @@ const generateSitemap = () => {
     });
 
     if (withoutHistory.length > 0) {
-      // A shallow clone has no history to read, so dates would quietly collapse
-      // to the build date. Say so rather than shipping an inflated signal.
+      // Without real history the dates quietly collapse to the build date, so
+      // every page would claim to have changed on every deploy. Say so rather
+      // than shipping an inflated signal.
       console.warn(
-        `warning: no git history for ${withoutHistory.join(", ")}. `
+        `warning: no usable git history for ${withoutHistory.join(", ")}. `
           + "lastmod fell back to today, which overstates freshness. "
           + "Give the checkout full history (actions/checkout fetch-depth: 0).",
       );
