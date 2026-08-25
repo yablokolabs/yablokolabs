@@ -129,6 +129,102 @@ const assurances = [
   },
 ];
 
+const platformFeatures = [
+  {
+    title: "Conversational Intelligence",
+    copy: "Ask questions in plain language and get decisions-grade answers in seconds. No dashboards to build, no SQL to learn, no analysts to wait on.",
+    icon: (
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Autonomous Self-Diagnostics",
+    copy: "Your agents continuously monitor their own health, detect anomalies the moment they appear, and surface root-cause intelligence ranked by business impact.",
+    icon: (
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+      </svg>
+    ),
+  },
+  {
+    title: "Full-Spectrum Observability",
+    copy: "Every decision, interaction, and cost captured in a real-time intelligence fabric — complete visibility into performance, spend, and reliability.",
+    icon: (
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+  },
+  {
+    title: "Self-Healing Workflows",
+    copy: "When a primary capability degrades, the system automatically re-routes through resilient alternatives. Continuity engineered in, downtime designed out.",
+    icon: (
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="23 4 23 10 17 10" />
+        <polyline points="1 20 1 14 7 14" />
+        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+      </svg>
+    ),
+  },
+  {
+    title: "Zero-Trust Data Architecture",
+    copy: "Your intelligence stays on your infrastructure. Complete ownership, complete control, complete compliance — built for finance, healthcare, and every industry where data sovereignty is non-negotiable.",
+    icon: (
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+  },
+];
+
 const pricingTiers = [
   {
     label: "Starter",
@@ -171,6 +267,8 @@ export const metadata: Metadata = {
     "Business Automation",
     "AI Consulting",
     "AI Governance",
+    "Agent Intelligence Platform",
+    "AI Agent Observability",
     "Responsible AI",
     "Auditable AI Agents",
     "AI Risk Management",
@@ -523,6 +621,73 @@ export default function AIAgentsPage() {
                 <p>{card.copy}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ai-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-badge">Featured Offering · Agent Intelligence Platform</span>
+            <h2 className="section-title">Turn Every AI Agent Into a Self-Aware, Self-Healing Operator</h2>
+            <p className="section-subtitle">
+              The Agent Intelligence Platform is our unified command layer for modern AI operations &mdash; one
+              interface where your business questions become instant, actionable answers, and your agents watch over
+              their own health, cost, and reliability.
+            </p>
+          </div>
+
+          <div className="features-grid">
+            {platformFeatures.map((feature) => (
+              <div key={feature.title} className="feature-card">
+                <div className="feature-icon" style={{ color: "var(--white)" }} aria-hidden="true">
+                  {feature.icon}
+                </div>
+                <h3 className="feature-title">{feature.title}</h3>
+                <p className="feature-description">{feature.copy}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="outcomes-surfaces" style={{ marginTop: "3rem" }}>
+            <div className="outcome-surface">
+              <h3>Without the platform</h3>
+              <div className="pill-cloud">
+                {[
+                  "agents fail silently for days",
+                  "questions wait on analysts",
+                  "costs hidden across tools",
+                  "downtime means lost revenue",
+                  "data locked in vendor clouds",
+                ].map((item) => (
+                  <span key={item} className="pill-chip">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="outcome-surface">
+              <h3>With the Agent Intelligence Platform</h3>
+              <div className="pill-cloud">
+                {[
+                  "failures detected & diagnosed in real time",
+                  "answers on demand, in your words",
+                  "full spend visibility, always",
+                  "self-healing continuity",
+                  "your data, your infrastructure",
+                ].map((item) => (
+                  <span key={item} className="pill-chip pill-chip-bright">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="pricing-cta" style={{ marginTop: "3rem" }}>
+            <a href="#consultation" className="btn btn-primary">
+              Start a Pilot
+            </a>
           </div>
         </div>
       </section>
