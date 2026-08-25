@@ -1,50 +1,120 @@
+import { execFileSync } from "child_process";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import { blogPosts } from "../app/blog/posts";
 
-type SitemapEntry = {
+type Route = {
   path: string;
-  lastmod: string;
   changefreq: string;
   priority: string;
+  /** Sources whose last change is what "modified" means for this route. */
+  sources: string[];
+  /** Set for content with an authored date that outranks file history. */
+  publishedOn?: string;
 };
 
-// Sitemap generator for Yabloko Labs
+const baseUrl = "https://yablokolabs.com";
+
+// Everything a page renders through. Shared chrome counts because a change to
+// the header or footer really does change every page that renders it.
+const SHARED = ["app/layout.tsx", "app/components", "app/globals.css"];
+
+const ROUTES: Route[] = [
+  { path: "/", changefreq: "weekly", priority: "1.0", sources: ["app/page.tsx", ...SHARED] },
+  {
+    path: "/ai-agents",
+    changefreq: "weekly",
+    priority: "0.9",
+    sources: ["app/ai-agents", ...SHARED],
+  },
+  {
+    path: "/blog",
+    changefreq: "weekly",
+    priority: "0.8",
+    sources: ["app/blog/page.tsx", "app/blog/posts.ts", ...SHARED],
+  },
+  // Posts carry an authored publish date, which stays truthful even if the
+  // file itself has never been touched since.
+  ...blogPosts.map((post) => ({
+    path: `/blog/${post.slug}`,
+    changefreq: "monthly",
+    priority: "0.7",
+    sources: [`app/blog/articles/${post.slug}.tsx`, "app/blog/[slug]", ...SHARED],
+    publishedOn: post.date,
+  })),
+  {
+    path: "/gender-equality-plan",
+    changefreq: "yearly",
+    priority: "0.4",
+    sources: ["app/gender-equality-plan", ...SHARED],
+  },
+];
+
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Date of the most recent commit touching any of these paths.
+ *
+ * lastmod has to describe the content, not the build. Deriving it from the
+ * clock re-stamps every page on every deploy, which trains crawlers to ignore
+ * the signal exactly when a page genuinely does change.
+ */
+const lastCommitDate = (paths: string[]): string | null => {
+  const dates = paths
+    .map((path) => {
+      try {
+        return execFileSync("git", ["log", "-1", "--format=%cs", "--", path], {
+          cwd: process.cwd(),
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "ignore"],
+        }).trim();
+      } catch {
+        return "";
+      }
+    })
+    .filter((date) => ISO_DATE.test(date));
+
+  return dates.length > 0 ? dates.sort().at(-1)! : null;
+};
+
 const generateSitemap = () => {
   try {
-    const baseUrl = "https://yablokolabs.com";
     const publicDir = join(process.cwd(), "public");
     const sitemapPath = join(publicDir, "sitemap.xml");
 
-    // Ensure public directory exists
     if (!existsSync(publicDir)) {
       mkdirSync(publicDir, { recursive: true });
     }
 
-    // Date-only lastmod keeps the sitemap stable across rebuilds on the same day,
-    // so crawlers are not told every page changed on every deploy.
     const today = new Date().toISOString().slice(0, 10);
+    const withoutHistory: string[] = [];
 
-    // List of pages to include in the sitemap. Blog posts are derived from the
-    // registry so a new post cannot be forgotten here.
-    const pages: SitemapEntry[] = [
-      { path: "/", lastmod: today, changefreq: "weekly", priority: "1.0" },
-      { path: "/ai-agents", lastmod: today, changefreq: "weekly", priority: "0.9" },
-      { path: "/blog", lastmod: today, changefreq: "weekly", priority: "0.8" },
-      // Blog posts use their real publish date so freshness signals are accurate.
-      ...blogPosts.map((post) => ({
-        path: `/blog/${post.slug}`,
-        lastmod: post.date,
-        changefreq: "monthly",
-        priority: "0.7",
-      })),
-      { path: "/gender-equality-plan", lastmod: today, changefreq: "yearly", priority: "0.4" },
-    ];
+    const entries = ROUTES.map((route) => {
+      const committed = lastCommitDate(route.sources);
+      if (!committed) withoutHistory.push(route.path);
+
+      // Take the most recent honest signal. A post edited after publication
+      // should report the edit rather than the original publish date.
+      const candidates = [committed, route.publishedOn].filter((date): date is string => Boolean(date));
+      const lastmod = candidates.length > 0 ? candidates.sort().at(-1)! : today;
+
+      return { ...route, lastmod };
+    });
+
+    if (withoutHistory.length > 0) {
+      // A shallow clone has no history to read, so dates would quietly collapse
+      // to the build date. Say so rather than shipping an inflated signal.
+      console.warn(
+        `warning: no git history for ${withoutHistory.join(", ")}. `
+          + "lastmod fell back to today, which overstates freshness. "
+          + "Give the checkout full history (actions/checkout fetch-depth: 0).",
+      );
+    }
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${
-      pages
+      entries
         .map(({ path, lastmod, changefreq, priority }) =>
           `  <url>
     <loc>${baseUrl}${path}</loc>
@@ -58,7 +128,6 @@ ${
 </urlset>
 `;
 
-    // Write the sitemap to the public directory
     writeFileSync(sitemapPath, sitemap);
     console.log(`Sitemap generated successfully at: ${sitemapPath}`);
     return true;
@@ -68,7 +137,6 @@ ${
   }
 };
 
-// Only run this directly when executed via command line
 if (require.main === module) {
   generateSitemap();
 }
