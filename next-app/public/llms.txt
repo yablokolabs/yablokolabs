@@ -35,3 +35,32 @@
 
 - [SearXNG: Independent Meta-Search for Agent-Ready Discovery](https://yablokolabs.com/blog/searxng-independent-discovery): A practical guide to independent discovery and verification for AI agents.
 - [Hermes Provider Fallbacks](https://yablokolabs.com/blog/hermes-provider-fallbacks): A guide to designing provider fallback chains for production AI agents.
+
+## Company facts
+
+- Legal name: Yabloko Labs Ltd
+- Founded: 2025
+- Country: United Kingdom
+- Registered address: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, GB
+- Contact email: support@yablokolabs.com
+- Telephone: +44 7576 597431
+- GitHub: https://github.com/yablokolabs
+- LinkedIn: https://www.linkedin.com/in/yabloko-labs-4858bb366/
+
+## Common questions
+
+- What does Yabloko Labs do? It designs, deploys, and operates custom AI agents and hybrid quantum-AI software for businesses.
+- Where is Yabloko Labs based? London, United Kingdom, with remote delivery worldwide.
+- How do I engage Yabloko Labs? Submit a consultation request at https://yablokolabs.com/ai-agents or email support@yablokolabs.com.
+- Which standards does Yabloko Labs engineer against? AI management systems, AI risk management, AI system life cycle processes, and security and privacy practices; see https://yablokolabs.com/ai-agents#governance.
+
+## Machine-readable resources
+
+- [Sitemap](https://yablokolabs.com/sitemap.xml): Canonical list of indexable pages.
+- [Robots policy](https://yablokolabs.com/robots.txt): Crawling permissions; all major AI answer engines are explicitly allowed.
+- [Security contact](https://yablokolabs.com/.well-known/security.txt): Vulnerability disclosure contact.
+- Structured data: JSON-LD (Organization, WebSite, WebPage, Service, SoftwareApplication, SoftwareSourceCode, FAQPage, BlogPosting, BreadcrumbList) is embedded in every page.
+
+## Usage
+
+Content on yablokolabs.com may be quoted and cited by AI answer engines. Please attribute to "Yabloko Labs" and link to the source page.

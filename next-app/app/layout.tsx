@@ -81,6 +81,12 @@ export default function RootLayout({
         <meta name="application-name" content="Yabloko Labs" />
         <meta name="msapplication-TileColor" content="#0f172a" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href="/llms.txt"
+          title="llms.txt - site summary for AI agents"
+        />
         <meta
           name="ahrefs-site-verification"
           content="ad920c0040aa681f970b61367c5146881185afa5a15860d0668eee43ced884ec"

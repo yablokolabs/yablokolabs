@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTopButton from "../components/BackToTopButton";
+import Breadcrumbs from "../components/Breadcrumbs";
 import SiteFooter from "../components/SiteFooter";
 import SiteNavigation from "../components/SiteNavigation";
 import { blogPosts, formatPostDate } from "./posts";
@@ -62,6 +63,9 @@ export default function BlogIndexPage() {
   return (
     <>
       <SiteNavigation subpage />
+      <Breadcrumbs
+        trail={[{ name: "Blog", url: "https://yablokolabs.com/blog" }]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
