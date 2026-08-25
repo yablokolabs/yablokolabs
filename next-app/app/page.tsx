@@ -3,8 +3,9 @@
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
-import SiteNavigation from "./components/SiteNavigation";
+import HomeStructuredData, { homeFaqs } from "./components/HomeStructuredData";
 import SiteFooter from "./components/SiteFooter";
+import SiteNavigation from "./components/SiteNavigation";
 
 function StatCard(
   { icon, end, suffix, label, isInfinity = false }: {
@@ -49,6 +50,7 @@ export default function Home() {
   return (
     <>
       <SiteNavigation />
+      <HomeStructuredData />
 
       {/* Hero Section */}
       <section className="hero">
@@ -136,10 +138,10 @@ export default function Home() {
             `}
           </style>
           <p className="hero-subtitle">
-            Yabloko Labs is a UK-based technology company, founded in 2025, that designs, deploys, and operates
-            custom AI agents and hybrid quantum-AI software for businesses. We build and run production AI agent
-            systems, open-source MCP servers, and a portfolio of quantum-AI products — Q-Router, Q-AdMix, Q-Porter,
-            and Q-Consent.
+            Yabloko Labs is a UK-based technology company, founded in 2025, that designs, deploys, and operates custom
+            AI agents and hybrid quantum-AI software for businesses. We build and run production AI agent systems,
+            open-source MCP servers, and a portfolio of quantum-AI products — Q-Router, Q-AdMix, Q-Porter, and
+            Q-Consent.
           </p>
           <div className="cta-buttons">
             <a href="#brands" className="btn btn-primary">
@@ -527,7 +529,12 @@ export default function Home() {
                 Quantum-AI consent and compliance management, blending quantum algorithms with AI to optimize GDPR/HIPAA
                 etc rules, ensure verifiable permissions, cut regulatory risk, and streamline global data flows.
               </p>
-              <a href="https://consent.yablokolabs.com" className="brand-link" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://consent.yablokolabs.com"
+                className="brand-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Discover Q-Consent<sup style={{ fontSize: "0.7em", marginLeft: "2px" }}>™</sup>
                 <svg
                   width="16"
@@ -561,7 +568,16 @@ export default function Home() {
           <div className="mcps-grid">
             <a href="https://mcpize.com/mcp/jnaapakam" className="mcp-card" target="_blank" rel="noopener noreferrer">
               <div className="mcp-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
                   <path d="M12 12v4" />
                   <circle cx="12" cy="19" r="2" />
@@ -573,7 +589,8 @@ export default function Home() {
                 <h3 className="mcp-title">Jñāpakam</h3>
                 <span className="mcp-badge">Memory MCP</span>
                 <p className="mcp-description">
-                  Persistent long-term memory for AI agents — retain context, preferences, and prior interactions across sessions, restarts, and deployment changes.
+                  Persistent long-term memory for AI agents — retain context, preferences, and prior interactions across
+                  sessions, restarts, and deployment changes.
                 </p>
                 <div className="mcp-features">
                   <span className="mcp-feature">store_memory</span>
@@ -582,7 +599,16 @@ export default function Home() {
                 </div>
               </div>
               <div className="mcp-arrow">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
@@ -590,7 +616,16 @@ export default function Home() {
 
             <a href="https://mcpize.com/mcp/truthlens" className="mcp-card" target="_blank" rel="noopener noreferrer">
               <div className="mcp-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
@@ -599,7 +634,8 @@ export default function Home() {
                 <h3 className="mcp-title">TruthLens</h3>
                 <span className="mcp-badge">Hallucination Detector</span>
                 <p className="mcp-description">
-                  Formally verified trust scoring for LLM outputs — analyze AI-generated text for hallucination risk with no API keys, no LLM calls. Fast, local, and verified in Lean 4.
+                  Formally verified trust scoring for LLM outputs — analyze AI-generated text for hallucination risk
+                  with no API keys, no LLM calls. Fast, local, and verified in Lean 4.
                 </p>
                 <div className="mcp-features">
                   <span className="mcp-feature">trust_scoring</span>
@@ -608,7 +644,16 @@ export default function Home() {
                 </div>
               </div>
               <div className="mcp-arrow">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
@@ -616,7 +661,16 @@ export default function Home() {
 
             <a href="https://mcpize.com/mcp/nexa-core" className="mcp-card" target="_blank" rel="noopener noreferrer">
               <div className="mcp-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
                   <line x1="12" y1="22" x2="12" y2="15.5" />
                   <line x1="22" y1="8.5" x2="12" y2="15.5" />
@@ -627,7 +681,8 @@ export default function Home() {
                 <h3 className="mcp-title">NexaCore</h3>
                 <span className="mcp-badge">Hypervector Computing</span>
                 <p className="mcp-description">
-                  Universal runtime for high-dimensional holographic hypervector computing — encode, compute, and query data directly in geometric algebraic spaces.
+                  Universal runtime for high-dimensional holographic hypervector computing — encode, compute, and query
+                  data directly in geometric algebraic spaces.
                 </p>
                 <div className="mcp-features">
                   <span className="mcp-feature">encode_to_hypervector</span>
@@ -636,7 +691,16 @@ export default function Home() {
                 </div>
               </div>
               <div className="mcp-arrow">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
@@ -644,7 +708,16 @@ export default function Home() {
 
             <a href="https://mcpize.com/mcp/ai-consent" className="mcp-card" target="_blank" rel="noopener noreferrer">
               <div className="mcp-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M12 3v18" />
                   <path d="M5 7h14" />
                   <path d="M5 7l-3 6a3 3 0 0 0 6 0L5 7z" />
@@ -656,7 +729,8 @@ export default function Home() {
                 <h3 className="mcp-title">AI Consent</h3>
                 <span className="mcp-badge">EU AI Act Compliance</span>
                 <p className="mcp-description">
-                  Automated EU AI Act compliance for AI agents — classify deployment risk levels, audit for regulatory gaps, and generate prioritized remediation roadmaps.
+                  Automated EU AI Act compliance for AI agents — classify deployment risk levels, audit for regulatory
+                  gaps, and generate prioritized remediation roadmaps.
                 </p>
                 <div className="mcp-features">
                   <span className="mcp-feature">classify_risk</span>
@@ -666,7 +740,16 @@ export default function Home() {
                 </div>
               </div>
               <div className="mcp-arrow">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
@@ -674,7 +757,16 @@ export default function Home() {
 
             <a href="https://mcpize.com/mcp/calllens" className="mcp-card" target="_blank" rel="noopener noreferrer">
               <div className="mcp-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   <path d="M8 9h8" />
                   <path d="M8 13h5" />
@@ -684,7 +776,8 @@ export default function Home() {
                 <h3 className="mcp-title">CallLens</h3>
                 <span className="mcp-badge">Conversation QA</span>
                 <p className="mcp-description">
-                  Automated conversation quality assurance powered by LangGraph — score support and sales calls against behavioral rubrics with timestamped, verifiable evidence.
+                  Automated conversation quality assurance powered by LangGraph — score support and sales calls against
+                  behavioral rubrics with timestamped, verifiable evidence.
                 </p>
                 <div className="mcp-features">
                   <span className="mcp-feature">list_rubrics</span>
@@ -693,12 +786,41 @@ export default function Home() {
                 </div>
               </div>
               <div className="mcp-arrow">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
             </a>
+          </div>
+        </div>
+      </section>
 
+      <section id="faq" className="mcps-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-badge">FAQ</span>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="section-subtitle">
+              Direct answers about Yabloko Labs, our quantum-AI products, and our open-source MCP servers
+            </p>
+          </div>
+
+          <div className="faq-grid">
+            {homeFaqs.map((faq) => (
+              <div key={faq.question} className="faq-item">
+                <h3>{faq.question}</h3>
+                <p>{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

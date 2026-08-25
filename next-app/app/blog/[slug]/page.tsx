@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
 import BackToTopButton from "../../components/BackToTopButton";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import SiteFooter from "../../components/SiteFooter";
 import SiteNavigation from "../../components/SiteNavigation";
 import HermesProviderFallbacks from "../articles/hermes-provider-fallbacks";
@@ -115,6 +116,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <>
       <SiteNavigation subpage />
+      <Breadcrumbs
+        trail={[
+          { name: "Blog", url: "https://yablokolabs.com/blog" },
+          { name: post.title, url: `https://yablokolabs.com/blog/${post.slug}` },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
