@@ -476,37 +476,37 @@ export default function GenderEqualityPlan() {
           >
             <div
               style={{
-                background: "rgba(99, 102, 241, 0.1)",
+                background: "#EEF2FF",
                 padding: "2rem",
                 borderRadius: "1rem",
-                border: "1px solid rgba(99, 102, 241, 0.2)",
+                border: "1px solid #CBD5E1",
                 textAlign: "left",
               }}
             >
-              <h3 style={{ color: "#6366f1", marginBottom: "1rem" }}>Annual Review Process</h3>
-              <ul style={{ color: "#000000 !important", lineHeight: "1.6" }}>
-                <li style={{ color: "#000000 !important" }}>Comprehensive data analysis and progress assessment</li>
-                <li style={{ color: "#000000 !important" }}>Stakeholder feedback collection from all employees</li>
-                <li style={{ color: "#000000 !important" }}>External benchmarking against industry standards</li>
-                <li style={{ color: "#000000 !important" }}>Leadership review and strategic planning session</li>
+              <h3 style={{ color: "#4F46E5", marginBottom: "1rem" }}>Annual Review Process</h3>
+              <ul style={{ color: "#334155", lineHeight: "1.6" }}>
+                <li style={{ color: "#334155" }}>Comprehensive data analysis and progress assessment</li>
+                <li style={{ color: "#334155" }}>Stakeholder feedback collection from all employees</li>
+                <li style={{ color: "#334155" }}>External benchmarking against industry standards</li>
+                <li style={{ color: "#334155" }}>Leadership review and strategic planning session</li>
               </ul>
             </div>
 
             <div
               style={{
-                background: "rgba(6, 182, 212, 0.1)",
+                background: "#ECFEFF",
                 padding: "2rem",
                 borderRadius: "1rem",
-                border: "1px solid rgba(6, 182, 212, 0.2)",
+                border: "1px solid #CBD5E1",
                 textAlign: "left",
               }}
             >
-              <h3 style={{ color: "#06b6d4", marginBottom: "1rem" }}>Update Methodology</h3>
-              <ul style={{ color: "#000000 !important", lineHeight: "1.6" }}>
-                <li style={{ color: "#000000 !important" }}>Evidence-based adjustments to policies and practices</li>
-                <li style={{ color: "#000000 !important" }}>Integration of latest research and best practices</li>
-                <li style={{ color: "#000000 !important" }}>Consultation with gender equality experts</li>
-                <li style={{ color: "#000000 !important" }}>
+              <h3 style={{ color: "#0891B2", marginBottom: "1rem" }}>Update Methodology</h3>
+              <ul style={{ color: "#334155", lineHeight: "1.6" }}>
+                <li style={{ color: "#334155" }}>Evidence-based adjustments to policies and practices</li>
+                <li style={{ color: "#334155" }}>Integration of latest research and best practices</li>
+                <li style={{ color: "#334155" }}>Consultation with gender equality experts</li>
+                <li style={{ color: "#334155" }}>
                   Transparent communication of changes to all stakeholders
                 </li>
               </ul>
@@ -514,19 +514,19 @@ export default function GenderEqualityPlan() {
 
             <div
               style={{
-                background: "rgba(139, 92, 246, 0.1)",
+                background: "#F5F3FF",
                 padding: "2rem",
                 borderRadius: "1rem",
-                border: "1px solid rgba(139, 92, 246, 0.2)",
+                border: "1px solid #CBD5E1",
                 textAlign: "left",
               }}
             >
-              <h3 style={{ color: "#8b5cf6", marginBottom: "1rem" }}>Accountability Measures</h3>
-              <ul style={{ color: "#000000 !important", lineHeight: "1.6" }}>
-                <li style={{ color: "#000000 !important" }}>Quarterly progress reports to leadership team</li>
-                <li style={{ color: "#000000 !important" }}>Public annual gender equality report publication</li>
-                <li style={{ color: "#000000 !important" }}>Integration of equality metrics in performance reviews</li>
-                <li style={{ color: "#000000 !important" }}>Regular employee surveys and feedback mechanisms</li>
+              <h3 style={{ color: "#7C3AED", marginBottom: "1rem" }}>Accountability Measures</h3>
+              <ul style={{ color: "#334155", lineHeight: "1.6" }}>
+                <li style={{ color: "#334155" }}>Quarterly progress reports to leadership team</li>
+                <li style={{ color: "#334155" }}>Public annual gender equality report publication</li>
+                <li style={{ color: "#334155" }}>Integration of equality metrics in performance reviews</li>
+                <li style={{ color: "#334155" }}>Regular employee surveys and feedback mechanisms</li>
               </ul>
             </div>
           </div>
@@ -545,7 +545,7 @@ export default function GenderEqualityPlan() {
               <h3 style={{ color: "#10b981", marginBottom: "1rem" }}>Next Review Date</h3>
               <p style={{ color: "#000000", fontSize: "1.125rem", margin: 0 }}>
                 This Gender Equality Plan will be comprehensively reviewed and updated by{" "}
-                <strong>December 2025</strong>, with interim assessments conducted quarterly to ensure we remain on
+                <strong>December 2026</strong>, with interim assessments conducted quarterly to ensure we remain on
                 track with our commitments.
               </p>
             </div>
