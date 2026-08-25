@@ -45,6 +45,13 @@ jobs:
           npm ci
           npm run build
 
+      # The mobile layout test drives a real browser. npm ci installs the
+      # Playwright package but not the browser itself, so without this the
+      # check would skip and stop guarding anything.
+      - name: Install Playwright browser
+        working-directory: ./next-app
+        run: npx playwright install --with-deps chromium
+
       # Runs against the export produced above, so a claim that would
       # misrepresent the company cannot reach production.
       - name: Test
