@@ -37,6 +37,19 @@ export const metadata: Metadata = {
   },
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://yablokolabs.com/blog#webpage",
+  url: "https://yablokolabs.com/blog",
+  name: "Blog | Yabloko Labs",
+  description:
+    "Field notes from building and operating production AI Agents — reliability engineering, agent architecture, and operational detail from real deployments.",
+  inLanguage: "en",
+  isPartOf: { "@id": "https://yablokolabs.com/#website" },
+  about: { "@id": "https://yablokolabs.com/#organization" },
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
@@ -44,12 +57,7 @@ const jsonLd = {
   description:
     "Field notes from building and operating production AI Agents — reliability engineering, agent architecture, and operational detail from real deployments.",
   url: "https://yablokolabs.com/blog",
-  publisher: {
-    "@type": "Organization",
-    name: "Yabloko Labs Ltd",
-    url: "https://yablokolabs.com",
-    logo: "https://yablokolabs.com/assets/images/yablokolabs-logo-symbol.png",
-  },
+  publisher: { "@id": "https://yablokolabs.com/#organization" },
   blogPost: blogPosts.map((post) => ({
     "@type": "BlogPosting",
     headline: post.title,
@@ -65,6 +73,10 @@ export default function BlogIndexPage() {
       <SiteNavigation subpage />
       <Breadcrumbs
         trail={[{ name: "Blog", url: "https://yablokolabs.com/blog" }]}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <script
         type="application/ld+json"
