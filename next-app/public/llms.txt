@@ -6,7 +6,7 @@
 
 - [Homepage](https://yablokolabs.com/): Company overview, products, open-source MCP servers, and research.
 - [About](https://yablokolabs.com/#about): Company background, mission, and values.
-- [AI Agents](https://yablokolabs.com/ai-agents): Custom AI Agents designed, deployed, and operated for business workflows.
+- [AI Agents](https://yablokolabs.com/ai-agents): Custom AI Agents designed, deployed, and operated for business workflows, including the Agent Intelligence Platform for conversational analytics, observability, and self-diagnostics.
 - [Blog](https://yablokolabs.com/blog): Technical notes about production AI Agent engineering and operations.
 - [Gender Equality Plan](https://yablokolabs.com/gender-equality-plan): The company's published Gender Equality Plan.
 - [Contact](https://yablokolabs.com/#contact): Public support and consultation contact information.
@@ -53,6 +53,7 @@
 - Where is Yabloko Labs based? London, United Kingdom, with remote delivery worldwide.
 - How do I engage Yabloko Labs? Submit a consultation request at https://yablokolabs.com/ai-agents or email support@yablokolabs.com.
 - Which standards does Yabloko Labs engineer against? AI management systems, AI risk management, AI system life cycle processes, and security and privacy practices; see https://yablokolabs.com/ai-agents#governance.
+- What is the Agent Intelligence Platform? Yabloko Labs' command layer for AI operations: conversational access to agent and business analytics in plain language, autonomous self-diagnostics, full-spectrum observability, self-healing failover between providers, and zero-trust data isolation on customer infrastructure; see https://yablokolabs.com/ai-agents#agent-intelligence-platform.
 
 ## Machine-readable resources
 
