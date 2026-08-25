@@ -255,7 +255,7 @@ const pricingTiers = [
 export const metadata: Metadata = {
   title: "AI Agents | Yabloko Labs",
   description:
-    "Custom AI Agents built, deployed and managed by Yabloko Labs. Engineered against ISO/IEC 42001, 23894 and 5338 so your agents stay auditable in production.",
+    "Custom AI Agents built, deployed and managed by Yabloko Labs, including the Agent Intelligence Platform for conversational analytics, observability, and self-diagnostics. Engineered against ISO/IEC 42001, 23894 and 5338 so your agents stay auditable in production.",
   keywords: [
     "AI Agents",
     "Custom AI Agents",
@@ -282,7 +282,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Agents | Yabloko Labs",
     description:
-      "Custom AI Agents built, deployed, and managed by Yabloko Labs. Production-ready systems for automation, operations, and growth.",
+      "Custom AI Agents built, deployed, and managed by Yabloko Labs, plus the Agent Intelligence Platform for conversational analytics, observability, and self-diagnostics. Production-ready systems for automation, operations, and growth.",
     url: "https://yablokolabs.com/ai-agents",
     siteName: "Yabloko Labs",
     type: "website",
@@ -291,7 +291,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Agents | Yabloko Labs",
     description:
-      "Custom AI Agents built, deployed, and managed by Yabloko Labs. Production-ready systems for automation, operations, and growth.",
+      "Custom AI Agents built, deployed, and managed by Yabloko Labs, plus the Agent Intelligence Platform for conversational analytics, observability, and self-diagnostics. Production-ready systems for automation, operations, and growth.",
   },
 };
 
@@ -400,6 +400,11 @@ const faqs = [
     question: "Will the agents work with our existing systems?",
     answer:
       "Yes. We integrate with your existing stack — Slack, email, CRM, Kubernetes, and internal APIs — and deploy cloud-agnostically, so agents fit your infrastructure rather than forcing a migration.",
+  },
+  {
+    question: "What is the Agent Intelligence Platform?",
+    answer:
+      "The Agent Intelligence Platform is Yabloko Labs' command layer for AI operations: conversational access to agent and business analytics in plain language, autonomous self-diagnostics, full-spectrum observability, self-healing failover between providers, and zero-trust data isolation on your own infrastructure.",
   },
 ];
 
@@ -625,7 +630,7 @@ export default function AIAgentsPage() {
         </div>
       </section>
 
-      <section className="ai-section">
+      <section id="agent-intelligence-platform" className="ai-section">
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Featured Offering · Agent Intelligence Platform</span>
