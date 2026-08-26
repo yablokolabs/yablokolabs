@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     subtitle:
       "Giving AI agents a broader, independently aggregated view of the web — without permanently binding discovery to a single provider.",
     excerpt:
-      "Meta‑search reduces dependence on any single ranking system; verification establishes truth separately. Setup, independent verification, and the architecture that separates discovery, retrieval, and reasoning.",
+      "Meta‑search cuts dependence on any single ranking engine. Setup, independent verification, and an architecture separating discovery, retrieval, and reasoning.",
     date: "2026-08-14",
     readTime: "4 min read",
     category: "Discovery Engineering",
@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
     subtitle:
       "Designing a failover chain that actually survives a provider outage — a practical guide for teams running production AI agents.",
     excerpt:
-      "One failed LLM provider should not take your AI agent offline. Yet the most common failover setup — a second model behind the same router — fails at exactly the moment it is needed. What a fallback chain with genuinely different failure domains looks like, and how to build one.",
+      "One failed LLM provider shouldn't take your AI agent offline. Here's how to build a fallback chain with genuinely different failure domains.",
     date: "2026-08-11",
     readTime: "9 min read",
     category: "Reliability Engineering",
