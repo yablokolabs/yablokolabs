@@ -30,15 +30,17 @@ export async function generateMetadata(
   }
 
   const url = `https://yablokolabs.com/blog/${post.slug}`;
+  /** Skip the brand suffix when the article title alone would push the tag past ~60 chars. */
+  const metaTitle = `${post.title} | Yabloko Labs`.length > 65 ? post.title : `${post.title} | Yabloko Labs`;
 
   return {
-    title: `${post.title} | Yabloko Labs`,
+    title: metaTitle,
     description: post.excerpt,
     keywords: post.tags,
     authors: [{ name: post.author }],
     alternates: { canonical: url },
     openGraph: {
-      title: `${post.title} | Yabloko Labs`,
+      title: metaTitle,
       description: post.excerpt,
       url,
       siteName: "Yabloko Labs",
@@ -47,7 +49,7 @@ export async function generateMetadata(
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} | Yabloko Labs`,
+      title: metaTitle,
       description: post.excerpt,
     },
   };

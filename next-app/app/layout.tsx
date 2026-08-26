@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 const siteDescription =
-  "Yabloko Labs is a UK-based technology company, founded in 2025, that designs, deploys, and operates custom AI agents and hybrid quantum-AI software for businesses.";
+  "Yabloko Labs is a UK-based company that designs, deploys, and operates custom AI agents and hybrid quantum-AI software for businesses.";
 
 export const metadata: Metadata = {
   title: "Yabloko Labs - Custom AI Agents & Quantum-AI Software",

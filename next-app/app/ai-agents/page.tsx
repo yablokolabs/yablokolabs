@@ -255,7 +255,7 @@ const pricingTiers = [
 export const metadata: Metadata = {
   title: "AI Agents | Yabloko Labs",
   description:
-    "Custom AI Agents built, deployed and managed by Yabloko Labs, including the Agent Intelligence Platform for conversational analytics, observability, and self-diagnostics. Engineered against ISO/IEC 42001, 23894 and 5338 so your agents stay auditable in production.",
+    "Custom AI Agents built, deployed and managed by Yabloko Labs. Automation, observability, and self-diagnostics, engineered against ISO/IEC AI standards.",
   keywords: [
     "AI Agents",
     "Custom AI Agents",
@@ -282,7 +282,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Agents | Yabloko Labs",
     description:
-      "Custom AI Agents built, deployed, and managed by Yabloko Labs, plus the Agent Intelligence Platform for conversational analytics, observability, and self-diagnostics. Production-ready systems for automation, operations, and growth.",
+      "Custom AI Agents built, deployed and managed by Yabloko Labs. Automation, observability, and self-diagnostics, engineered against ISO/IEC AI standards.",
     url: "https://yablokolabs.com/ai-agents",
     siteName: "Yabloko Labs",
     type: "website",
@@ -291,7 +291,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Agents | Yabloko Labs",
     description:
-      "Custom AI Agents built, deployed, and managed by Yabloko Labs, plus the Agent Intelligence Platform for conversational analytics, observability, and self-diagnostics. Production-ready systems for automation, operations, and growth.",
+      "Custom AI Agents built, deployed and managed by Yabloko Labs. Automation, observability, and self-diagnostics, engineered against ISO/IEC AI standards.",
   },
 };
 

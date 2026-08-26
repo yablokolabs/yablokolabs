@@ -9,7 +9,7 @@ import { blogPosts, formatPostDate } from "./posts";
 export const metadata: Metadata = {
   title: "Blog | Yabloko Labs",
   description:
-    "Field notes from building and operating production AI Agents — reliability engineering, agent architecture, and the operational detail that only shows up in production.",
+    "Field notes from building and operating production AI Agents — reliability engineering, agent architecture, and the detail that only shows up in production.",
   keywords: [
     "AI Agents blog",
     "AI Agent reliability",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog | Yabloko Labs",
     description:
-      "Field notes from building and operating production AI Agents — reliability engineering, agent architecture, and operational detail from real deployments.",
+      "Field notes from building and operating production AI Agents — reliability engineering, agent architecture, and the detail that only shows up in production.",
     url: "https://yablokolabs.com/blog",
     siteName: "Yabloko Labs",
     type: "website",
@@ -44,7 +44,7 @@ const webPageJsonLd = {
   url: "https://yablokolabs.com/blog",
   name: "Blog | Yabloko Labs",
   description:
-    "Field notes from building and operating production AI Agents — reliability engineering, agent architecture, and operational detail from real deployments.",
+    "Field notes from building and operating production AI Agents — reliability engineering, agent architecture, and the detail that only shows up in production.",
   inLanguage: "en",
   isPartOf: { "@id": "https://yablokolabs.com/#website" },
   about: { "@id": "https://yablokolabs.com/#organization" },
