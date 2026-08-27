@@ -1,0 +1,13 @@
+[Unit]
+Description=Restate server (Polaris durable execution backend)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/restate-server
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

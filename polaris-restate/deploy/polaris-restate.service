@@ -1,0 +1,16 @@
+[Unit]
+Description=Polaris Restate services (lead discovery + outreach)
+After=network-online.target restate-server.service
+Wants=restate-server.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/YOURUSER/polaris-restate
+ExecStart=/usr/bin/env npm start
+Restart=always
+RestartSec=5
+# Load secrets from the protected env file.
+EnvironmentFile=/home/YOURUSER/polaris-restate/.env
+
+[Install]
+WantedBy=multi-user.target
