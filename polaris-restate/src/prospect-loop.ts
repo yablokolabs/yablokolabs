@@ -26,16 +26,17 @@ export const prospectLoop = restate.workflow({
 
       while (true) {
         for (const icp of ["agents", "qubo"] as const) {
-          // One durable unit per ICP so one failing source never kills the other.
-          await ctx.run(`cycle:${icp}`, async () => {
-            try {
-              await runIcpCycle(ctx, icp);
-            } catch (error) {
-              // Non-terminal problem this cycle (source down, empty search...).
-              // Log-and-continue keeps the loop alive; next cycle retries.
-              console.error(`[${icp}] cycle failed, will retry next interval`, error);
-            }
-          });
+          // Plain try/catch, NOT a wrapping ctx.run: durable steps must never be
+          // nested inside another durable step — nested context operations make
+          // journal replay non-deterministic (Restate error 570). Each failure
+          // surface below (discover/score/ingest/notify) is its own journaled
+          // step with SDK-managed retries; this catch only stops one bad ICP
+          // from killing the other before the sleep.
+          try {
+            await runIcpCycle(ctx, icp);
+          } catch (error) {
+            console.error(`[${icp}] cycle failed, will retry next interval`, error);
+          }
         }
 
         await ctx.sleep(intervalMs);

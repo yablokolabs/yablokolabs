@@ -4,9 +4,10 @@ After=network-online.target restate-server.service
 Requires=restate-server.service
 
 [Service]
-WorkingDirectory=%h/yablokolabs/polaris-restate
-EnvironmentFile=%h/yablokolabs/polaris-restate/.env
-ExecStart=%h/yablokolabs/polaris-restate/node_modules/.bin/tsx src/index.ts
+WorkingDirectory=/home/azureuser/yablokolabs/yablokolabs/polaris-restate
+# .env is loaded by the app itself (dotenv) — systemd never reads it.
+ExecStart=/home/azureuser/.hermes/node/bin/node /home/azureuser/yablokolabs/yablokolabs/polaris-restate/node_modules/tsx/dist/cli.mjs src/index.ts
+Environment=PATH=/home/azureuser/.hermes/node/bin:/home/azureuser/.local/bin:/usr/local/bin:/usr/bin:/bin
 Restart=always
 RestartSec=5
 

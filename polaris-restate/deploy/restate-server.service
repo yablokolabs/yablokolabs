@@ -3,11 +3,10 @@ Description=Restate server (Polaris durable execution backend)
 After=network-online.target
 
 [Service]
-# Journal lands in ~/yablokolabs/restate-data — the location backup-bots.sh archives
-# as a quiesced snapshot and restore-polaris-restate.sh imports. Do not change the
-# working directory without updating bots_soul/backup-bots.sh + RECOVERY_INVARIANTS.md.
-WorkingDirectory=%h/yablokolabs
-ExecStart=%h/.local/bin/restate-server
+WorkingDirectory=/home/azureuser/yablokolabs
+# Real node binary, not a shebang shim: systemd's PATH does not include Hermes' node.
+ExecStart=/home/azureuser/.hermes/node/bin/node /home/azureuser/.local/lib/node_modules/@restatedev/restate-server/lib/index.js
+Environment=PATH=/home/azureuser/.hermes/node/bin:/home/azureuser/.local/bin:/usr/local/bin:/usr/bin:/bin
 Restart=always
 RestartSec=5
 

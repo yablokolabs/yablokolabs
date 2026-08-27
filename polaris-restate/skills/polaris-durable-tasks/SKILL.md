@@ -10,17 +10,18 @@ chat turns, these keep running across restarts and can suspend for days.
 
 ## Commands the user may ask for
 
-**Start / restart the prospect loop** (6h cadence unless told otherwise):
+**Start the prospect loop** — it is normally ALREADY RUNNING; if an invocation for
+`ProspectLoop/yabloko` shows "running", do nothing:
 
 ```bash
-curl -s -X POST localhost:8080/ProspectLoop/yabloko/run/start \
-  --json '{"intervalHours": 6}'
+restate invocation list | grep ProspectLoop          # check first!
+curl -s -X POST localhost:8080/ProspectLoop/yabloko/run/send \
+  -H 'content-type: application/json' -d '{}'        # fires-and-forgets; never double-send
 ```
 
-If Restate says the workflow already ran with that key, stop first:
-
+If Restate refuses because the run already exists, leave it alone unless asked to stop:
 ```bash
-curl -s localhost:8080/ProspectLoop/yabloko/run/stop
+curl -s localhost:8080/ProspectLoop/yabloko/run/cancel
 # then re-send start above; the run handler resumes from its journal
 ```
 
