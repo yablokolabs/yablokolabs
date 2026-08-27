@@ -1,13 +1,15 @@
 [Unit]
 Description=Restate server (Polaris durable execution backend)
 After=network-online.target
-Wants=network-online.target
 
 [Service]
-Type=simple
-ExecStart=/usr/local/bin/restate-server
+# Journal lands in ~/yablokolabs/restate-data — the location backup-bots.sh archives
+# as a quiesced snapshot and restore-polaris-restate.sh imports. Do not change the
+# working directory without updating bots_soul/backup-bots.sh + RECOVERY_INVARIANTS.md.
+WorkingDirectory=%h/yablokolabs
+ExecStart=%h/.local/bin/restate-server
 Restart=always
 RestartSec=5
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

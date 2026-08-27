@@ -47,6 +47,6 @@ The pipeline resumes on its own after the curl returns.
 - Never post digests yourself; the workflows deliver them. You only control
   start/stop/status/approvals so journaling stays truthful.
 - If restate-server is down (curl fails), say so plainly and offer:
-  `sudo systemctl start restate-server polaris-restate`.
+  `systemctl --user start restate-server polaris-restate`.
 - All discovery is read-only public-web research; outreach only ever sends
   after the user resolves the approval promise.

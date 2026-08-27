@@ -24,41 +24,52 @@ Every `ctx.run` step is journaled: reboot the box mid-cycle and Restate replays
 completed steps and resumes the rest. Every `ctx.sleep` and promise-wait is
 durable: suspending costs nothing, whether it is six hours or six days.
 
-## What runs where
+## Canonical layout on the VM
 
-| Piece | Service | Kind | Purpose |
-|-------|---------|------|---------|
-| `src/prospect-loop.ts` | `ProspectLoop` | workflow | Scheduled discovery → score → dedup → digest |
-| `src/lead-registry.ts` | `LeadRegistry` | virtual object | Per-domain memory: dedup, status, drafts |
-| `src/outreach.ts` | `Outreach` | workflow | Draft outreach, suspend for approval, resume |
+| Piece | Location | Backed up? |
+|---|---|---|
+| This code | `~/yablokolabs/yablokolabs/polaris-restate/` (a subdirectory of the site repo clone) | no — cloned from GitHub at the manifest-pinned commit; `npm ci` rebuilds |
+| Secrets `.env` | `polaris-restate/.env` (mode 600) | never — names only in manifests, values re-entered at restore |
+| Restate journal + K/V state | `~/yablokolabs/restate-data/` | yes — nightly quiesced snapshot by [`bots_soul/backup-bots.sh`](../../bots_soul/backup-bots.sh) |
+| User systemd units | `~/.config/systemd/user/{restate-server,polaris-restate}.service` | yes — ride `system-bits.tar.zst` |
+| Polaris skill | `~/.hermes/profiles/polaris/skills/polaris-durable-tasks/` | yes — inside `polaris-profile.tar.zst` |
 
-Hermes itself stays untouched: all model calls shell out to the same
+Hermes itself stays untouched: all model calls shell out to the same headless
 `hermes chat -q` CLI with your existing provider fallback chain.
 
-## Install on the Hermes box
+## Install on the Hermes box (fresh VM: use bots_soul instead)
+
+**Migrations and fresh restores should run the scripted path — it also wires up
+backups correctly:** `bots_soul/restore-polaris-restate.sh` +
+`bots_soul/validate-polaris-restate.sh` (see `bots_soul/RESTORE.md §4d`).
+
+Manual install of this directory only:
 
 ```bash
-# 1. Restate server + CLI (single binaries)
-sudo curl -fsSL https://restate.gateway.scarf.sh/latest/restate-server-x86_64-unknown-linux-musl.tar.xz \
-  | tar -xJ --strip-components=1 -C /usr/local/bin restate-server-x86_64-unknown-linux-musl/restate-server
-sudo curl -fsSL https://restate.gateway.scarf.sh/latest/restate-cli-x86_64-unknown-linux-musl.tar.xz \
-  | tar -xJ --strip-components=1 -C /usr/local/bin restate-cli-x86_64-unknown-linux-musl/restate
+# Restate server + CLI binaries (pin versions per the backup manifest)
+npm install --global @restatedev/restate-server@latest @restatedev/restate@latest
 
-# 2. This service
-cd ~/polaris-restate && npm install && cp .env.example .env  # then edit .env
-npm run typecheck                                            # sanity
-npm start &                                                  # serves :9080
-
-# 3. Register and launch
-restate deployments register localhost:9080
+# This service
+cd ~/yablokolabs/yablokolabs/polaris-restate
+npm install && cp .env.example .env && chmod 600 .env   # then edit .env
+npm run typecheck                                       # sanity
+restate-server &                                        # journal → ~/yablokolabs/restate-data
+npx tsx src/index.ts &                                  # handler :9080
+restate deployments register http://localhost:9080
 curl -s -X POST localhost:8080/ProspectLoop/yabloko/run/start --json '{"intervalHours":6}'
 ```
 
-For boot persistence use the units in `deploy/` (adjust `YOURUSER`), plus:
+Boot persistence uses `deploy/*.service` as **user** units:
 
 ```bash
-mkdir -p ~/.hermes/skills/polaris-durable-tasks
-cp skills/polaris-durable-tasks/SKILL.md ~/.hermes/skills/polaris-durable-tasks/
+mkdir -p ~/.config/systemd/user
+cp deploy/*.service ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now restate-server polaris-restate
+
+# teach Polaris the chat controls (note the ISOLATED PROFILE path)
+mkdir -p ~/.hermes/profiles/polaris/skills
+cp -r skills/polaris-durable-tasks ~/.hermes/profiles/polaris/skills/
 ```
 
 That skill teaches Polaris to start/stop/status the pipelines and — most
@@ -73,6 +84,8 @@ draft in Telegram.
    workflow promise; sending then happens exactly once.
 4. Watch everything in the Restate UI at `http://localhost:9070`: each
    journal step, retry, wait, and Telegram call is traced.
+
+Runbook, failure modes, and migration: [`bots_soul/polaris-hermes/POLARIS_RESTATE.md`](../../bots_soul/polaris-hermes/POLARIS_RESTATE.md).
 
 ## Sources used today
 
