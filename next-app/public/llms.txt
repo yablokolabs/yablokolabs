@@ -33,6 +33,7 @@
 
 ## Blog articles
 
+- [Durable Agent Tasks: Making Hermes More Powerful with Restate](https://yablokolabs.com/blog/hermes-restate-durable-tasks): How durable execution makes Hermes-driven agent tasks survive crashes, waits, schedules, and human approval gates.
 - [SearXNG: Independent Meta-Search for Agent-Ready Discovery](https://yablokolabs.com/blog/searxng-independent-discovery): A practical guide to independent discovery and verification for AI agents.
 - [Hermes Provider Fallbacks](https://yablokolabs.com/blog/hermes-provider-fallbacks): A guide to designing provider fallback chains for production AI agents.
 

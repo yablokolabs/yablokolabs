@@ -104,6 +104,7 @@ const CRAWLABLE_PATHS = [
   "/ai-agents",
   "/blog",
   "/blog/hermes-provider-fallbacks",
+  "/blog/hermes-restate-durable-tasks",
   "/gender-equality-plan",
   "/llms.txt",
 ];
@@ -197,7 +198,7 @@ test("sitemap.xml lists exactly the routes that were exported", () => {
     ["index", "ai-agents", "blog", "gender-equality-plan"]
       .map((route) => (route === "index" ? `${BASE}/` : `${BASE}/${route}`))
       .concat(
-        ["hermes-provider-fallbacks", "searxng-independent-discovery"].map(
+        ["hermes-provider-fallbacks", "hermes-restate-durable-tasks", "searxng-independent-discovery"].map(
           (slug) => `${BASE}/blog/${slug}`,
         ),
       ),
