@@ -33,6 +33,11 @@ const ROUTES = [
     crumbDepth: 3,
   },
   {
+    file: "blog/hermes-restate-durable-tasks.html",
+    url: "https://yablokolabs.com/blog/hermes-restate-durable-tasks",
+    crumbDepth: 3,
+  },
+  {
     file: "blog/searxng-independent-discovery.html",
     url: "https://yablokolabs.com/blog/searxng-independent-discovery",
     crumbDepth: 3,
