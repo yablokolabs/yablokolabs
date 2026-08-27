@@ -7,11 +7,13 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import SiteFooter from "../../components/SiteFooter";
 import SiteNavigation from "../../components/SiteNavigation";
 import HermesProviderFallbacks from "../articles/hermes-provider-fallbacks";
+import HermesRestateDurableTasks from "../articles/hermes-restate-durable-tasks";
 import SearxngIndependentDiscovery from "../articles/searxng-independent-discovery";
 import { blogPosts, formatPostDate, getPostBySlug } from "../posts";
 
 const articles: Record<string, ComponentType> = {
   "hermes-provider-fallbacks": HermesProviderFallbacks,
+  "hermes-restate-durable-tasks": HermesRestateDurableTasks,
   "searxng-independent-discovery": SearxngIndependentDiscovery,
 };
 

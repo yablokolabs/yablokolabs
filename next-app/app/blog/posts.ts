@@ -20,6 +20,49 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "hermes-restate-durable-tasks",
+    title: "Durable Agent Tasks: Making Hermes More Powerful with Restate",
+    subtitle:
+      "A request-scoped agent dies when its process does. Wrap Hermes-driven workflows in durable execution and they survive crashes, waits, approvals, and schedules.",
+    excerpt:
+      "A request-scoped agent dies when its process does. Journaling every step makes LLM calls, MCP tool runs, and human-approval waits resumable.",
+    date: "2026-08-27",
+    readTime: "10 min read",
+    category: "Reliability Engineering",
+    tags: [
+      "AI Agents",
+      "Hermes Agent",
+      "Restate",
+      "Durable Execution",
+      "MCP",
+    ],
+    author: "Yabloko Labs Ltd",
+    testedAgainst:
+      "Hermes Agent v0.20.0 · Restate 1.x server & TypeScript SDK 1.16.9 · August 2026",
+    faq: [
+      {
+        question: "What does Restate actually add to a Hermes agent?",
+        answer:
+          "Durability around the agent loop. Every LLM call and tool execution becomes a journaled step, so a crashed task resumes exactly where it stopped instead of restarting from zero — plus durable timers, suspending waits, and a step-by-step execution trace in the Restate UI.",
+      },
+      {
+        question: "Do I have to rewrite my agent logic or change model providers?",
+        answer:
+          'No. The handler still contains an ordinary agent loop, and Hermes keeps its configured primary and fallback providers. You wrap side-effecting calls in ctx.run() and expose one Restate service handler; the rest of the logic is unchanged.',
+      },
+      {
+        question: "How does waiting for days for a human approval cost nothing?",
+        answer:
+          "When the only pending thing is an external event, Restate suspends the invocation instead of holding it in memory. On resume, the journaled steps replay instantly. It works like await, not like polling.",
+      },
+      {
+        question: "Is durable execution only about crash recovery?",
+        answer:
+          "No — recovery is just the headline. Scheduled check-ins (ctx.sleep), human-in-the-loop gates (signals and awakeables that you resolve over HTTP when ready), exactly-once tool effects, and per-invocation observability all come from the same journal.",
+      },
+    ],
+  },
+  {
     slug: "searxng-independent-discovery",
     title: "SearXNG: Independent Meta‑Search for Agent‑Ready Discovery",
     subtitle:
