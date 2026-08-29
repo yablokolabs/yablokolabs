@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test": "node --test tests/*.test.mjs",
+    "test:leadsy": "node tests/leadsy-tag.playwright.mjs",
     "lint": "next lint",
     "generate-sitemap": "tsx scripts/generate-sitemap.ts"
   },
