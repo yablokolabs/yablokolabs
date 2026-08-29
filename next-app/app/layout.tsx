@@ -96,6 +96,13 @@ export default function RootLayout({
           data-key="q0OgA6bkTbELvXCIIfTY9A"
           strategy="afterInteractive"
         />
+        <script
+          id="vtag-ai-js"
+          async
+          src="https://r2.leadsy.ai/tag.js"
+          data-pid="hQwoDg4gysSBJwpa"
+          data-version="062024"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
