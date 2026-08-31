@@ -47,7 +47,7 @@ export default function SilentlyHealthyAgentInfrastructure() {
       <h2 id="the-pattern">The failure class: components that report health and do nothing</h2>
       <p>
         <strong>Every long-running agent stack eventually produces the same failure class: a component that logs
-        \u201cI\u2019m fine\u201d while silently doing nothing that matters.</strong> The process is up. The health
+        &ldquo;I&rsquo;m fine&rdquo; while silently doing nothing that matters.</strong> The process is up. The health
         endpoint returns 200. The logs are quiet. And the work is not happening.
       </p>
       <p>
@@ -77,7 +77,7 @@ export default function SilentlyHealthyAgentInfrastructure() {
         </table>
       </div>
 
-      <h2 id="case-1">Case 1: the bot that logged \u201clistening\u201d</h2>
+      <h2 id="case-1">Case 1: the bot that logged &ldquo;listening&rdquo;</h2>
       <p>
         Our Telegram bot runs in a container. It starts, prints{" "}
         <code>C2C is listening on Telegram</code>, and begins long-polling <code>getUpdates</code>. It is the
@@ -139,7 +139,7 @@ volumes:
       <aside className="blog-callout blog-callout-principle">
         <span className="blog-callout-label">The core principle</span>
         <p>
-          \u201cUp\u201d and \u201cworking\u201d are different claims. A process that started successfully and a
+          &ldquo;Up&rdquo; and &ldquo;working&rdquo; are different claims. A process that started successfully and a
           pipeline that is delivering results have almost nothing in common, and the first must never be treated as
           evidence of the second. When a demo is on the line, verify the delivery path end to end — and verify it
           again after any config edit.

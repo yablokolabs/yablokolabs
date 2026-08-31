@@ -2548,6 +2548,15 @@ canvas.fixed {
   color: #e2e8f0;
 }
 
+.blog-table td code {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  vertical-align: bottom;
+  scrollbar-width: thin;
+}
+
 .blog-list {
   margin: 0 0 1.3rem 0;
   padding: 0;
