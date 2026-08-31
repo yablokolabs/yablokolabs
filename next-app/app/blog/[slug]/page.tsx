@@ -6,15 +6,19 @@ import BackToTopButton from "../../components/BackToTopButton";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import SiteFooter from "../../components/SiteFooter";
 import SiteNavigation from "../../components/SiteNavigation";
+import DockerComposeEgressLegacyIptables from "../articles/docker-compose-egress-legacy-iptables";
 import HermesProviderFallbacks from "../articles/hermes-provider-fallbacks";
 import HermesRestateDurableTasks from "../articles/hermes-restate-durable-tasks";
 import SearxngIndependentDiscovery from "../articles/searxng-independent-discovery";
+import SilentlyHealthyAgentInfrastructure from "../articles/silently-healthy-agent-infrastructure";
 import { blogPosts, formatPostDate, getPostBySlug } from "../posts";
 
 const articles: Record<string, ComponentType> = {
+  "docker-compose-egress-legacy-iptables": DockerComposeEgressLegacyIptables,
   "hermes-provider-fallbacks": HermesProviderFallbacks,
   "hermes-restate-durable-tasks": HermesRestateDurableTasks,
   "searxng-independent-discovery": SearxngIndependentDiscovery,
+  "silently-healthy-agent-infrastructure": SilentlyHealthyAgentInfrastructure,
 };
 
 export function generateStaticParams() {

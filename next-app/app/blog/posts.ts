@@ -145,6 +145,68 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "docker-compose-egress-legacy-iptables",
+    title: "Docker Compose Egress and the Stale Legacy iptables Ruleset",
+    subtitle:
+      "Your Compose stack is healthy, your host reaches the internet, and your containers have none. A second firewall ruleset was dropping everything before NAT — here is how to find it.",
+    excerpt:
+      "Docker's nftables rules looked perfect while a stale iptables-legacy ruleset silently dropped the compose network's outbound traffic. Counters, the two-ruleset trap, and the three-command fix.",
+    date: "2026-08-31",
+    readTime: "6 min read",
+    category: "Reliability Engineering",
+    tags: ["Docker", "Docker Compose", "Networking", "iptables", "Reliability"],
+    author: "Yabloko Labs Ltd",
+    testedAgainst: "Docker 29.7.2 · Debian trixie · iptables-legacy vs nftables · August 2026",
+    faq: [
+      {
+        question: "Why would Docker Compose containers lose internet when the host still has it?",
+        answer:
+          "A second, stale iptables-legacy ruleset can coexist with Docker's nftables rules. If its FORWARD chain has policy DROP and only accepts the default docker0 bridge, traffic from the compose bridge is accepted by one ruleset and dropped by the other before it ever reaches NAT.",
+      },
+      {
+        question: "How do I tell if my container egress is being dropped before NAT?",
+        answer:
+          "Check the NAT counters. If the MASQUERADE rule for your compose subnet counts zero packets while the FORWARD counters are ticking, traffic is being dropped between FORWARD and POSTROUTING — look for a second ruleset with iptables-legacy -L FORWARD -n -v.",
+      },
+      {
+        question: "Is the fix permanent?",
+        answer:
+          "No. iptables-legacy rules are runtime-only and disappear on reboot. Persist them in a script or systemd unit, or the hang will return on a fresh boot.",
+      },
+    ],
+  },
+  {
+    slug: "silently-healthy-agent-infrastructure",
+    title: "Silently Healthy: When Agent Infrastructure Reports Health and Does Nothing",
+    subtitle:
+      "A bot that logs 'listening' while unauthenticated. A token rejected with a swallowed 404. A network that looks fine from the host. Three failures, one class: components that look healthy while doing nothing.",
+    excerpt:
+      "Up and working are different claims. Three production failures where the process was healthy, the logs were clean, and nothing was happening — and the one habit that catches all of them.",
+    date: "2026-08-31",
+    readTime: "7 min read",
+    category: "Reliability Engineering",
+    tags: ["AI Agents", "Telegram", "Docker", "Monitoring", "Reliability"],
+    author: "Yabloko Labs Ltd",
+    testedAgainst: "C2C Telegram bot · Docker Compose · Claude CLI 2.1.251 · August 2026",
+    faq: [
+      {
+        question: "Why does getUpdates swallow a 404 from a bad bot token?",
+        answer:
+          "getUpdates parses the response and returns an empty update list when ok is false, so a malformed token makes the bot poll happily while receiving nothing — with clean logs. getMe, which asks Telegram to identify the token, is the check that exposes it.",
+      },
+      {
+        question: "What is the difference between 'up' and 'working'?",
+        answer:
+          "Up means the process started and its own health signals look fine. Working means the delivery path — token, network, model, approvals — is functioning end to end. The first is reported by the component; only the second is verified by asking the remote end.",
+      },
+      {
+        question: "What three checks catch these silent failures before a demo?",
+        answer:
+          "getMe to prove the token, a curl from inside the container to prove egress, and a one-line model PONG probe to prove the model is reachable from where the code runs.",
+      },
+    ],
+  },
 ].sort((a, b) => b.date.localeCompare(a.date));
 
 export const getPostBySlug = (slug: string): BlogPost | undefined =>
