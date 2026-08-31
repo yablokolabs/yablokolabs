@@ -198,9 +198,13 @@ test("sitemap.xml lists exactly the routes that were exported", () => {
     ["index", "ai-agents", "blog", "gender-equality-plan"]
       .map((route) => (route === "index" ? `${BASE}/` : `${BASE}/${route}`))
       .concat(
-        ["hermes-provider-fallbacks", "hermes-restate-durable-tasks", "searxng-independent-discovery"].map(
-          (slug) => `${BASE}/blog/${slug}`,
-        ),
+        [
+          "docker-compose-egress-legacy-iptables",
+          "hermes-provider-fallbacks",
+          "hermes-restate-durable-tasks",
+          "searxng-independent-discovery",
+          "silently-healthy-agent-infrastructure",
+        ].map((slug) => `${BASE}/blog/${slug}`),
       ),
   );
 
