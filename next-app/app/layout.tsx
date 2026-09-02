@@ -139,11 +139,11 @@ export default function RootLayout({
                 addressCountry: "GB",
               },
               sameAs: [
-                "https://www.linkedin.com/in/yabloko-labs-4858bb366/",
+                // "https://www.linkedin.com/in/yabloko-labs-4858bb366/",
                 "https://github.com/yablokolabs",
                 "https://www.instagram.com/yabloko_labs/",
                 "https://www.facebook.com/people/yablokolabs/61578265855070",
-                "https://www.youtube.com/@map2map",
+                // "https://www.youtube.com/@map2map",
               ],
             }),
           }}
