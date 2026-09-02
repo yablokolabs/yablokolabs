@@ -19,10 +19,26 @@ Deployed target: **https://jnaapakam.yablokolabs.com**
 | GET  | `/v1/personas/<id>` | Persona metadata |
 | GET  | `/v1/personas/<id>.zip` | `SOUL.md` + `IDENTITY.md` + `MEMORY.md` + `jnaapakam.yml` |
 | GET  | `/v1/personas/<id>/SOUL.md` | Single identity file (also `IDENTITY.md`, `MEMORY.md`, `jnaapakam.yml`) |
+| GET  | `/v1/stats` | Usage analytics — minted/download counts, unique visitors, UA breakdown, last 14 days |
 
 Personas are **content-addressed**: `id` is the sha256 of the canonical JSON, so
 identical personas share a URL and re-POSTing is idempotent. No LLM, no state
 beyond the stored manifest — generation is deterministic template filling.
+
+## Analytics
+
+Every meaningful request (mint, file/zip download, schema/info/stats view) is
+recorded to a D1 database (`ANALYTICS` binding) and readable at `GET /v1/stats`:
+
+- `totals`: events, personas_minted, downloads
+- `unique_visitors`: distinct hashed client IPs (daily-rotated sha256 — no raw
+  IPs stored) over the last 24h / 7d
+- `ua_breakdown`: agent vs tool vs browser (heuristic — see `classifyUa`)
+- `by_day`: last 14 days, zero-filled
+- `top_personas`: most-downloaded persona ids
+
+Analytics never breaks the API: write/read failures are swallowed, and the
+endpoint returns `{ "enabled": false }` when no D1 binding exists (local dev).
 
 ### Example
 
@@ -82,6 +98,16 @@ To attach **jnaapakam.yablokolabs.com**: uncomment the `[[routes]]` block in
 and redeploy. Cloudflare creates the DNS record and TLS certificate — no manual
 DNS edits, since `yablokolabs.com` already runs on Cloudflare. (Custom domains
 may require the Workers Paid plan; the deploy error will say so.)
+
+Analytics database lifecycle (D1):
+
+```bash
+npx wrangler d1 create jnaapakam-analytics   # once; paste id into wrangler.toml
+npx wrangler d1 migrations apply jnaapakam-analytics --remote   # after schema changes
+```
+
+> Note: migrations apply without `--remote` touches the *local* dev database.
+> Use `--remote` for production D1.
 
 ## Notes / limits
 

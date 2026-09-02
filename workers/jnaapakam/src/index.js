@@ -24,6 +24,7 @@ import {
   renderYaml,
 } from "./templates.js";
 import { ApiError, PERSONA_SCHEMA, validateAndNormalize } from "./schema.js";
+import { ACTION, StatsService } from "./analytics.js";
 
 const SERVICE = {
   name: "jnaapakam",
@@ -35,6 +36,7 @@ const SERVICE = {
     schema: "/v1/schema",
     create: "POST /v1/personas",
     download: "GET /v1/personas/<id>.zip",
+    stats: "/v1/stats",
   },
   example:
     "curl -s -X POST https://jnaapakam.yablokolabs.com/v1/personas " +
@@ -119,10 +121,23 @@ const FILE_TYPES = {
 };
 
 // store: { get(key) -> Promise<string|null>, put(key, value) -> Promise<void> }
-export function createHandler(store) {
+// analytics: StatsService (D1-backed) or undefined — recording never blocks/fails requests.
+export function createHandler(store, analytics) {
   return async function handle(request) {
     const url = new URL(request.url);
     const path = url.pathname;
+
+    // Best-effort analytics: failures are swallowed inside record().
+    const track = (action, extra = {}) => {
+      if (!analytics) return Promise.resolve();
+      return analytics.record({
+        action,
+        path,
+        ua: request.headers.get("User-Agent"),
+        ip: request.headers.get("CF-Connecting-IP"),
+        ...extra,
+      });
+    };
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: CORS });
@@ -131,12 +146,20 @@ export function createHandler(store) {
     try {
       // ---- service info ---------------------------------------------------
       if (request.method === "GET" && path === "/") {
+        await track(ACTION.INFO_VIEW);
         return json(SERVICE);
       }
 
       // ---- schema ----------------------------------------------------------
       if (request.method === "GET" && path === "/v1/schema") {
+        await track(ACTION.SCHEMA_VIEW);
         return json(PERSONA_SCHEMA);
+      }
+
+      // ---- stats -----------------------------------------------------------
+      if (request.method === "GET" && path === "/v1/stats") {
+        await track(ACTION.STATS_VIEW);
+        return json(analytics ? await analytics.stats() : { enabled: false });
       }
 
       // ---- create -----------------------------------------------------------
@@ -151,6 +174,7 @@ export function createHandler(store) {
         const raw = canonicalPersonaJson(persona);
         const id = await sha256Hex(raw);
         await store.put(id, raw);
+        await track(ACTION.PERSONA_CREATED, { personaId: id });
         const files = renderAll(persona);
         const urls = makeUrls(baseUrls(request), id);
         return json(
@@ -176,6 +200,7 @@ export function createHandler(store) {
       if (request.method === "GET" && metaMatch) {
         const raw = await store.get(metaMatch[1]);
         if (!raw) throw new ApiError(404, "persona not found");
+        await track(ACTION.META_VIEW, { personaId: metaMatch[1] });
         const persona = JSON.parse(raw);
         const urls = makeUrls(baseUrls(request), metaMatch[1]);
         return json({
@@ -193,6 +218,7 @@ export function createHandler(store) {
       if (request.method === "GET" && zipMatch) {
         const raw = await store.get(zipMatch[1]);
         if (!raw) throw new ApiError(404, "persona not found");
+        await track(ACTION.ZIP_DOWNLOAD, { personaId: zipMatch[1] });
         const files = renderAll(JSON.parse(raw));
         const zip = zipSync(
           Object.fromEntries(
@@ -217,6 +243,7 @@ export function createHandler(store) {
         if (!FILE_TYPES[filename]) throw new ApiError(404, "unknown file");
         const raw = await store.get(id);
         if (!raw) throw new ApiError(404, "persona not found");
+        await track(ACTION.FILE_DOWNLOAD, { personaId: id });
         const files = renderAll(JSON.parse(raw));
         return text(files[filename], 200, FILE_TYPES[filename]);
       }
@@ -250,7 +277,8 @@ export default {
             put: (k, v) => env.PERSONAS.put(k, v),
           }
         : devStore;
-    return createHandler(store)(request);
+    const analytics = env && env.ANALYTICS ? new StatsService(env.ANALYTICS) : null;
+    return createHandler(store, analytics)(request);
   },
 };
 
