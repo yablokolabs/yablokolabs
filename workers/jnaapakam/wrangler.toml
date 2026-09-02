@@ -19,3 +19,11 @@ preview_id = "1f6fd89010654ab79c16abefa4ecc1e3"
 [[routes]]
 pattern = "jnaapakam.yablokolabs.com"
 custom_domain = true
+
+# Usage analytics: one row per meaningful request; GET /v1/stats reads it back.
+# Apply schema changes with: npx wrangler d1 migrations apply jnaapakam-analytics
+[[d1_databases]]
+binding = "ANALYTICS"
+database_name = "jnaapakam-analytics"
+database_id = "82137373-7cbf-409c-aa97-3edc128f17f2"
+migrations_dir = "migrations"

@@ -4,6 +4,7 @@
 //   npm test            (from workers/jnaapakam)
 
 import { createHandler } from "../src/index.js";
+import { classifyUa } from "../src/analytics.js";
 
 class MemoryStore {
   constructor() {
@@ -17,8 +18,31 @@ class MemoryStore {
   }
 }
 
+// In-memory stand-in for the D1-backed StatsService.
+class FakeAnalytics {
+  constructor() {
+    this.events = [];
+  }
+  async record(event) {
+    this.events.push(event);
+  }
+  async stats() {
+    const created = this.events.filter((e) => e.action === "persona_created").length;
+    const downloads = this.events.filter((e) => ["file_download", "zip_download"].includes(e.action)).length;
+    return {
+      enabled: true,
+      totals: { events: this.events.length, personas_minted: created, downloads },
+      unique_visitors: { last_24h: 1, last_7d: 1 },
+      ua_breakdown: { tool: 1 },
+      by_day: [],
+      top_personas: [],
+    };
+  }
+}
+
 const BASE = "https://jnaapakam.yablokolabs.com";
-const handle = createHandler(new MemoryStore());
+const analytics = new FakeAnalytics();
+const handle = createHandler(new MemoryStore(), analytics);
 
 let passed = 0;
 let failed = 0;
@@ -55,14 +79,22 @@ async function call(path, { method = "GET", body } = {}) {
   );
 }
 
+// ---- analytics helpers -----------------------------------------------------
+check("classifyUa: agent UA", classifyUa("MoltbookAgent/1.0 (Claude-assisted; +https://moltbook.com)") === "agent");
+check("classifyUa: curl UA", classifyUa("curl/8.14.1") === "tool");
+check("classifyUa: browser UA", classifyUa("Mozilla/5.0 (X11; Linux) Chrome/140.0") === "browser");
+check("classifyUa: empty UA", classifyUa(null) === "unknown");
+
 // ---- root + schema -------------------------------------------------------
 const root = await call("/");
 check("GET / returns 200 + service info", root.status === 200 && (await root.json()).name === "jnaapakam");
+check("GET / recorded info_view", analytics.events.some((e) => e.action === "info_view"));
 
 const schemaRes = await call("/v1/schema");
 const schema = schemaRes.status === 200 ? await schemaRes.json() : null;
 check("GET /v1/schema returns 200", schemaRes.status === 200);
 check("schema requires name", schema?.required?.includes("name") === true);
+check("GET /v1/schema recorded schema_view", analytics.events.some((e) => e.action === "schema_view"));
 
 // ---- create --------------------------------------------------------------
 const created = await call("/v1/personas", { method: "POST", body: PERSONA });
@@ -70,6 +102,7 @@ const createdBody = created.status === 201 ? await created.json() : null;
 check("POST /v1/personas returns 201", created.status === 201);
 check("id is a 64-char hex sha256", /^[a-f0-9]{64}$/.test(createdBody?.id ?? ""));
 const id = createdBody?.id;
+check("POST recorded persona_created with id", analytics.events.some((e) => e.action === "persona_created" && e.personaId === id));
 check("response includes inline SOUL.md", typeof createdBody?.files?.["SOUL.md"] === "string");
 check("response includes jnaapakam.yml", typeof createdBody?.files?.["jnaapakam.yml"] === "string");
 check("SOUL.md contains the name context", createdBody?.files?.["IDENTITY.md"]?.includes("**Name:** Buffy"));
@@ -107,6 +140,15 @@ check("zip has a plausible size", zipBuf.length > 200 && zipBuf[0] === 0x50); //
 
 const meta = await call(`/v1/personas/${id}`);
 check("GET /v1/personas/<id> metadata 200", meta.status === 200 && (await meta.json()).id === id);
+check("downloads recorded file/zip events", analytics.events.filter((e) => e.action === "file_download" || e.action === "zip_download").length >= 2);
+
+// ---- stats ------------------------------------------------------------------
+const statsRes = await call("/v1/stats");
+const stats = statsRes.status === 200 ? await statsRes.json() : null;
+check("GET /v1/stats returns 200 + enabled", statsRes.status === 200 && stats?.enabled === true);
+check("stats count personas_minted >= 1", (stats?.totals?.personas_minted ?? 0) >= 1);
+check("stats count downloads >= 2", (stats?.totals?.downloads ?? 0) >= 2);
+check("stats include ua_breakdown", stats?.ua_breakdown && typeof stats.ua_breakdown === "object");
 
 // ---- errors --------------------------------------------------------------
 const noName = await call("/v1/personas", { method: "POST", body: { personality: "x" } });
@@ -130,6 +172,11 @@ check("unknown route -> 404", nope.status === 404);
 
 const options = await handle(new Request(`${BASE}/v1/personas`, { method: "OPTIONS" }));
 check("OPTIONS preflight -> 204 + CORS", options.status === 204 && options.headers.get("Access-Control-Allow-Origin") === "*");
+
+// handler without analytics still serves stats as disabled
+const noAnalytics = createHandler(new MemoryStore());
+const statsOff = await noAnalytics(new Request(`${BASE}/v1/stats`));
+check("stats without analytics -> 200 {enabled:false}", statsOff.status === 200 && (await statsOff.json()).enabled === false);
 
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);
