@@ -6,6 +6,8 @@
 # dependencies
 /node_modules/
 next-app/node_modules/
+workers/**/node_modules/
+workers/**/.workerd-bundle/
 /.pnp
 .pnp.*
 .yarn/*
@@ -47,3 +49,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env
+
+# wrangler dev/build artifacts
+workers/**/.wrangler/

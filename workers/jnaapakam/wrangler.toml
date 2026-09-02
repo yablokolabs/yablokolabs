@@ -1,0 +1,21 @@
+# jnaapakam persona API — Cloudflare Worker
+# Deployed to https://jnaapakam.yablokolabs.com (see the commented route below).
+
+name = "jnaapakam"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+# Personas are stored content-addressed in KV: POST stores the canonical JSON
+# under its sha256 id, GET endpoints re-render the .md files on demand.
+#
+# Local dev (`wrangler dev`) works without KV — the worker falls back to an
+# in-memory store (fine for dev; personas vanish on restart).
+[[kv_namespaces]]
+binding = "PERSONAS"
+id = "1f6fd89010654ab79c16abefa4ecc1e3"
+preview_id = "1f6fd89010654ab79c16abefa4ecc1e3"
+
+# jnaapakam.yablokolabs.com — Cloudflare creates the DNS record and TLS cert.
+[[routes]]
+pattern = "jnaapakam.yablokolabs.com"
+custom_domain = true
