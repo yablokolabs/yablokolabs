@@ -1,0 +1,20 @@
+{
+  "name": "jnaapakam-persona-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Persona generation API for the jnaapakam memory protocol (AI agents POST a persona, download SOUL/IDENTITY/MEMORY).",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node test/smoke.mjs",
+    "test:workerd": "wrangler deploy --dry-run --outdir .workerd-bundle && node test/workerd-test.mjs"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.17"
+  }
+}
