@@ -7,7 +7,9 @@
     "prebuild": "npm run generate-sitemap",
     "build": "next build",
     "start": "next start",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --import tsx --test tests/*.test.mjs",
+    "test:formspree": "node --import tsx --test tests/formspree.test.mjs",
+    "test:assistant": "node tests/assistant-flow.lightpanda.mjs",
     "test:leadsy": "node tests/leadsy-tag.playwright.mjs",
     "lint": "next lint",
     "generate-sitemap": "tsx scripts/generate-sitemap.ts"
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@lightpanda/browser": "^1.6.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

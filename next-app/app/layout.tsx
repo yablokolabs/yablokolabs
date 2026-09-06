@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import AiAgentsDiscoveryWidget from "./components/AiAgentsDiscoveryWidget";
+import AiAgentAssistant from "./components/AiAgentAssistant";
 import CursorProviderWrapper from "./components/CursorProviderWrapper";
 
 const inter = Inter({
@@ -165,7 +165,7 @@ export default function RootLayout({
         />
         <CursorProviderWrapper />
         {children}
-        <AiAgentsDiscoveryWidget />
+        <AiAgentAssistant />
         <Script
           id="cf-analytics"
           strategy="afterInteractive"
