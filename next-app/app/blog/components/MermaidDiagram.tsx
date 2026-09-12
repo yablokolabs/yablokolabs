@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 
 const MERMAID_URL: string = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 const ELK_URL: string =
@@ -68,6 +68,7 @@ type DiagramActions = {
   fit: () => void;
   one: () => void;
   expand: () => void;
+  panBy: (dx: number, dy: number) => void;
 };
 
 /**
@@ -161,9 +162,26 @@ export default function MermaidDiagram({ source, label }: { source: string; labe
           `align-items:center;justify-content:center;background:#0f172a;padding:40px;` +
           `box-sizing:border-box}svg{max-width:100%;max-height:90vh;height:auto}` +
           `</style></head><body>${clone.outerHTML}</body></html>`;
-        window.open(URL.createObjectURL(new Blob([page], { type: "text/html" })), "_blank");
+        const url = URL.createObjectURL(new Blob([page], { type: "text/html" }));
+        const tab = window.open(url, "_blank", "noopener");
+        if (!tab) URL.revokeObjectURL(url);
+      },
+      panBy: (dx, dy) => {
+        if (!geom.w) return;
+        geom.panX += dx;
+        geom.panY += dy;
+        geom.mode = "custom";
+        apply();
       },
     };
+
+    const onResize = () => {
+      if (geom.w) {
+        if (geom.mode === "fit") fit();
+        else apply();
+      }
+    };
+    window.addEventListener("resize", onResize);
 
     viewport.addEventListener("dblclick", fit);
 
@@ -262,6 +280,8 @@ export default function MermaidDiagram({ source, label }: { source: string; labe
 
     return () => {
       cancelled = true;
+      actionsRef.current = null;
+      window.removeEventListener("resize", onResize);
       viewport.removeEventListener("dblclick", fit);
       viewport.removeEventListener("wheel", onWheel);
       viewport.removeEventListener("pointerdown", onPointerDown);
@@ -275,28 +295,82 @@ export default function MermaidDiagram({ source, label }: { source: string; labe
     if (actionsRef.current) fn(actionsRef.current);
   };
 
+  const onViewportKeyDown = (event: KeyboardEvent) => {
+    const step = 40;
+    const moves: Record<string, [number, number]> = {
+      ArrowLeft: [step, 0],
+      ArrowRight: [-step, 0],
+      ArrowUp: [0, step],
+      ArrowDown: [0, -step],
+    };
+    const move = moves[event.key];
+    if (!move || !actionsRef.current) return;
+    event.preventDefault();
+    actionsRef.current.panBy(move[0], move[1]);
+  };
+
+  const controlsDisabled = phase !== "ready";
+
   return (
-    <div className="blog-diagram" role="img" aria-label={label}>
-      <div className="blog-diagram-controls" aria-hidden={phase !== "ready"}>
-        <button type="button" onClick={call((a) => a.zoomIn())} title="Zoom in">
+    <div className="blog-diagram" role="group" aria-label={label}>
+      <div className="blog-diagram-controls">
+        <button
+          type="button"
+          onClick={call((a) => a.zoomIn())}
+          title="Zoom in"
+          aria-label="Zoom in"
+          disabled={controlsDisabled}
+        >
           +
         </button>
-        <button type="button" onClick={call((a) => a.zoomOut())} title="Zoom out">
+        <button
+          type="button"
+          onClick={call((a) => a.zoomOut())}
+          title="Zoom out"
+          aria-label="Zoom out"
+          disabled={controlsDisabled}
+        >
           −
         </button>
-        <button type="button" onClick={call((a) => a.fit())} title="Fit to box">
+        <button
+          type="button"
+          onClick={call((a) => a.fit())}
+          title="Fit to box"
+          aria-label="Fit diagram to box"
+          disabled={controlsDisabled}
+        >
           ⤾
         </button>
-        <button type="button" onClick={call((a) => a.one())} title="Actual size">
+        <button
+          type="button"
+          onClick={call((a) => a.one())}
+          title="Actual size"
+          aria-label="Show diagram at actual size"
+          disabled={controlsDisabled}
+        >
           1:1
         </button>
-        <button type="button" onClick={call((a) => a.expand())} title="Open full size">
+        <button
+          type="button"
+          onClick={call((a) => a.expand())}
+          title="Open full size"
+          aria-label="Open diagram full size in a new tab"
+          disabled={controlsDisabled}
+        >
           ⤢
         </button>
-        <span className="blog-diagram-zoom">{phase === "ready" ? zoomText : phase}</span>
+        <span className="blog-diagram-zoom" aria-live="polite">
+          {phase === "ready" ? zoomText : phase === "loading" ? "Loading…" : "Could not load"}
+        </span>
       </div>
-      <div ref={viewportRef} className="blog-diagram-viewport">
-        <div ref={canvasRef} className="blog-diagram-canvas" />
+      <div
+        ref={viewportRef}
+        className="blog-diagram-viewport"
+        tabIndex={0}
+        aria-label={`${label}. Use arrow keys to pan the diagram.`}
+        onKeyDown={onViewportKeyDown}
+      >
+        <div ref={canvasRef} className="blog-diagram-canvas" aria-hidden="true" />
         {phase === "loading" && (
           <p className="blog-diagram-status">Loading the interactive diagram…</p>
         )}
