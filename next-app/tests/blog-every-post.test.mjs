@@ -16,6 +16,14 @@ const resolveExport = (route) => {
 
 let cards = [];
 
+const decodeEntities = (text) =>
+  text
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;|&#39;/g, "'");
+
 before(() => {
   const indexPath = resolveExport("blog");
   if (!indexPath) {
@@ -30,17 +38,32 @@ before(() => {
 });
 
 test("every indexed post serves its own article title as rendered HTML", () => {
+  // Collect every mismatch so one broken post cannot hide another.
+  const failures = [];
   for (const { slug, title } of cards) {
     const path = resolveExport(`blog/${slug}`);
-    assert.ok(
-      path,
-      `The index links /blog/${slug} but the build exported no page for it, so the link 404s.`,
-    );
+    if (!path) {
+      failures.push(
+        `The index links /blog/${slug} but the build exported no page for it, so the link 404s.`,
+      );
+      continue;
+    }
     const html = readFileSync(path, "utf8");
-    assert.ok(
-      html.includes(`<h1 class="blog-article-title">${title}</h1>`),
-      `/blog/${slug} does not render its article title as an h1. ` +
-        `It likely serves the 404 shell because no article component is registered for the slug.`,
-    );
+    const heading = html.match(/<h1 class="blog-article-title">([\s\S]*?)<\/h1>/);
+    if (!heading) {
+      failures.push(
+        `/blog/${slug} renders no article h1. ` +
+          `It likely serves the 404 shell because no article component is registered for the slug.`,
+      );
+      continue;
+    }
+    // The index link text and the article h1 pass through the same escaping,
+    // so compare entity-decoded text rather than raw markup.
+    if (decodeEntities(heading[1].trim()) !== decodeEntities(title)) {
+      failures.push(
+        `/blog/${slug} renders article title "${heading[1].trim()}" but the index links it as "${title}".`,
+      );
+    }
   }
+  assert.deepEqual(failures, [], `Broken post pages:\n- ${failures.join("\n- ")}`);
 });

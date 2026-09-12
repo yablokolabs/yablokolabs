@@ -253,9 +253,9 @@ export default function HermesAgentArchitecture() {
         <table className="blog-table">
           <thead>
             <tr>
-              <th>Area</th>
-              <th>Start here</th>
-              <th>Covers</th>
+              <th scope="col">Area</th>
+              <th scope="col">Start here</th>
+              <th scope="col">Covers</th>
             </tr>
           </thead>
           <tbody>
