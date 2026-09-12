@@ -20,6 +20,47 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "hermes-agent-architecture",
+    title: "Hermes Agent Architecture: One Core, Many Surfaces",
+    subtitle:
+      "One agent core serves a CLI, a messaging gateway, a terminal UI, and a desktop app. How the five layers fit, what a single turn does, and where new capability belongs.",
+    excerpt:
+      "A visual map of the Hermes agent: five layers from surfaces to state, the guarded turn loop, and the footprint ladder that keeps the core narrow.",
+    date: "2026-09-12",
+    readTime: "12 min read",
+    category: "Agent Architecture",
+    tags: [
+      "AI Agents",
+      "Hermes Agent",
+      "System Architecture",
+      "LLM Operations",
+    ],
+    author: "Yabloko Labs Ltd",
+    testedAgainst: "Hermes Agent main branch · September 2026",
+    faq: [
+      {
+        question: "How does one agent core serve a CLI, a gateway, a TUI, and a desktop app?",
+        answer:
+          "Every surface drives turns through the same run_agent.py core behind a session layer: the CLI drives turns in-process, the TUI and desktop app talk to the tui_gateway JSON-RPC backend, the dashboard embeds the real TUI, and messaging platforms arrive through gateway adapters. Capability is resolved per session, never from process environment.",
+      },
+      {
+        question: "Why is per-conversation prompt caching treated as sacred?",
+        answer:
+          "A long-lived conversation reuses a cached prompt prefix on every turn. Anything that mutates past context mid-conversation invalidates that cache and multiplies cost. Context compression is the only exception; slash commands that change skills, tools, or memory defer invalidation to the next session unless passed --now.",
+      },
+      {
+        question: "Where should a new capability be added?",
+        answer:
+          "Follow the footprint ladder from least to most core surface: extend existing code, then CLI command plus skill, then service-gated tool with a check_fn probe, then plugin, then MCP server in the catalog, and only as a last resort a new core tool — because every model tool ships on every API call.",
+      },
+      {
+        question: "What are the two inbound message guards?",
+        answer:
+          "While an agent is running, the base adapter queues inbound messages while the session is active, and the runner intercepts stop, new, approve, and deny before they reach the running agent. Any control command that must reach the runner has to bypass both guards.",
+      },
+    ],
+  },
+  {
     slug: "hermes-restate-durable-tasks",
     title: "Durable Agent Tasks: Making Hermes More Powerful with Restate",
     subtitle:

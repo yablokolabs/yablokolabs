@@ -200,6 +200,7 @@ test("sitemap.xml lists exactly the routes that were exported", () => {
       .concat(
         [
           "docker-compose-egress-legacy-iptables",
+          "hermes-agent-architecture",
           "hermes-provider-fallbacks",
           "hermes-restate-durable-tasks",
           "searxng-independent-discovery",
