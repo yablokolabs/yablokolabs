@@ -28,6 +28,12 @@ const ROUTES: Route[] = [
     sources: ["app/ai-agents", ...SHARED],
   },
   {
+    path: "/careers",
+    changefreq: "weekly",
+    priority: "0.6",
+    sources: ["app/careers", ...SHARED],
+  },
+  {
     path: "/blog",
     changefreq: "weekly",
     priority: "0.8",

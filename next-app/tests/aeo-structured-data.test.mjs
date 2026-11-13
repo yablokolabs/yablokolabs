@@ -21,6 +21,7 @@ const SD = "http://schema.org/";
 const ROUTES = [
   { file: "index.html", url: "https://yablokolabs.com", crumbDepth: 1 },
   { file: "ai-agents.html", url: "https://yablokolabs.com/ai-agents", crumbDepth: 2 },
+  { file: "careers.html", url: "https://yablokolabs.com/careers", crumbDepth: 2 },
   { file: "blog.html", url: "https://yablokolabs.com/blog", crumbDepth: 2 },
   {
     file: "gender-equality-plan.html",

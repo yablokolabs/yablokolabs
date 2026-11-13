@@ -48,6 +48,9 @@ export default function SiteFooter() {
               <Link href="/ai-agents" className="footer-utility-link">
                 AI Agents
               </Link>
+              <Link href="/careers" className="footer-utility-link">
+                Careers
+              </Link>
               <Link href="/blog" className="footer-utility-link">
                 Blog
               </Link>

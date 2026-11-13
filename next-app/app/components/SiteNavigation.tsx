@@ -48,6 +48,9 @@ export default function SiteNavigation({ subpage = false }: SiteNavigationProps)
             <Link href="/ai-agents">AI Agents</Link>
           </li>
           <li>
+            <Link href="/careers">Careers</Link>
+          </li>
+          <li>
             <Link href="/blog">Blog</Link>
           </li>
           <li>
@@ -92,6 +95,9 @@ export default function SiteNavigation({ subpage = false }: SiteNavigationProps)
         </a>
         <Link href="/ai-agents" onClick={closeMenu}>
           AI Agents
+        </Link>
+        <Link href="/careers" onClick={closeMenu}>
+          Careers
         </Link>
         <Link href="/blog" onClick={closeMenu}>
           Blog
