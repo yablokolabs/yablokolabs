@@ -680,7 +680,7 @@ export default function GenderEqualityPlan() {
                 }}
               >
                 <span className="rocket-emoji">🚀</span>
-                Yabloko Labs is <span style={{ fontWeight: "bold" }}>Crafting Hybrid AI-Quantum SaaS that Scales</span>
+                Yabloko Labs is <span style={{ fontWeight: "bold" }}>Crafting Hybrid AI-Quantum Agents that Scale</span>
               </p>
             </div>
             <div className="copyright text-center">

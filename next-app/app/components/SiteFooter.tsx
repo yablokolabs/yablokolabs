@@ -30,7 +30,7 @@ export default function SiteFooter() {
           <div className="text-center footer-tagline">
             <p className="footer-tagline-text">
               <span className="rocket-emoji">🚀</span>
-              Yabloko Labs is <span className="footer-tagline-strong">Crafting Hybrid AI-Quantum SaaS that Scales</span>
+              Yabloko Labs is <span className="footer-tagline-strong">Crafting Hybrid AI-Quantum Agents that Scale</span>
             </p>
           </div>
           <div className="copyright text-center">
