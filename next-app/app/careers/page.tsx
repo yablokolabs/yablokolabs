@@ -287,8 +287,8 @@ export default function CareerPage() {
             new customers, and Apple platforms engineers who have shipped production apps for iPhone, iPad, and Apple TV.
           </p>
           <div className="cta-buttons">
-            <a href="#categories" className="btn btn-primary">
-              See Open Categories
+            <a href="#roles" className="btn btn-primary">
+              See Open Roles
               <svg
                 width="18"
                 height="18"
@@ -322,10 +322,10 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section id="categories" className="ai-section">
+      <section id="roles" className="ai-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-badge">Open Categories</span>
+            <span className="section-badge">Open Roles</span>
             <h2 className="section-title">Where We&apos;re Hiring</h2>
             <p className="section-subtitle">
               Sales and Engineering are open. Research opens as the team grows.
@@ -334,7 +334,7 @@ export default function CareerPage() {
 
           <div className="career-category-grid">
             <a href="#sales" className="career-category career-category-main">
-              <span className="career-category-kicker">01 · Main Category</span>
+              <span className="career-category-kicker">01</span>
               <h3>Sales</h3>
               <p>
                 Hunters who can bring in new customers and new business. If you can open doors we have not opened yet,
@@ -358,7 +358,7 @@ export default function CareerPage() {
             </a>
 
             <a href="#engineering" className="career-category career-category-open">
-              <span className="career-category-kicker">02 · Category</span>
+              <span className="career-category-kicker">02</span>
               <h3>Engineering</h3>
               <p>
                 Native Apple software in production. We are hiring an engineer who has shipped apps for iPhone, iPad,
@@ -382,7 +382,7 @@ export default function CareerPage() {
             </a>
 
             <div className="career-category career-category-muted">
-              <span className="career-category-kicker">03 · Research</span>
+              <span className="career-category-kicker">03</span>
               <h3>Research</h3>
               <p>Standards, evaluation, and quantum algorithms. No openings yet.</p>
               <span className="career-category-status">Closed for now</span>
@@ -394,7 +394,7 @@ export default function CareerPage() {
       <section id="sales" className="ai-section ai-section-muted">
         <div className="container">
           <div className="section-header">
-            <span className="section-badge">Sales · Main Category</span>
+            <span className="section-badge">Sales</span>
             <h2 className="section-title">Sales Sharks Wanted</h2>
             <p className="section-subtitle">
               We are looking for people who can bring in new customers, new logos, and new business — not manage a
