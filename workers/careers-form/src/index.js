@@ -197,7 +197,10 @@ export function createHandler({ sendEmail, sendTelegram = null, store = null, co
       }
 
       // Bots fill every input they find; a browser user never sees this field.
+      // Logged so a silently dropped submission can be told apart from a
+      // delivered one when an applicant reports "nothing arrived".
       if (field(form, "company_website")) {
+        console.log("careers-form: dropped honeypot submission", request.headers.get("CF-Connecting-IP") ?? "unknown");
         return json({ ok: true, id: null }, 200, cors);
       }
 
@@ -322,6 +325,8 @@ export function createHandler({ sendEmail, sendTelegram = null, store = null, co
           console.error("careers-form: telegram delivery failed", error && error.message);
         }
       }
+
+      console.log("careers-form: application accepted", id, delivered.join(",") || "none");
 
       if (!delivered.length) {
         throw new ApiError(
