@@ -29,6 +29,17 @@ export default function CareerApplicationForm() {
     event.preventDefault();
 
     const form = event.currentTarget;
+
+    // Browsers ignore autocomplete="off" on fields whose name looks like a
+    // profile field, and this one is named to attract bots, so managers fill it
+    // for real applicants. Clear it on the way out: anyone using the form never
+    // typed into it, while bots posting the fields directly still trip the
+    // worker's check.
+    const honeypot = form.elements.namedItem("hp_check");
+    if (honeypot instanceof HTMLInputElement) {
+      honeypot.value = "";
+    }
+
     const formData = new FormData(form);
     const contact = String(formData.get("contact") ?? "");
     const role = String(formData.get("role") ?? "");
@@ -101,7 +112,7 @@ export default function CareerApplicationForm() {
         {/* Honeypot: hidden from people, filled by naive bots. */}
         <input
           type="text"
-          name="company_website"
+          name="hp_check"
           tabIndex={-1}
           autoComplete="off"
           aria-hidden="true"

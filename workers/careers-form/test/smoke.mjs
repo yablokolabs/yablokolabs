@@ -177,6 +177,14 @@ function check(label, condition) {
 }
 
 {
+  // The live form posts `hp_check`; the previous field name still counts.
+  const { handle, sent } = makeWorker();
+  const res = await post(handle, application({ hp_check: "1" }));
+  const body = await res.json();
+  check("hp_check submissions are dropped as spam", res.status === 200 && body.ok === true && sent.length === 0);
+}
+
+{
   const { handle } = makeWorker();
   const blocked = await post(handle, application(), { Origin: "https://evil.example" });
   check("foreign origin is rejected with 403", blocked.status === 403);
