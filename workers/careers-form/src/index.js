@@ -10,8 +10,9 @@
 //   POST /    accept an application -> 200 { ok, id }
 //
 // Form fields: name, email, contact, role, cv (PDF/DOC/DOCX, max 5 MB).
-// `hp_check` is a honeypot — real applicants never fill it in. The old name
-// `company_website` is still honoured for anything posting the previous form.
+// `hp_check` is a honeypot — real applicants never fill it in. The earlier
+// `company_website` name is deliberately not checked: browsers autofilled it
+// for real applicants, and a stale cached form must not be dropped as spam.
 //
 // Delivery: email is tried first when CAREERS_NOTIFY_TO is set (Cloudflare
 // Email Sending — free only to verified Email Routing destinations, arbitrary
@@ -200,7 +201,7 @@ export function createHandler({ sendEmail, sendTelegram = null, store = null, co
       // Bots fill every input they find; a browser user never sees this field.
       // Logged so a silently dropped submission can be told apart from a
       // delivered one when an applicant reports "nothing arrived".
-      if (field(form, "hp_check") || field(form, "company_website")) {
+      if (field(form, "hp_check")) {
         console.log("careers-form: dropped honeypot submission", request.headers.get("CF-Connecting-IP") ?? "unknown");
         return json({ ok: true, id: null }, 200, cors);
       }

@@ -169,7 +169,7 @@ function check(label, condition) {
 // ---- spam and CORS --------------------------------------------------------
 {
   const { handle, sent } = makeWorker();
-  const honeypot = application({ company_website: "https://spam.example" });
+  const honeypot = application({ hp_check: "https://spam.example" });
   const res = await post(handle, honeypot);
   const body = await res.json();
   check("honeypot submissions look successful", res.status === 200 && body.ok === true);
