@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTopButton from "../components/BackToTopButton";
 import Breadcrumbs from "../components/Breadcrumbs";
+import CareerApplicationForm from "../components/CareerApplicationForm";
 import SiteFooter from "../components/SiteFooter";
 import SiteNavigation from "../components/SiteNavigation";
 
 const CAREER_EMAIL = "career@yablokolabs.com";
-const APPLY_HREF = `mailto:${CAREER_EMAIL}`;
-const SALES_APPLY_HREF = `mailto:${CAREER_EMAIL}?subject=Sales%20Shark%20Application`;
-const ENGINEERING_APPLY_HREF = `mailto:${CAREER_EMAIL}?subject=Apple%20Platforms%20Engineer%20Application`;
+const APPLY_HREF = "#apply";
 
 const salesMeta = ["Remote / flexible", "Uncapped commission", "Full-time or fractional", "UK or worldwide"];
 
@@ -90,9 +89,9 @@ const applePerks = [
 
 const steps = [
   {
-    title: "Send your record",
+    title: "Apply in one form",
     copy:
-      `Email ${CAREER_EMAIL} with the deals you have closed or App Store links to apps you have shipped. Evidence, not adjectives.`,
+      "Add your name, email, contact number, and attach your CV. One form for both tracks — no email required.",
   },
   {
     title: "Meet the team",
@@ -133,7 +132,8 @@ const faqs = [
   {
     question: "How do I apply?",
     answer:
-      `Email ${CAREER_EMAIL} with the subject "Sales Shark Application" or "Apple Platforms Engineer Application". Include your track record or shipped apps, and your LinkedIn or CV.`,
+      "Fill in the application form on this page: your name, email, contact number, the role you want, and your CV. If the form fails, email " +
+      `${CAREER_EMAIL} with the same details and your CV attached.`,
   },
 ];
 
@@ -225,7 +225,7 @@ const jobsJsonLd = [
       name: "Worldwide",
     },
     url: "https://yablokolabs.com/careers#sales",
-    directApply: false,
+    directApply: true,
   },
   {
     "@context": "https://schema.org",
@@ -248,7 +248,7 @@ const jobsJsonLd = [
       name: "Worldwide",
     },
     url: "https://yablokolabs.com/careers#engineering",
-    directApply: false,
+    directApply: true,
   },
 ];
 
@@ -314,8 +314,10 @@ export default function CareerPage() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="8" y1="13" x2="16" y2="13" />
+                <line x1="8" y1="17" x2="13" y2="17" />
               </svg>
             </a>
           </div>
@@ -448,7 +450,7 @@ export default function CareerPage() {
             </div>
 
             <div className="pricing-cta">
-              <a href={SALES_APPLY_HREF} className="btn btn-primary">
+              <a href={APPLY_HREF} className="btn btn-primary">
                 Apply for Sales
                 <svg
                   width="18"
@@ -465,8 +467,8 @@ export default function CareerPage() {
               </a>
             </div>
             <p className="career-role-note">
-              Applications go to <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>. Include your track record, the
-              market you can open, and a LinkedIn or CV.
+              Apply with your name, email, contact number, and CV in the form below. If the form gives you trouble,
+              email <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
             </p>
           </div>
         </div>
@@ -529,7 +531,7 @@ export default function CareerPage() {
             </div>
 
             <div className="pricing-cta">
-              <a href={ENGINEERING_APPLY_HREF} className="btn btn-primary">
+              <a href={APPLY_HREF} className="btn btn-primary">
                 Apply for Engineering
                 <svg
                   width="18"
@@ -546,8 +548,8 @@ export default function CareerPage() {
               </a>
             </div>
             <p className="career-role-note">
-              Applications go to <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>. Include App Store links to the
-              iPhone, iPad, or Apple TV apps you have shipped, plus a CV.
+              Apply with your name, email, contact number, and CV in the form below. If the form gives you trouble,
+              email <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
             </p>
           </div>
         </div>
@@ -579,7 +581,7 @@ export default function CareerPage() {
             <span className="section-badge">Apply</span>
             <h2 className="section-title">Two Tracks. One Inbox.</h2>
             <p className="section-subtitle">
-              Sales or Apple platforms engineering — send your record straight to the team.
+              Sales or Apple platforms engineering — name, email, contact, and a CV. That is the whole application.
             </p>
           </div>
 
@@ -603,38 +605,11 @@ export default function CareerPage() {
               <h3>Apply To Yabloko Labs</h3>
               <div className="partnership-details">
                 <p>
-                  Send one email. Tell us which track you want and show evidence you can do the work. We reply
+                  Sales or Apple platforms engineering — one form, one inbox. Add your details and your CV and we reply
                   personally.
                 </p>
 
-                <ul className="partnership-features">
-                  <li>
-                    Email <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a> with the subject &ldquo;Sales Shark
-                    Application&rdquo; or &ldquo;Apple Platforms Engineer Application&rdquo;
-                  </li>
-                  <li>Sales: your best wins, the market you can open, and a LinkedIn or CV</li>
-                  <li>Engineering: App Store links to iPhone, iPad, or Apple TV apps you have shipped, plus a CV</li>
-                  <li>We reply personally — no application portal, no ghosting</li>
-                </ul>
-
-                <div className="partnership-cta">
-                  <a href={APPLY_HREF} className="btn btn-primary">
-                    Email {CAREER_EMAIL}
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                      <polyline points="22,6 12,13 2,6" />
-                    </svg>
-                  </a>
-                </div>
+                <CareerApplicationForm />
 
                 <p className="partnership-note">
                   Not looking for a role, but know buyers? Our{" "}

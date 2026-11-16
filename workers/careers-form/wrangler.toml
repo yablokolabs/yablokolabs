@@ -1,0 +1,41 @@
+# Yabloko Labs careers form endpoint — Cloudflare Worker
+# See README.md for setup. Deploy with `npm run deploy`.
+
+name = "careers-form"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+[vars]
+# Sender on your own domain. Email Routing must be enabled on yablokolabs.com.
+CAREERS_FROM = "careers@yablokolabs.com"
+# Where applications land when email is available. This must be a verified
+# destination address in Email Routing; arbitrary recipients need Workers Paid
+# (see README.md). Leave empty to skip email entirely and deliver to Telegram.
+CAREERS_NOTIFY_TO = "ceo@yablokolabs.com"
+
+# Telegram fallback: set both as secrets, never as vars here.
+#   npx wrangler secret put TELEGRAM_BOT_TOKEN
+#   npx wrangler secret put TELEGRAM_CHAT_ID
+ALLOWED_ORIGINS = "https://yablokolabs.com,https://www.yablokolabs.com,http://localhost:3000"
+RATE_LIMIT_PER_HOUR = "5"
+
+# Outbound mail (Cloudflare Email Service, public beta). The binding has no
+# extra configuration; the vars above decide from/to.
+[[send_email]]
+name = "EMAIL"
+
+# Optional: keep a backup copy of every application. Create the namespace with
+#   npx wrangler kv namespace create SUBMISSIONS
+# then paste the id as `id` below. Without this binding the worker still works —
+# it relies on the notification email alone.
+# [[kv_namespaces]]
+# binding = "SUBMISSIONS"
+# id = "<paste-kv-namespace-id>"
+
+# Custom domain for the endpoint the careers page posts to. Cloudflare creates
+# the DNS record and certificate on deploy. Until the first successful deploy
+# the worker is also reachable at
+# https://careers-form.young-disk-9d1c.workers.dev.
+[[routes]]
+pattern = "careers-form.yablokolabs.com"
+custom_domain = true

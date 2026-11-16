@@ -2126,7 +2126,8 @@ canvas.fixed {
 }
 
 .form-field input,
-.form-field textarea {
+.form-field textarea,
+.form-field select {
   width: 100%;
   border-radius: 0.95rem;
   border: 1px solid rgba(148,163,184,0.22);
@@ -2137,8 +2138,14 @@ canvas.fixed {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.form-field select option {
+  background: #0f172a;
+  color: #fff;
+}
+
 .form-field input:focus,
-.form-field textarea:focus {
+.form-field textarea:focus,
+.form-field select:focus {
   outline: none;
   border-color: rgba(99,102,241,0.55);
   box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
@@ -2146,6 +2153,61 @@ canvas.fixed {
 
 .form-field-full {
   grid-column: 1 / -1;
+}
+
+/* Careers: the real file input stays in the layout so it is still focusable
+   from the keyboard, but the visible control is the styled label button. */
+.form-field input.career-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.career-file-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.career-file-row .form-help {
+  margin: 0;
+}
+
+.career-file-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.form-field input.career-file-input:focus-visible + .career-file-row .career-file-button {
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.24);
+}
+
+.career-apply-form {
+  text-align: left;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.career-apply-form .btn {
+  justify-self: start;
+}
+
+/* Honeypot field: present in the DOM for bots, never shown or announced. */
+.career-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .form-help a {
@@ -3137,8 +3199,14 @@ canvas.fixed {
   }
 
   .form-field input,
-  .form-field textarea {
+  .form-field textarea,
+  .form-field select {
     background: rgba(248, 250, 252, 0.95);
+    color: #0f172a;
+  }
+
+  .form-field select option {
+    background: #f8fafc;
     color: #0f172a;
   }
 }
