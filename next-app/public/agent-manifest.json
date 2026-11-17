@@ -1,0 +1,64 @@
+{
+  "brand": "Yabloko Labs",
+  "networks": [
+    {
+      "name": "yabloko_site_guide",
+      "front_man": "site_guide",
+      "hocon": "./yabloko_site_guide.network.json",
+      "description": "Answers questions about Yabloko Labs — what the company does, the AI agents and hybrid quantum-AI products it builds, its open-source MCP servers, how to engage it, and how to apply to its open roles — from the site's published pages only.",
+      "tags": ["static", "data-only", "site-guide"],
+      "sample_queries": [
+        "What does Yabloko Labs actually do, and where is it based?",
+        "Which AI agent and quantum-AI products does Yabloko Labs offer, and how do I start a project?",
+        "Which MCP servers has Yabloko Labs published, and what does each one do?",
+        "Which roles are open right now, and where do I send an application?"
+      ]
+    }
+  ],
+  "llm_router": {
+    "base_url": "",
+    "mock": false,
+    "byok_router": "",
+    "note": "No publisher-funded inference endpoint is offered. The network is published as data; a caller site's runtime executes it with the caller's own router, model policy, and credential."
+  },
+  "allowed_peers": [],
+  "peer_policy": {
+    "mode": "closed",
+    "deny_origins": [],
+    "note": "The published network answers from the text bundled in its own definition. It contacts no other origin, so no peer or MCP origin is permitted."
+  },
+  "agent_mcp": {
+    "protocol": "nsdeploy-agent-mcp/v1",
+    "network": "yabloko_site_guide",
+    "front_man": "site_guide",
+    "available": false,
+    "reason": "This is a static bundle on GitHub Pages; a public MCP facade requires an application host."
+  },
+  "theme": {
+    "primary": "#6366f1"
+  },
+  "linking": {
+    "protocol": "nsdeploy-link/v1",
+    "exports": [
+      {
+        "network": "yabloko_site_guide",
+        "front_man": "site_guide",
+        "aliases": ["yabloko_site_guide", "site_guide"],
+        "url": "yabloko_site_guide"
+      }
+    ],
+    "imports": [],
+    "link_updates": {
+      "mode": "browser-local"
+    }
+  },
+  "deployment": {
+    "mode": "static",
+    "self_contained_runtime": false,
+    "browser_mock": false,
+    "direct_byok": false,
+    "direct_mcp_requires_cors": true,
+    "public_mcp_facade": false,
+    "note": "Data-only publication. yablokolabs.com hosts no browser agent runtime; a caller site's runtime loads the definition and runs it locally."
+  }
+}
