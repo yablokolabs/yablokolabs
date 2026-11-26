@@ -37,13 +37,18 @@ export default function CohortInvite() {
     let revealed = false;
     let timer: number | undefined;
 
-    // The AI assistant widget already opens on most pages. Two floating panels
-    // at once is noise, so wait until the assistant is closed before showing.
-    const assistantIsOpen = () => Boolean(document.querySelector(".assistant-widget.show"));
+    // The AI assistant opens by itself about a second after landing and stays
+    // open until it is dismissed, so waiting for it to close meant this card
+    // never appeared at all. On a wide screen the two panels sit in opposite
+    // corners and can coexist. On a phone both go full width and would stack,
+    // so there the card still waits for the assistant to be closed.
+    const COEXIST_MIN_WIDTH = 900;
+    const assistantBlocks = () =>
+      window.innerWidth < COEXIST_MIN_WIDTH && Boolean(document.querySelector(".assistant-widget.show"));
 
     const reveal = () => {
       if (cancelled || revealed) return;
-      if (assistantIsOpen()) {
+      if (assistantBlocks()) {
         timer = window.setTimeout(reveal, RETRY_MS);
         return;
       }
