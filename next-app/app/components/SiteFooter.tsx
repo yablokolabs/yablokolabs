@@ -51,6 +51,9 @@ export default function SiteFooter() {
               <Link href="/careers" className="footer-utility-link">
                 Careers
               </Link>
+              <Link href="/cohort" className="footer-utility-link">
+                Student Cohort
+              </Link>
               <Link href="/blog" className="footer-utility-link">
                 Blog
               </Link>

@@ -103,6 +103,7 @@ const CRAWLABLE_PATHS = [
   "/",
   "/ai-agents",
   "/careers",
+  "/cohort",
   "/blog",
   "/blog/hermes-provider-fallbacks",
   "/blog/hermes-restate-durable-tasks",
@@ -196,7 +197,7 @@ test("sitemap.xml lists exactly the routes that were exported", () => {
   // Derived from the export, so a new page cannot be silently left out and a
   // deleted page cannot keep being advertised as a soon-to-be 404.
   const exported = new Set(
-    ["index", "ai-agents", "careers", "blog", "gender-equality-plan"]
+    ["index", "ai-agents", "careers", "cohort", "blog", "gender-equality-plan"]
       .map((route) => (route === "index" ? `${BASE}/` : `${BASE}/${route}`))
       .concat(
         [

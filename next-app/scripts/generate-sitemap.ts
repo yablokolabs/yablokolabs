@@ -34,6 +34,12 @@ const ROUTES: Route[] = [
     sources: ["app/careers", ...SHARED],
   },
   {
+    path: "/cohort",
+    changefreq: "weekly",
+    priority: "0.7",
+    sources: ["app/cohort", ...SHARED],
+  },
+  {
     path: "/blog",
     changefreq: "weekly",
     priority: "0.8",

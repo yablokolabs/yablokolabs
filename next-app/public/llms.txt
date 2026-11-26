@@ -8,6 +8,7 @@
 - [About](https://yablokolabs.com/#about): Company background, mission, and values.
 - [AI Agents](https://yablokolabs.com/ai-agents): Custom AI Agents designed, deployed, and operated for business workflows, including the Agent Intelligence Platform for conversational analytics, observability, and self-diagnostics.
 - [Careers](https://yablokolabs.com/careers): Open roles at Yabloko Labs. Sales is hiring Sales Sharks who can bring in new customers and new business. Engineering is also open, hiring an Apple platforms engineer with production experience across iPhone, iPad, and Apple TV. Research has no openings yet. Applications go to career@yablokolabs.com.
+- [Cohort](https://yablokolabs.com/cohort): A six-week engineering cohort for final-year students and recent graduates worldwide. Three two-week sprints on a real codebase, with reviewed pull requests and a release. Interest registration is free; no CV is required at the interest stage.
 - [Blog](https://yablokolabs.com/blog): Technical notes about production AI Agent engineering and operations.
 - [Gender Equality Plan](https://yablokolabs.com/gender-equality-plan): The company's published Gender Equality Plan.
 - [Contact](https://yablokolabs.com/#contact): Public support and consultation contact information.

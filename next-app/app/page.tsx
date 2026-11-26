@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
 import HomeStructuredData, { homeFaqs } from "./components/HomeStructuredData";
@@ -862,6 +863,37 @@ export default function Home() {
                 </svg>
               </div>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Cohort Section */}
+      <section id="cohort" className="cohort-section">
+        <div className="container">
+          <div className="cohort-band">
+            <div className="cohort-band-copy">
+              <span className="section-badge">For Students &amp; Recent Graduates</span>
+              <h2>Ship Software With a Team in Six Weeks</h2>
+              <p>
+                Three two-week sprints on a real codebase — tickets, reviewed pull requests, handoffs, and a release
+                you can show in an interview. Built for final-year students and recent graduates worldwide.
+              </p>
+            </div>
+            <Link href="/cohort" className="btn btn-primary">
+              See the Cohort
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

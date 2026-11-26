@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import AiAgentAssistant from "./components/AiAgentAssistant";
+import CohortInvite from "./components/CohortInvite";
 import CursorProviderWrapper from "./components/CursorProviderWrapper";
 
 const inter = Inter({
@@ -72,7 +73,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    // Browser extensions (and some password managers / AI assistants) stamp
+    // their own attributes onto <html> and <body> before React hydrates. Those
+    // diffs are not ours to patch, so opt those two nodes out of the warning.
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#0f172a" />
         <link rel="manifest" href="/site.webmanifest" />
@@ -110,7 +114,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -166,6 +170,7 @@ export default function RootLayout({
         <CursorProviderWrapper />
         {children}
         <AiAgentAssistant />
+        <CohortInvite />
         <Script
           id="cf-analytics"
           strategy="afterInteractive"
