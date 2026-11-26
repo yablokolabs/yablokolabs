@@ -4,7 +4,7 @@
 //
 //   npm test            (from workers/cohort-form)
 
-import { createHandler } from "../src/index.js";
+import { createHandler, hermailySender } from "../src/index.js";
 
 const BASE = "https://cohort-form.yablokolabs.com";
 const ALLOWED = ["https://yablokolabs.com", "https://www.yablokolabs.com"];
@@ -197,6 +197,46 @@ function check(label, condition) {
 
   const wrongMethod = await handle(new Request(`${BASE}/`, { method: "PUT", body: "x" }));
   check("unsupported method returns 405", wrongMethod.status === 405);
+}
+
+// ---- Hermaily email sender ------------------------------------------------
+{
+  check("no Hermaily key means the sender is skipped", hermailySender({}) === null);
+
+  const calls = [];
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    calls.push({ url, init });
+    return new Response(JSON.stringify({ id: "msg_1", status: "queued" }), { status: 202 });
+  };
+  try {
+    const send = hermailySender({ HERMAILY_API_KEY: "key_test" });
+    await send({
+      to: "cohort@yablokolabs.com",
+      from: "cohort@yablokolabs.com",
+      replyTo: "ada@example.com",
+      subject: "Cohort interest",
+      text: "plain",
+      html: "<p>rich</p>",
+    });
+    const payload = JSON.parse(calls[0].init.body);
+    check("the Hermaily sender posts to /v1/send", calls[0].url === "https://api.hermaily.com/v1/send");
+    check("the API key is sent as a bearer token", calls[0].init.headers.Authorization === "Bearer key_test");
+    check("the recipient is addressed", payload.to[0] === "cohort@yablokolabs.com");
+    check("the sender carries the brand name", payload.from === "Yabloko Labs <cohort@yablokolabs.com>");
+    check("replies go to the applicant", payload.reply_to === "ada@example.com");
+
+    globalThis.fetch = async () => new Response("{\"error\":\"nope\"}", { status: 422 });
+    let thrown = null;
+    try {
+      await hermailySender({ HERMAILY_API_KEY: "key_test" })({ to: "a@b.co", from: "c@b.co" });
+    } catch (error) {
+      thrown = error;
+    }
+    check("a rejected send throws with a code", thrown !== null && thrown.code === "E_EMAIL_SEND_FAILED");
+  } finally {
+    globalThis.fetch = realFetch;
+  }
 }
 
 console.log(`\n${passed} passed, ${failed} failed`);

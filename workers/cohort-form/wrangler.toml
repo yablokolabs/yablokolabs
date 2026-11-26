@@ -6,12 +6,11 @@ main = "src/index.js"
 compatibility_date = "2026-08-01"
 
 [vars]
-# Sender on your own domain. The address must be on a domain in this Cloudflare
-# account, and Email Sending must be enabled for that domain.
+# Sender on the verified Hermaily domain (yablokolabs.com).
 COHORT_FROM = "cohort@yablokolabs.com"
-# Where interest submissions land when email is available. This must be a
-# verified Email Routing destination address; arbitrary recipients need Workers
-# Paid (see README.md). Leave empty to skip email and deliver to Telegram.
+# Where interest submissions land. Email is sent through the Hermaily API using
+# the HERMAILY_API_KEY secret, so any inbox works here. Leave empty to skip
+# email and deliver to Telegram only.
 COHORT_NOTIFY_TO = "cohort@yablokolabs.com"
 
 # Telegram fallback: set both as secrets, never as vars here.
@@ -20,8 +19,9 @@ COHORT_NOTIFY_TO = "cohort@yablokolabs.com"
 ALLOWED_ORIGINS = "https://yablokolabs.com,https://www.yablokolabs.com,http://localhost:3000"
 RATE_LIMIT_PER_HOUR = "5"
 
-# Outbound mail (Cloudflare Email Service, public beta). The binding has no
-# extra configuration; the vars above decide from/to.
+# Fallback outbound mail (Cloudflare Email Service, public beta). Only used
+# when HERMAILY_API_KEY is missing; Cloudflare only delivers to destination
+# addresses verified in this account.
 [[send_email]]
 name = "EMAIL"
 

@@ -2,8 +2,13 @@
 //
 // The /cohort page is part of a static Next.js export, so it POSTs the interest
 // form (multipart/form-data) here. The worker validates the fields, keeps a
-// backup in KV when a binding exists, and notifies the cohort inbox through the
-// Cloudflare Email Service `send_email` binding, falling back to Telegram.
+// backup in KV when a binding exists, and notifies the cohort inbox by email,
+// falling back to Telegram.
+//
+// Email goes out through the Hermaily HTTP API (HERMAILY_API_KEY). Cloudflare's
+// own `send_email` binding is kept as a second choice, but it only delivers to
+// destination addresses verified in that Cloudflare account, so for anything
+// else it fails with E_RECIPIENT_NOT_ALLOWED.
 //
 // Endpoints:
 //   GET  /    service info (deployment sanity check)
@@ -340,6 +345,40 @@ class MemoryStore {
 
 const devStore = new MemoryStore();
 
+const HERMAILY_ENDPOINT = "https://api.hermaily.com/v1/send";
+
+// Hermaily sender: POST /v1/send with the verified sending domain. Used first
+// because it can deliver to any recipient, unlike the Cloudflare binding.
+export function hermailySender(env) {
+  const apiKey = env && env.HERMAILY_API_KEY;
+  if (!apiKey) return null;
+
+  return async ({ to, from, replyTo, subject, text, html }) => {
+    const response = await fetch(HERMAILY_ENDPOINT, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `Yabloko Labs <${from}>`,
+        to: [to],
+        reply_to: replyTo,
+        subject,
+        html,
+        text,
+      }),
+    });
+    const body = await response.text().catch(() => "");
+    if (!response.ok) {
+      const error = new Error(`hermaily responded ${response.status}: ${body.slice(0, 200)}`);
+      error.code = "E_EMAIL_SEND_FAILED";
+      throw error;
+    }
+    return body ? JSON.parse(body) : {};
+  };
+}
+
 // Telegram Bot API sender: one sendMessage call per submission. Needs both
 // secrets to be present.
 function telegramSender(env) {
@@ -376,7 +415,8 @@ export default {
           }
         : devStore;
     return createHandler({
-      sendEmail: env && env.EMAIL ? (message) => env.EMAIL.send(message) : null,
+      sendEmail:
+        hermailySender(env) ?? (env && env.EMAIL ? (message) => env.EMAIL.send(message) : null),
       sendTelegram: telegramSender(env),
       store,
       config: configFromEnv(env),

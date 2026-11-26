@@ -40,9 +40,12 @@ per IP per hour, `502` delivery failed, `503` worker not configured.
 
 Two channels, tried in this order:
 
-1. **Email** — Cloudflare Email Sending, with `Reply-To` set to the applicant.
-   Free only when `COHORT_NOTIFY_TO` is a verified Email Routing destination
-   address; sending to arbitrary recipients requires the Workers Paid plan.
+1. **Email** — sent by the Hermaily HTTP API (`HERMAILY_API_KEY`) from the
+   verified `yablokolabs.com` domain, with `Reply-To` set to the applicant so a
+   reply reaches them directly. Cloudflare Email Sending is kept as a fallback
+   for when that secret is absent, but it only delivers to destination addresses
+   verified in the Cloudflare account (anything else fails with
+   `E_RECIPIENT_NOT_ALLOWED`).
 2. **Telegram** — one `sendMessage` call to `TELEGRAM_CHAT_ID` through
    `TELEGRAM_BOT_TOKEN`. Works on the Free plan and needs no DNS changes.
 
@@ -59,15 +62,17 @@ The response reports which channel took it:
    printf '%s' "<chat id>"  | npx wrangler secret put TELEGRAM_CHAT_ID
    ```
 
-2. **Email (optional).** Set `COHORT_NOTIFY_TO` in `wrangler.toml` to a verified
-   Email Routing destination address. On `yablokolabs.com` this can mean
-   changing MX records, so either accept that or upgrade to Workers Paid, which
-   allows sending to any inbox with no MX changes.
+2. **Email.** Store the Hermaily API key as a secret (it is not in the repo),
+   then point `COHORT_NOTIFY_TO` at the inbox that should receive submissions:
+
+   ```bash
+   printf '%s' "<hermaily api key>" | npx wrangler secret put HERMAILY_API_KEY
+   ```
 
    ```toml
    [vars]
    COHORT_FROM = "cohort@yablokolabs.com"
-   COHORT_NOTIFY_TO = ""   # empty = skip email, use Telegram only
+   COHORT_NOTIFY_TO = "cohort@yablokolabs.com"   # empty = skip email, use Telegram only
    ```
 
 3. **Optional backup copies.** To store submissions in KV (180-day expiry):
